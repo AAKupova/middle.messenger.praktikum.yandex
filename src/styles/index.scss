@@ -1,0 +1,19 @@
+body {
+  --color-warning: rgba(255, 47, 47, .6);
+  --color-online:  #34D859;
+  --color-accent: #BA46E2;
+  --color-dark: #262626;
+  --color-light: #ffffff;
+  --color-disable: #F8DCEB;
+  --color-dark-gray: #999999;
+  --color-light-gray: #E1E1E1;
+
+
+  background: linear-gradient(90deg, rgba(237, 66, 178, 0.6) 0%, rgba(229, 229, 229, 0) 102.26%), url(../../static/images/Background.jpg) center/cover;
+  width: 100vw;
+  height: 100vh;
+  font-family: "OpenSans", Arial, sans-serif;
+  font-style: normal;
+  color: vat(--color-dark);
+  background-repeat: no-repeat;
+}

@@ -1,0 +1,42 @@
+<div class="menu">
+  <div class="menu__content">
+    <div class="menu__header">
+      <div class="menu__close"></div>
+      <div class="menu__avatar">
+        {{> avatar size=menu.size img=menu.img}}
+      </div>
+      <div class="menu__text">
+        <p class="menu__name">{{menu.name}}</p>
+        <p class="menu__city">{{menu.city}}</p>
+      </div>
+    </div>
+    <div class="menu__body">
+      <ul class="settings">
+        <li class="settings__item">
+          <div class="settings__icon icon-group"></div>
+          <div class="settings__text">Создать новую группу</div>
+        </li>
+        <li class="settings__item">
+          <div class="settings__icon icon-sound"></div>
+          <div class="settings__text">Выключить звук</div>
+        </li>
+        <li class="settings__item">
+          <div class="settings__icon icon-thema"></div>
+          <div class="settings__text">Поменять тему</div>
+          <div class="settings__toggle"></div>
+        </li>
+        <li class="settings__item  edit">
+          <div class="settings__icon icon-settings"></div>
+          <div class="settings__text">Настроить профиль</div>
+        </li>
+        <a href="/login">
+        <li class="settings__item">
+          <div class="settings__icon icon-exit"></div>
+          <div class="settings__text">Выйти</div>
+        </li>
+        </a>
+      </ul>
+    </div>
+  </div>
+  {{> profile}}
+</div>
