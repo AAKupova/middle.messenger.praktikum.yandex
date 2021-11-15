@@ -1,6 +1,11 @@
 import { auth } from "./pages/auth";
 import { login } from "./pages/login";
-import { index } from "./pages";
+import { index } from "./pages/main";
+
+import "../styles/normalize.css";
+import "../styles/fonts.scss";
+import "../styles/index.scss";
+import "../styles/style.css";
 
 const renderPage = () => {
   const path = window.location.pathname;

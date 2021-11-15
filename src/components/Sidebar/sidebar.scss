@@ -33,7 +33,7 @@
   height: 40px;
   border-radius: 100%;
   background-color: #262626;
-  background-image: url(../../../images/menu-burger-icon.svg);
+  background-image: url(../../images/menu-burger-icon.svg);
   background-position: center;
   background-repeat: no-repeat;
 }
@@ -50,7 +50,7 @@
   align-items: center;
 
   &__icon {
-    background-image: url(../../../images/search-icon.svg);
+    background-image: url(../../images/search-icon.svg);
     width: 24px;
     height: 24px;
     background-position: center;
@@ -73,7 +73,7 @@
   &__arrow-bottom {
     width: 24px;
     height: 24px;
-    background-image: url(../../../images/arrow-bottom-icon.svg);
+    background-image: url(../../images/arrow-bottom-icon.svg);
     background-position: center;
     background-repeat: no-repeat;
     display: inline-block;
@@ -89,7 +89,7 @@
     height: 24px;
     border-radius: 100%;
     background-color: #ba46e2;
-    background-image: url(../../../images/plus-icon.svg);
+    background-image: url(../../images/plus-icon.svg);
     background-position: center;
     background-repeat: no-repeat;
     display: inline-block;
