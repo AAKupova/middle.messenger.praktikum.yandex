@@ -1,13 +1,8 @@
+import Handlebars from "handlebars";
+import main from "./components/Main/main.hbs";
 
-import Handlebars from 'handlebars';
-import index from './template/index.hbs';
-import header from './template/header.hbs';
 
-import './normalize.css';
-import './index.scss';
+import "../styles/style.css";
 
-Handlebars.registerPartial('header', header);
-const template = Handlebars.compile(index);
-
-document.body.innerHTML = template({ title: "Nils",  body: '111'});
-
+const template = Handlebars.compile(main);
+document.body.innerHTML = template();

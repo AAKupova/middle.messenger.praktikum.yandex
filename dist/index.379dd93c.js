@@ -462,20 +462,13 @@ function hmrAcceptRun(bundle, id) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 var _handlebars = require("handlebars");
 var _handlebarsDefault = parcelHelpers.interopDefault(_handlebars);
-var _indexHbs = require("./template/index.hbs");
-var _indexHbsDefault = parcelHelpers.interopDefault(_indexHbs);
-var _headerHbs = require("./template/header.hbs");
-var _headerHbsDefault = parcelHelpers.interopDefault(_headerHbs);
-var _normalizeCss = require("./normalize.css");
-var _indexScss = require("./index.scss");
-_handlebarsDefault.default.registerPartial('header', _headerHbsDefault.default);
-const template = _handlebarsDefault.default.compile(_indexHbsDefault.default);
-document.body.innerHTML = template({
-    title: "Nils",
-    body: '111'
-});
+var _mainHbs = require("./components/Main/main.hbs");
+var _mainHbsDefault = parcelHelpers.interopDefault(_mainHbs);
+var _styleCss = require("../styles/style.css");
+const template = _handlebarsDefault.default.compile(_mainHbsDefault.default);
+document.body.innerHTML = template();
 
-},{"handlebars":"2vPju","./template/index.hbs":"2oCAr","./template/header.hbs":"kN6fP","./index.scss":"hlAnh","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV","./normalize.css":"f3VI9"}],"2vPju":[function(require,module,exports) {
+},{"handlebars":"2vPju","../styles/style.css":"aQfDb","@parcel/transformer-js/src/esmodule-helpers.js":"ciiiV","./components/Main/main.hbs":"7ipof"}],"2vPju":[function(require,module,exports) {
 // USAGE:
 // var handlebars = require('handlebars');
 /* eslint-disable no-var */ // var local = handlebars.create();
@@ -11855,13 +11848,7 @@ PrintVisitor.prototype.HashPair = function(pair) {
 },{"./visitor":"lCOpN"}],"joWnX":[function(require,module,exports) {
 "use strict";
 
-},{}],"2oCAr":[function(require,module,exports) {
-module.exports = "<div class=\"entry\">\n  <h1 class=\"title\">{{title}}</h1>\n  <div class=\"body\">\n    {{body}}\n  </div>\n</div>\n\n{{> header }}";
-
-},{}],"kN6fP":[function(require,module,exports) {
-module.exports = "<div class=\"entry\">\n  <h1 class=\"title\">{{title}}</h1>\n  <div class=\"body\">\n    {{body}}\n  </div>\n</div>\n";
-
-},{}],"hlAnh":[function() {},{}],"ciiiV":[function(require,module,exports) {
+},{}],"aQfDb":[function() {},{}],"ciiiV":[function(require,module,exports) {
 exports.interopDefault = function(a) {
     return a && a.__esModule ? a : {
         default: a
@@ -11891,6 +11878,9 @@ exports.export = function(dest, destName, get) {
     });
 };
 
-},{}],"f3VI9":[function() {},{}]},["lBB98","hD4hw"], "hD4hw", "parcelRequirefc40")
+},{}],"7ipof":[function(require,module,exports) {
+module.exports = "<div class=\"main\">\n    \n</div>";
+
+},{}]},["lBB98","hD4hw"], "hD4hw", "parcelRequirefc40")
 
 //# sourceMappingURL=index.379dd93c.js.map

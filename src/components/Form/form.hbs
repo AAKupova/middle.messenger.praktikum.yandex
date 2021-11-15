@@ -1,0 +1,11 @@
+<form class="form">
+  <h2 class="form__title">{{title}}</h2>
+  {{#if avatar}}
+    {{> avatar}}
+  {{/if}}
+  {{#each fields}}
+    {{> field}}
+  {{/each}}
+  {{> button}}
+  <a class="form__link">{{text}}</a>
+</form>
