@@ -3,6 +3,9 @@
 @import url(./index.scss);
 @import url(../src/components/Form/form.scss);
 @import url(../src/components/Field/field.scss);
+@import url(../src/components/AvatarEdit/avatarEdit.scss);
 @import url(../src/components/Avatar/avatar.scss);
 @import url(../src/components/Button/button.scss);
 @import url(../src/components/Main/main.scss);
+@import url(../src/components/Sidebar/sidebar.scss);
+@import url(../src/components/CardChat/card.scss);

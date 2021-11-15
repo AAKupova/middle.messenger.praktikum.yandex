@@ -1,8 +1,23 @@
-import Handlebars from "handlebars";
-import main from "./components/Main/main.hbs";
+import { auth } from "./pages/auth";
+import { login } from "./pages/login";
+import { index } from "./pages";
 
+const renderPage = () => {
+  const path = window.location.pathname;
 
-import "../styles/style.css";
+  switch (path) {
+    case "/login": {
+      return login;
+    }
 
-const template = Handlebars.compile(main);
-document.body.innerHTML = template();
+    case "/auth": {
+      return auth;
+    }
+
+    default: {
+      return index;
+    }
+  }
+};
+
+document.body.innerHTML = renderPage();
