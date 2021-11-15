@@ -1,0 +1,13 @@
+.entry {
+  font-family: "Rubik One", sans-serif;
+  font-size: 50px;
+  text-transform: uppercase;
+  background: linear-gradient(45deg, #0b2349 33%, #0d61bc 66%, #8aa9d6);
+  color: #0b2349;
+  display: grid;
+  margin: 20px auto;
+
+  .title {
+    color: red;
+  }
+}
