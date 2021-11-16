@@ -1,13 +1,45 @@
 .main {
-  width: 1200px;
-  height: 650px;
+  width: 70%;
+  min-width: 800px;
+  max-width: 1200px;
   border-radius: 30px;
   background-color: #fff;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  display: flex;
-  justify-content: space-between;
-  flex-direction: column;
+
+  &__header {
+    width: 100%;
+    height: 100px;
+  }
+
+  &__body {
+    display: grid;
+    grid-template-columns: 3fr 9fr; 
+    height: 100%;
+  }
+
+  &__sidebar-left {
+    width: 100%;
+    max-width: 334px;
+  }
+
+  &__center {
+    width: 100%;
+    min-width: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    height: 550px;
+  }
+
+  &__msg {
+    padding: 26px;
+    box-sizing: border-box;
+  }
+
+  &__text-area {
+    border-top: 1px solid #e1e1e1;
+  }
 }

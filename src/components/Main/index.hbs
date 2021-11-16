@@ -1,10 +1,23 @@
 <div class="main">
-  {{> header}}
-  {{> sidebar}}
+  <div class="main__header">{{> header}}</div>
 
-  {{#each message}}
-    {{> message}}
-  {{/each}}
-  
-  {{> textArea}}
+  <div class="main__body">
+    <div class="main__sidebar-left">{{> sidebar}}</div>
+
+    <div class="main__center">
+      <div class="main__msg">
+        {{#each message}}
+          {{> message}}
+        {{/each}}
+      </div>
+      <div class="main__text-area">{{> textArea}}</div>
+    </div>
+
+
+    {{!-- {{#if sidebarRight}}
+      <div class="main__sidebar-right">
+        {{> sidebarRight }}
+      </div>
+    {{/if}} --}}
+  </div>
 </div>

@@ -1,5 +1,4 @@
 export const data = {
-  avatar: true,
   title: 'Вход',
   fields: [
     {
@@ -24,6 +23,5 @@ export const data = {
 
   button: 'Войти',
   classButton: 'form__button',
-  classAvatar: 'form__avatar',
   text: 'Нет аккаунта?',
 };

@@ -1,22 +1,21 @@
 .text-area {
-  height: 100px;
-  width: 867px;
-  box-sizing: border-box;
-  margin-left: auto;
-  border-top: 1px solid #e1e1e1;
-  border-left: 1px solid #e1e1e1;
+  width: 94%;
+  min-width: 360px;
+  margin: auto;
   position: relative;
 
   &__field {
-    width: 812px;
+    width: 100%;
     height: 40px;
     background: #e1e1e1;
     border-radius: 20px;
     margin: 20px auto;
     border: none;
-    padding: 0;
+    padding: 12px 60px;
     box-sizing: border-box;
     display: block;
+    border: none;
+    outline: none;
   }
 
   &__icon-attach {
@@ -24,8 +23,8 @@
     height: 22px;
     position: absolute;
     background-image: url(../../images/attach-icon.svg);
-    top: 28px;
-    left: 40px;
+    top: 8px;
+    left: 18px;
   }
 
   &__icon-send {
@@ -37,7 +36,8 @@
     background-position: center;
     background-repeat: no-repeat;
     border-radius: 100%;
-    top: 20px;
-    right: 28px;
+    top: 0;
+    right: 0;
+
   }
 }

@@ -1,6 +1,7 @@
 import { auth } from "./pages/auth";
 import { login } from "./pages/login";
 import { index } from "./pages/main";
+import { profile } from "./pages/profile";
 
 import "./styles/normalize.css";
 import "./styles/fonts.scss";
@@ -16,6 +17,9 @@ const renderPage = () => {
 
     case "/auth": {
       return auth;
+    }
+    case "/profile": {
+      return profile;
     }
 
     default: {

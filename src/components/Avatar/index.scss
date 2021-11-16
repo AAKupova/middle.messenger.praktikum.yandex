@@ -11,8 +11,12 @@
     border-radius: 100%;
     background-color: #262626;
 
-    &_size {
+    &_size_m {
       --size: 60px;
+    }
+
+    &_size_l {
+      --size: 120px;
     }
   }
 

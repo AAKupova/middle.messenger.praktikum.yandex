@@ -1,0 +1,87 @@
+.menu-edit {
+  width: 334px;
+  box-sizing: border-box;
+  height: 550px;
+  border-right: 1px solid #e1e1e1;
+  border-radius: 30px 0 0 30px;
+  background-color: #262626;
+
+  &__header {
+    background-color: #262626;
+    color: #fff;
+    border-radius: 30px 0 0 0;
+    height: 220px;
+    text-align: center;
+    padding-top: 25px;
+  }
+
+  &__body {
+    background-color: #fff;
+    color: #262626;
+    border-radius: 30px 30px 0 30px;
+    height: 430px;
+    padding: 48px 32px;
+  }
+
+  &__text {
+    margin: 20px 0;
+  }
+
+  &__name {
+    font-weight: bold;
+    font-size: 20px;
+    color: #ffffff;
+    padding: 0;
+    margin-bottom: 2px;
+  }
+
+  &__cite {
+    padding: 0;
+    margin: 0;
+    font-weight: 400;
+    font-size: 10px;
+    line-height: 1.2;
+    color: #999999;
+  }
+}
+
+.settings {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  &__item {
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 20px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+  }
+
+  &__icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 100%;
+    background-color: #262626;
+  }
+
+  &__text {
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 1.1;
+    color: #000000;
+  }
+
+  &__toggle {
+    width: 30px;
+    height: 30px;
+    background-image: url(../../images/togle-icon.svg);
+    margin-left: auto;
+  }
+}
