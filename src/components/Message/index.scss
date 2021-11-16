@@ -1,0 +1,39 @@
+.message {
+  max-width: 500px;
+  min-width: 330px;
+  background: #ffffff;
+  box-shadow: 2px 2px 20px rgba(0, 0, 0, 0.25);
+  border-radius: 20px;
+  margin-left: auto;
+  padding: 18px;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.2;
+  color: #000000;
+
+  &__block {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+    justify-content: end;
+  }
+
+  &__time {
+    font-weight: 400;
+    font-size: 10px;
+    line-height: 1.2;
+    color: #999999;
+    display: inline-block;
+  }
+
+  &__check {
+    width: 30px;
+    height: 30px;
+    background-color: #BA46E2;
+    border-radius: 100%;
+    background-image: url(../../images/check-icon.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+}

@@ -1,11 +1,4 @@
 <aside class="sidebar">
-  <div class="sidebar__top">
-    <div class="menu"></div>
-    <div class="search">
-      <span class="search__text">Поиск</span>
-      <span class="search__icon"></span>
-    </div>
-  </div>
   <div class="sidebar__toolbarc">
     <div class="sort">
       <span class="text">Сортировать по</span>
@@ -17,6 +10,8 @@
     </div>
   </div>
   <div class="sidebar__list-chat">
-    {{> cardChat}}
+    {{#each chat}}
+      {{> chat}}
+    {{/each}}
   </div>
 </aside>
