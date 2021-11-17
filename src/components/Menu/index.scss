@@ -37,7 +37,7 @@
   &__close {
     width: 24px;
     height: 24px;
-    background-image: url(../../images/close.svg);
+    background-image: url(../../../static/images/close.svg);
     margin-left: auto;
 
     &:hover {
@@ -117,7 +117,7 @@
   &__toggle {
     width: 30px;
     height: 30px;
-    background-image: url(../../images/togle-icon.svg);
+    background-image: url(../../../static/images/togle-icon.svg);
     margin-left: auto;
   }
 }

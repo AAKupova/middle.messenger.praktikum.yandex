@@ -1,5 +1,5 @@
-import img from '../../images/photo.jpg';
-import imgMenu from '../../images/photo-avatar.png';
+import img from '../../../static/images/photo.jpg';
+import imgMenu from '../../../static/images/photo-avatar.png';
 
 export const data = {
   chat: [

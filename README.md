@@ -1,7 +1,7 @@
 # Проект: MyChat
 
 Новый меседжер для общение с коллегами и близкими!
-Ссылка для использование myChat -> hardcore-ptolemy-bda550.netlify.app
+Ссылка для использование myChat -> https://deploy-preview-1--hardcore-ptolemy-bda550.netlify.app/
 ---
 Ссылка на pull request ветки sprint_1 -> https://github.com/AAKupova/middle.messenger.praktikum.yandex/pull/1
 ---
