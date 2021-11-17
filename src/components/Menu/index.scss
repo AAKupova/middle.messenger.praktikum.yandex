@@ -38,6 +38,10 @@
     height: 24px;
     background-image: url(../../images/close.svg);
     margin-left: auto;
+
+    &:hover {
+      opacity: .5;
+    }
   }
 
   &__avatar {
@@ -118,7 +122,7 @@
 }
 
 .settings__item:hover .settings__icon {
-  background-color: #BA46E2;
+  background-color: #ba46e2;
 }
 
 .settings__item:hover .settings__text {
