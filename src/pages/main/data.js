@@ -1,4 +1,5 @@
 import img from '../../images/photo.jpg';
+import imgMenu from '../../images/photo-avatar.png';
 
 export const data = {
   chat: [
@@ -35,6 +36,28 @@ export const data = {
       time: '12-20',
     },
   ],
+
+  menu: {
+    size: 'avatar__img_size_l',
+    img: imgMenu,
+    name: 'Анастасия ',
+    city: 'Москва',
+  },
+
+  profile: {
+    img: imgMenu,
+    editAvatar: true,
+    size: 'avatar__img_size_l',
+    button: 'Сохранить',
+    email: 'aa.kupova@gmail.com',
+    login: 'aa.kupova',
+    name: 'Анастасия ',
+    surname: 'Купова',
+    nickname: 'Настюша',
+    telephone: '+7 (909) 967 30 30',
+    cite: 'Москва Россия',
+    classButton: 'profile__button',
+  },
 
   size: 'avatar__img_size_m',
   img: img,

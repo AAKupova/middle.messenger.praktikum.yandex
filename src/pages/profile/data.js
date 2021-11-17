@@ -2,6 +2,7 @@ import button from '../../components/Button';
 import img from '../../images/photo.jpg'
 export const data = {
   img: img,
+  editAvatar: true,
   size: 'avatar__img_size_l',
   button: 'Сохранить',
   email: 'aa.kupova@gmail.com',

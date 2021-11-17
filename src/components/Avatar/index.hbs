@@ -1,6 +1,9 @@
 <div class="avatar">
+  {{#if editAvatar}}
+    {{> editAvatar}}
+  {{/if}}
   <a href="/login">
     <img src="{{img}}" class="avatar__img {{size}}" />
   </a>
-  <span class="avatar__isOnline"></span>
+  <span class="avatar__isOnline {{size}}"></span>
 </div>

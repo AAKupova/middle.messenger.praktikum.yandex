@@ -2,7 +2,7 @@
   width: 100%;
   max-width: 334px;
   box-sizing: border-box;
-  height: 550px;
+  height: 650px;
   border-right: 1px solid #e1e1e1;
 
   &__top {
@@ -18,7 +18,7 @@
   }
 
   &__toolbarc {
-    padding: 28px 27px;
+    padding: 20px 27px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -57,6 +57,10 @@
     background-repeat: no-repeat;
     display: inline-block;
     margin-left: 9px;
+
+    &:hover {
+      background-color: #262626;
+    }
   }
 }
 
@@ -66,4 +70,49 @@
   line-height: 1.2;
   color: #999999;
   display: inline-block;
+}
+
+
+.menu-burger {
+  width: 40px;
+  height: 40px;
+  border-radius: 100%;
+  background-color: #262626;
+  background-image: url(../../images/menu-burger-icon.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+
+  &:hover {
+    background-color: #BA46E2;
+  }
+}
+
+.search {
+  width: 196px;
+  height: 30px;
+  background-color: #e1e1e1;
+  border-radius: 30px;
+  padding: 6px 16px;
+  box-sizing: border-box;
+  border: none;
+  outline: none;
+
+
+  &__icon {
+    background-image: url(../../images/search-icon.svg);
+    width: 24px;
+    height: 24px;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: inline-block;
+    position: absolute;
+    right: 40px;  
+  }
+
+  &__text {
+    color: #999;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.1;
+  }
 }

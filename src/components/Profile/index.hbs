@@ -1,32 +1,34 @@
 <div class="profile">
-  {{> avatar}}
+  <div class="profile__avatar">
+    {{> avatar img=profile.img size=profile.size}}
+  </div>
   <form class="profile__form-edit">
     <label class="profile__label">
-      <p class="profile__text">{{email}}</p>
+      <p class="profile__text">{{profile.email}}</p>
       <input placeholder="Почта" class="profile__field"></input>
     </label>
     <label class="profile__label">
-      <p class="profile__text">{{login}}</p>
+      <p class="profile__text">{{profile.login}}</p>
       <input placeholder="Логин" class="profile__field"></input>
     </label>
     <label class="profile__label">
-      <p class="profile__text">{{name}}</p>
+      <p class="profile__text">{{profile.name}}</p>
       <input placeholder="Имя" class="profile__field"></input>
     </label>
     <label class="profile__label">
-      <p class="profile__text">{{surname}}</p>
+      <p class="profile__text">{{profile.surname}}</p>
       <input placeholder="Купова" class="profile__field"></input>
     </label>
     <label class="profile__label">
-      <p class="profile__text">{{nickname}}</p>
+      <p class="profile__text">{{profile.nickname}}</p>
       <input placeholder="Имя в чате" class="profile__field"></input>
     </label>
     <label class="profile__label">
-      <p class="profile__text">{{cite}}</p>
+      <p class="profile__text">{{profile.city}}</p>
       <input placeholder="Москва Россия" class="profile__field"></input>
     </label>
     <label class="profile__label">
-      <p class="profile__text">{{telephone}}</p>
+      <p class="profile__text">{{profile.telephone}}</p>
       <input placeholder="Телефон" class="profile__field"></input>
     </label>
     <div class="profile__bottom">
@@ -38,7 +40,7 @@
       </div>
     </div>
 
-    {{> button}}
+    {{> button button=profile.button classButton=profile.classButton}}
   </form>
 
 </div>
