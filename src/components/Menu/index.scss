@@ -17,10 +17,11 @@
     flex-direction: column;
     height: 100%;
     display: flex;
+    flex: 0 0 334px;
   }
 
   &_show {
-    display: block;
+    display: flex;
   }
 
   &__header {
