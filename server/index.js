@@ -13,7 +13,7 @@ app.use('/auth', express.static('./dist'));
 app.use('/login', express.static('./dist'));
 
 app.use('/500', (req, res) => {
-  res.status(500).render('5xx.hbs', { error: '501' });
+  res.status(500).render('5xx.hbs', {});
 });
 
 app.use((req, res) => {
