@@ -17,10 +17,7 @@ export class Menu {
     this.menu = document.querySelector(selectorMenu);
     this.close = document.querySelector(selectorClose);
     this.settings = document.querySelector(selectorSettings);
-    console.log(this.settings)
-    console.log(selectorSettings)
     this.profile = document.querySelector(selectorProfile);
-    console.log(selectorProfile)
     this.classMenuShow = classMenuShow;
     this.classProfileShow =  classProfileShow;
 

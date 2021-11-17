@@ -1,7 +1,6 @@
 import { auth } from './pages/auth';
 import { login } from './pages/login';
 import { index } from './pages/main';
-import { profile } from './pages/profile';
 import { Menu } from './components/Menu/index'
 
 import './styles/normalize.css';
@@ -12,15 +11,12 @@ const renderPage = () => {
   const path = window.location.pathname;
 
   switch (path) {
-    case '/login': {
+    case '/login/': {
       return login;
     }
 
-    case '/auth': {
+    case '/auth/': {
       return auth;
-    }
-    case '/profile': {
-      return profile;
     }
 
     default: {

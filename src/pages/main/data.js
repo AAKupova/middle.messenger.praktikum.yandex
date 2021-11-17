@@ -55,7 +55,7 @@ export const data = {
     surname: 'Купова',
     nickname: 'Настюша',
     telephone: '+7 (909) 967 30 30',
-    cite: 'Москва Россия',
+    city: 'Москва Россия',
     classButton: 'profile__button',
   },
 
