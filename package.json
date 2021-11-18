@@ -20,6 +20,10 @@
     "consolidate": "^0.16.0",
     "handlebars": "^4.7.7"
   },
+    "engines": {
+      "npm": "7.18.1",
+      "node": "v16.4.2"
+    },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/AAKupova/middle.messenger.praktikum.yandex.git"
