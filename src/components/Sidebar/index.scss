@@ -1,0 +1,120 @@
+.sidebar {
+  width: 100%;
+  max-width: 334px;
+  box-sizing: border-box;
+  height: 650px;
+  border-right: 1px solid var(--color-light-gray);
+
+  &__top {
+    width: 100%;
+    height: 100px;
+    border-bottom: 1px solid var(--color-light-gray);
+    box-sizing: border-box;
+    padding: 31px 27px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__toolbarc {
+    padding: 20px 27px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__list-chat {
+    padding: 0 27px;
+  }
+}
+
+.sort {
+  display: flex;
+  align-items: center;
+
+  &__arrow-bottom {
+    width: 24px;
+    height: 24px;
+    background-image: url(../../../static/images/arrow-bottom-icon.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+    display: inline-block;
+  }
+}
+
+.add-use {
+  display: flex;
+  align-items: center;
+
+  &__button {
+    width: 24px;
+    height: 24px;
+    border-radius: 100%;
+    background-color: var(--color-accent);
+    background-image: url(../../../static/images/plus-icon.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+    display: inline-block;
+    margin-left: 9px;
+
+    &:hover {
+      background-color: var(--color-dark);
+      cursor: pointer;
+    }
+  }
+}
+
+.text {
+  font-weight: 400;
+  font-size: 11px;
+  line-height: 1.2;
+  color: var(--color-dark-gray);
+  display: inline-block;
+}
+
+
+.menu-burger {
+  width: 40px;
+  height: 40px;
+  border-radius: 100%;
+  background-color: var(--color-dark);
+  background-image: url(../../../static/images/menu-burger-icon.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  transition: all 0.5s ease-in-out;
+
+  &:hover {
+    background-color: var(--color-accent);
+    cursor: pointer;
+  }
+}
+
+.search {
+  width: 196px;
+  height: 30px;
+  background-color: var(--color-light-gray);
+  border-radius: 30px;
+  padding: 6px 16px;
+  box-sizing: border-box;
+  border: none;
+  outline: none;
+
+  &__icon {
+    background-image: url(../../../static/images/search-icon.svg);
+    width: 24px;
+    height: 24px;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: inline-block;
+    position: absolute;
+    right: 40px;  
+  }
+
+  &__text {
+    color: var(--color-dark-gray);
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.1;
+  }
+}

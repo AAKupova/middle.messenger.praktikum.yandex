@@ -1,0 +1,54 @@
+.text-area {
+  width: 94%;
+  min-width: 360px;
+  margin: auto;
+  position: relative;
+
+  &__field {
+    width: 100%;
+    height: 40px;
+    background: var(--color-light-gray);
+    border-radius: 20px;
+    margin: 20px auto;
+    border: none;
+    padding: 12px 60px;
+    box-sizing: border-box;
+    display: block;
+    border: none;
+    outline: none;
+  }
+
+  &__icon-attach {
+    width: 20px;
+    height: 22px;
+    position: absolute;
+    background-image: url(../../../static/images/attach-icon.svg);
+    top: 8px;
+    left: 18px;
+
+    &:hover {
+      opacity: .8;
+      cursor: pointer;
+    }
+  }
+
+  &__icon-send {
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    background-image: url(../../../static/images/send-icon.svg);
+    background-color: var(--color-dark);
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 100%;
+    transition: all 0.5s ease-in-out;
+    top: 0;
+    right: 0;
+
+    &:hover {
+      background-color: var(--color-accent);
+      cursor: pointer;
+    }
+
+  }
+}

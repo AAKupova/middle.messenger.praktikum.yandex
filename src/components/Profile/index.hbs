@@ -1,0 +1,53 @@
+<div class="profile">
+  <div class="profile__avatar">
+    {{> avatar img=profile.img size=profile.size editAvatar=profile.editAvatar}}
+  </div>
+  <form class="profile-form">
+    <label class="profile-form__label">
+      <input placeholder="{{profile.email}}" class="profile-form__field" name="email"></input>
+      <p class="profile-form__text">Почта </p>
+
+    </label>
+    <label class="profile-form__label">
+
+      <input placeholder="{{profile.login}}" class="profile-form__field" name="login"></input>
+      <p class="profile-form__text">Логин </p>
+    </label>
+    <label class="profile-form__label">
+
+      <input placeholder="Имя {{profile.name}}" class="profile-form__field" name="first_name"></input>
+      <p class="profile-form__text">Имя</p>
+    </label>
+    <label class="profile-form__label">
+
+      <input placeholder="{{profile.surname}}" class="profile-form__field" name="second_name"></input>
+      <p class="profile-form__text">Купова </p>
+    </label>
+    <label class="profile-form__label">
+
+      <input placeholder="{{profile.nickname}}" class="profile-form__field" name="display_name"></input>
+      <p class="profile-form__text">Имя в чате </p>
+    </label>
+    <label class="profile-form__label">
+
+      <input placeholder="{{profile.city}}" class="profile-form__field" name="city"></input>
+      <p class="profile-form__text">Москва Россия</p>
+    </label>
+    <label class="profile-form__label">
+
+      <input placeholder="{{profile.telephone}}" class="profile-form__field" name="phone"></input>
+      <p class="profile-form__text">Телефон</p>
+    </label>
+    <div class="profile-form__bottom">
+      <div class="profile-form__icon-edit"></div>
+      <span class="profile-form__text-edit">Изменить пароль</span>
+      <a class="profile-form__link"  href="/login">
+        <span class="profile-form__text-exit">Выйти</span>
+      </a>
+      <div class="profile-form__icon-exit"></div>
+    </div>
+
+    {{> button button=profile.button classButton=profile.classButton}}
+  </form>
+
+</div>

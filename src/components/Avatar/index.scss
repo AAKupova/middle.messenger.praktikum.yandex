@@ -1,0 +1,40 @@
+.avatar {
+    position: relative;
+
+    --size: 40px;
+    --sizeActive: 8px;
+    --top: 5px;
+    --left: -1px;
+
+  &__img {
+    width: var(--size);
+    height: var(--size);
+    object-fit: initial;
+    border-radius: 100%;
+    background-color: #262626;
+
+    &_size_m {
+      --size: 60px;
+      --sizeActive: 10px;
+      --left: 2px;
+    }
+
+    &_size_l {
+      --size: 120px;
+      --sizeActive: 20px;
+      --top: 8px;
+      --left: 5px;
+    }
+  }
+
+  &__isOnline {
+    width: var(--sizeActive);
+    height: var(--sizeActive);
+    border-radius: 100%;
+    background-color: #34d859;
+    display: block;
+    position: absolute;
+    top:  var(--top);
+    left: var(--left)
+  }
+}
