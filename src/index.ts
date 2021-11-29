@@ -39,8 +39,8 @@ const initPage = () => {
 
   const init = initToPage[path];
 
-  init && init();
-};
+  return init && init();
+}
 
 document.body.innerHTML = renderPage();
 

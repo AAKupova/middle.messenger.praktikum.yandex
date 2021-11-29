@@ -1,10 +1,10 @@
-import img from '../../../static/images/photo.jpg';
+import imgPhoto from '../../../static/images/photo.jpg';
 import imgMenu from '../../../static/images/photo-avatar.png';
 
 export const data = {
   chat: [
     {
-      img: img,
+      img: imgPhoto,
       name: 'Анастасия',
       isOnline: 'online',
       text: 'Привет! Как дела!?',
@@ -13,7 +13,7 @@ export const data = {
     },
     {
       active: 'chat_active',
-      img: img,
+      img: imgPhoto,
       name: 'Анастасия',
       isOnline: 'online',
       text: 'Привет! Как дела!?',
@@ -24,11 +24,11 @@ export const data = {
 
   message: [
     {
-      text: 'В наборе всё, что нужно: мат. анализ, линейная алгебра, комбинаторика, теория вероятностей и мат. статистика.',
+      text: 'В наборе всё, что нужно: мат.',
       time: '12-20',
     },
     {
-      text: 'В наборе всё, что нужно: мат. анализ, линейная алгебра, комбинаторика, теория вероятностей и мат. статистика.',
+      text: 'В наборе всё, что нужно: мат.',
       time: '12-20',
     },
     {
@@ -60,7 +60,7 @@ export const data = {
   },
 
   size: 'avatar__img_size_m',
-  img: img,
+  img: imgPhoto,
   name: 'Анастасия',
   isOnline: 'online',
 };

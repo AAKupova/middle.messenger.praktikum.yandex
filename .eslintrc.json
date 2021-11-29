@@ -1,0 +1,16 @@
+{
+  "extends": "airbnb",
+  "globals": {
+    "document": true,
+    "window": true,
+    "ignoreRestSiblings": true
+  },
+  "rules": {
+    "max-len": [2, 100],
+    "max-params": [2, 3],
+    "import/prefer-default-export": 0,
+    "no-unused-vars": 2,
+    "semi": ["error", "always"],
+    "quotes": ["error", "single"]
+    }
+}

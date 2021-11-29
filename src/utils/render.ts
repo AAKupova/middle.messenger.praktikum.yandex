@@ -1,4 +1,4 @@
-import Handlebars from 'handlebars';
+import * as Handlebars from 'handlebars';
 
 import field from '../components/Field';
 import button from '../components/Button';
@@ -26,7 +26,8 @@ Handlebars.registerPartial('textArea', textArea);
 Handlebars.registerPartial('avatar', avatar);
 Handlebars.registerPartial('message', message);
 
-export const render = (template, data) => {
+export const render = (template: string, data: object) => {
+  console.log(template);
   const tmp = Handlebars.compile(template);
 
   return tmp(data);

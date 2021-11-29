@@ -4,6 +4,14 @@ import './index.scss';
 export default menu;
 
 export class Menu {
+  button: HTMLElement;
+  menu: HTMLElement;
+  close: HTMLElement;
+  settings: HTMLElement;
+  profile: HTMLElement;
+  classMenuShow: string;
+  classProfileShow: string;
+
   constructor({
     selectorMenuBurger,
     selectorMenu,
@@ -11,7 +19,7 @@ export class Menu {
     selectorClose,
     selectorSettings,
     selectorProfile,
-    classProfileShow
+    classProfileShow,
   }) {
     this.button = document.querySelector(selectorMenuBurger);
     this.menu = document.querySelector(selectorMenu);
@@ -19,7 +27,7 @@ export class Menu {
     this.settings = document.querySelector(selectorSettings);
     this.profile = document.querySelector(selectorProfile);
     this.classMenuShow = classMenuShow;
-    this.classProfileShow =  classProfileShow;
+    this.classProfileShow = classProfileShow;
 
     this.listener();
   }
