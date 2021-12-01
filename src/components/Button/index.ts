@@ -1,18 +1,19 @@
-// import * as Handlebars from 'handlebars';
+import * as Handlebars from 'handlebars';
+
+import ViewBlock from '../ViewBlock/ViewBlock'
 
 import button from './index.hbs';
 import './index.scss';
 
-// Handlebars.registerPartial('button', button);
+class Button extends ViewBlock {
+  constructor(props:object) {
+    super("div", props);
+  }
 
-// export const render = (template: string, data: object) => {
-//   console.log(template);
-//   const tmp = Handlebars.compile(template);
+  render():string {
+    const tmp = Handlebars.compile(button);
+    return tmp(this.props);
+  }
+}
 
-//   return tmp(data);
-// };
-
-
-
-
-export default button;
+export default Button;

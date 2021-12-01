@@ -1,7 +1,7 @@
 import * as Handlebars from 'handlebars';
 
-import field from '../components/Field';
-import button from '../components/Button';
+// import field from '../components/Field';
+// import button from '../components/Button';
 import sidebar from '../components/Sidebar';
 import header from '../components/Header';
 import chat from '../components/Chat';
@@ -16,9 +16,9 @@ import error from '../components/Error';
 Handlebars.registerPartial('profile', profile);
 Handlebars.registerPartial('error', error);
 Handlebars.registerPartial('menu', menu);
-Handlebars.registerPartial('field', field);
+// Handlebars.registerPartial('field', field);
 Handlebars.registerPartial('header', header);
-Handlebars.registerPartial('button', button);
+// Handlebars.registerPartial('button', button);
 Handlebars.registerPartial('sidebar', sidebar);
 Handlebars.registerPartial('chat', chat);
 Handlebars.registerPartial('editAvatar', editAvatar);
@@ -27,7 +27,6 @@ Handlebars.registerPartial('avatar', avatar);
 Handlebars.registerPartial('message', message);
 
 export const render = (template: string, data: object) => {
-  console.log(template);
   const tmp = Handlebars.compile(template);
 
   return tmp(data);
