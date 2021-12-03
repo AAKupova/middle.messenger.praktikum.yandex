@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "### Откройте pull request в ветку main из ветки, где вы разрабатывали проект, и добавьте ссылку на этот pr в README.md в ветке main.  ### ВАЖНО: pull request должен называться “Sprint i” (i — номер спринта).",
   "scripts": {
-    "lint": "tslint --project tsconfig.json",
+    "lint": "eslint . --ext .ts",
     "dev": "parcel index.html",
     "build": "parcel build index.html",
     "start": "parcel build index.html && node server"
@@ -15,7 +15,7 @@
     "@parcel/config-default": "^2.0.1",
     "@parcel/transformer-inline-string": "^2.0.1",
     "@parcel/transformer-sass": "^2.0.1",
-    "@typescript-eslint/eslint-plugin": "^5.4.0",
+    "@typescript-eslint/eslint-plugin": "^5.5.0",
     "@typescript-eslint/parser": "^5.4.0",
     "eslint": "^8.3.0",
     "eslint-config-airbnb": "^19.0.1",
