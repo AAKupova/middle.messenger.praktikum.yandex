@@ -44,7 +44,6 @@ export default class ViewBlock {
   constructor(tagName: string, props: Props, name: string, children?: ViewBlock[]) {
     const eventBus = new EventBus();
     this.eventBus = eventBus;
-    this.tagName = tagName;
     this.props = props;
     this.children = children;
     this.name = name;
@@ -82,6 +81,7 @@ export default class ViewBlock {
         }
       });
     }
+    
     return fragment;
 
   }
@@ -104,9 +104,8 @@ export default class ViewBlock {
 
   _render() {
     const block = this.render();
-
+    
     this._removeEvents();
-
 
     if (typeof block === 'string') {
       this._element.innerHTML = block;

@@ -3,7 +3,6 @@ export const renderDom = (query:string, block) => {
 
   if(root){
     root.appendChild(block.getElement());
-    block.initDidUpdate();
     return root;
   }
 };

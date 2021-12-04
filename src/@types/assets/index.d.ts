@@ -1,24 +1,24 @@
-declare module "\*.svg" {
+declare module '*.svg' {
   const src: string;
   export default src;
 }
 
-declare module "\*.jpg" {
+declare module '*.jpg' {
   const content: string;
   export default content;
 }
 
-declare module "\*.png" {
+declare module '*.png' {
   const content: string;
   export default content;
 }
 
-declare module "\*.json" {
+declare module '*.json' {
   const content: string;
   export default content;
 }
 
-declare module "\*.hbs" {
+declare module '*.hbs'{
   const content: string;
   export default content;
 }

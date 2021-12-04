@@ -1,21 +1,21 @@
 <div class="main">
   <div class="main__body">
-    {{> menu}}
 
     <div class="main__sidebar-left">
-      {{#if chat}}
-      {{> sidebar}}
-      {{/if}}
+      <div data-component="menu"></div>
+      <div data-component="sidebar"></div>
     </div>
 
     <div class="main__center">
-      <div class="main__header">{{> header}}</div>
-      <div class="main__msg">
-        {{#each message}}
-        {{> message}}
-        {{/each}}
+      <div class="main__header">
+        <div data-component="header"></div>
       </div>
-      <div class="main__text-area">{{> textArea}}</div>
+      <div class="main__msg">
+        <div data-component="message"></div>
+      </div>
+      <div class="main__text-area">
+        <div data-component="text-area"></div>
+      </div>
     </div>
   </div>
 </div>

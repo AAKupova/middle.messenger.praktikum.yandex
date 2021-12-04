@@ -3,9 +3,9 @@
   border-radius: 0 30px 30px 0;
   padding: 40px 0;
   box-sizing: border-box;
-  display: none;
   flex: 1 0 auto;
   flex-direction: column;
+  display: flex;
   align-items: center;
 
   &_show {

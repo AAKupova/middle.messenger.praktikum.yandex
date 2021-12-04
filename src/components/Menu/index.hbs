@@ -3,11 +3,11 @@
     <div class="menu__header">
       <div class="menu__close"></div>
       <div class="menu__avatar">
-        {{> avatar size=menu.size img=menu.img}}
+        {{!-- {{> avatar size=menu.size img=menu.img}} --}}
       </div>
       <div class="menu__text">
-        <p class="menu__name">{{menu.name}}</p>
-        <p class="menu__city">{{menu.city}}</p>
+        <p class="menu__name">{{name}}</p>
+        <p class="menu__city">{{city}}</p>
       </div>
     </div>
     <div class="menu__body">
@@ -38,5 +38,5 @@
       </ul>
     </div>
   </div>
-  {{> profile}}
+  <div data-component="profile"></div>
 </div>

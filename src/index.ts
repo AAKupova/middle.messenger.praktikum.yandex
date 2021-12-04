@@ -11,7 +11,8 @@ import { removeLastChar } from './utils/removeLastChar';
 import { renderDom } from './utils/renderDom';
 import { login } from './pages/login/index';
 import { auth } from './pages/auth/index';
-
+import { pageMain } from './pages/main/index';
+import { menuPage } from './components/Menu';
 
 import './styles/normalize.css';
 import './styles/fonts.scss';
@@ -32,9 +33,10 @@ const path = getPath();
 
 const renderPage = () => {
   const pathToPage = {
-//     '/': index,
+    // '/': index,
     '/auth': auth,
     '/login': login,
+    '/page': pageMain,
 //     '/500': page500,
   };
 
@@ -56,5 +58,7 @@ const renderPage = () => {
 // document.body.innerHTML = renderPage();
 
 // initPage();
-
 renderDom('.root', renderPage());
+
+document.querySelector('.menu-burger')?.addEventListener('click', () => menuPage.show());
+document.querySelector('.menu__close')?.addEventListener('click', () => menuPage.hide());
