@@ -3,7 +3,12 @@ import * as Handlebars from 'handlebars';
 import ViewBlock from '../../components/ViewBlock/ViewBlock';
 import Field from '../../components/Field';
 import Button from '../../components/Button';
-import ErrorField from '../../components/ErrorField';
+import {
+  dataFieldEmail,
+  dataFieldPassword,
+  dataButton,
+  dataForm,
+} from './data';
 
 import form from './index.hbs';
 import './index.scss';
@@ -19,68 +24,11 @@ class FormLogin extends ViewBlock {
   }
 }
 
-const fieldName = new Field(
-  {
-    name: 'email',
-    type: 'email',
-    max: '30',
-    min: '2',
-    required: 'required',
-    autofocus: 'autofocus',
-  },
-  'field-name',
-);
+export const fieldEmail = new Field(dataFieldEmail, 'field-email');
 
-const errorFieldName = new ErrorField(
-  {
-    error: 'Пользователя с этой почтой не найдено'
-  },
-  'error-field-name',
-);
+export const fieldPassword = new Field(dataFieldPassword, 'field-password');
 
-const fieldPassword = new Field({
-  name: 'password',
-  type: 'password',
-  max: '30',
-  min: '2',
-  required: 'required',
-  autofocus: 'autofocus',
-},
-'field-password',
-);
+export const button = new Button(dataButton, 'button');
 
-const errorFieldPassword= new ErrorField(
-  {
-    error: 'Пароль не верный'
-  },
-  'error-field-password',
-);
-
-
-export const button = new Button({
-  text: 'Войти',
-  classButton: 'form__button',
-  events: {
-    click: (e: Event) => {
-      console.log(e.target);
-    }
-  },
-},
-'button'
-);
-
-export const formLogin = new FormLogin({
-  title: 'Войти',
-  link: 'Зарегестрироватся',
-  events: {
-    submit: (e: Event) => {
-      e.preventDefault();
-      console.log(e.target);
-    }
-  },
-  
-},
-
-[fieldName, errorFieldName, fieldPassword, errorFieldPassword, button]
-);
+export const login = new FormLogin(dataForm, [fieldEmail,fieldPassword,button]);
 

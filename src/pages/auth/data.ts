@@ -1,73 +1,90 @@
-export const data = {
-  title: 'Регистрация',
-  fields: [
-    {
-      field: 'Email',
-      name: 'email',
-      type: 'email',
-      max: '30',
-      min: '2',
-      required: 'required',
-      autofocus: 'autofocus',
-    },
-    {
-      field: 'Login',
-      name: 'login',
-      type: 'text',
-      max: '30',
-      min: '2',
-      required: 'required',
-      autofocus: 'autofocus',
-    },
-    {
-      field: 'Name',
-      name: 'first_name',
-      type: 'text',
-      max: '30',
-      min: '2',
-      required: 'required',
-      autofocus: 'autofocus',
-    },
-    {
-      field: 'Nickname',
-      name: 'second_name',
-      type: 'text',
-      max: '30',
-      min: '2',
-      required: 'required',
-      autofocus: 'autofocus',
-    },
-    {
-      field: 'Phone',
-      name: 'phone',
-      type: 'phone',
-      max: '30',
-      min: '2',
-      required: 'required',
-      autofocus: 'autofocus',
-    },
-    {
-      field: 'Password',
-      name: 'password',
-      type: 'password',
-      max: '30',
-      min: '2',
-      required: 'required',
-      autofocus: 'autofocus',
-    },
-    {
-      field: 'Password',
-      name: 'password',
-      type: 'password',
-      max: '30',
-      min: '2',
-      required: 'required',
-      autofocus: 'autofocus',
-    },
-  ],
+export const dataFieldEmail =
+{
+  name: 'email',
+  type: 'email',
+  max: '30',
+  min: '2',
+  required: 'required',
+  autofocus: 'autofocus',
+};
 
-  button: 'Зарегистрироваться',
+export const dataFieldLogin =
+{
+  name: 'login',
+  type: 'text',
+  max: '30',
+  min: '2',
+  required: 'required',
+  autofocus: 'autofocus',
+};
+
+export const dataFieldFirstName =
+{
+  name: 'first-name',
+  type: 'text',
+  max: '30',
+  min: '2',
+  required: 'required',
+  autofocus: 'autofocus',
+};
+
+export const dataFieldSecondName =
+{
+  name: 'second-name',
+  type: 'text',
+  max: '30',
+  min: '2',
+  required: 'required',
+  autofocus: 'autofocus',
+};
+
+export const dataFieldPhone =
+{
+  name: 'phone',
+  type: 'phone',
+  max: '30',
+  min: '2',
+  required: 'required',
+  autofocus: 'autofocus',
+};
+
+export const dataFieldPassword =
+{
+  name: 'password',
+  type: 'password',
+  max: '30',
+  min: '2',
+  required: 'required',
+  autofocus: 'autofocus',
+};
+
+export const dataFieldSecondPassword =
+{
+  name: 'second-password',
+  type: 'password',
+  max: '30',
+  min: '2',
+  required: 'required',
+  autofocus: 'autofocus',
+};
+
+export const dataButton = {
+  text: 'Зарегистрироваться',
   classButton: 'form__button',
-  classAvatar: 'form__avatar',
-  text: 'Войти',
+  events: {
+    click: (e: Event) => {
+      console.log(e.target);
+    }
+  },
+};
+
+export const dataForm = {
+  title: 'Регестрация',
+  link: 'Уже есть аккаунт',
+  events: {
+    submit: (e: Event) => {
+      e.preventDefault();
+      console.log(e.target);
+    }
+  },
 };
