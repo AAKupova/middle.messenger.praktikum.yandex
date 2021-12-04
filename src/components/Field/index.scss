@@ -1,22 +1,24 @@
-.label {
-  display: inline-block;
-  margin-top: 30px;
-}
-
 .field {
-  border: none;
-  outline: none;
-  border-bottom: 2px solid var(--color-dark);
-  width: 306px;
-  box-sizing: border-box;
-  background-color: transparent;
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 0.8;
-  padding-bottom: 7px;
+  &__label {
+    display: inline-block;
+    margin-top: 30px;
+  }
 
-  &::placeholder {
-    color: var(--color-dark-gray)
+  &__input {
+    border: none;
+    outline: none;
+    border-bottom: 2px solid var(--color-dark);
+    width: 306px;
+    box-sizing: border-box;
+    background-color: transparent;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 0.8;
+    padding-bottom: 7px;
+
+    &::placeholder {
+      color: var(--color-dark-gray)
+    }
   }
 }
 

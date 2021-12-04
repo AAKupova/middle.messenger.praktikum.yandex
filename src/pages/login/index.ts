@@ -3,6 +3,7 @@ import * as Handlebars from 'handlebars';
 import ViewBlock from '../../components/ViewBlock/ViewBlock';
 import Field from '../../components/Field';
 import Button from '../../components/Button';
+import ErrorField from '../../components/ErrorField';
 
 import form from './index.hbs';
 import './index.scss';
@@ -18,8 +19,9 @@ class FormLogin extends ViewBlock {
   }
 }
 
-const fieldName = new Field({
-    name: 'login',
+const fieldName = new Field(
+  {
+    name: 'email',
     type: 'email',
     max: '30',
     min: '2',
@@ -27,6 +29,13 @@ const fieldName = new Field({
     autofocus: 'autofocus',
   },
   'field-name',
+);
+
+const errorFieldName = new ErrorField(
+  {
+    error: 'Пользователя с этой почтой не найдено'
+  },
+  'error-field-name',
 );
 
 const fieldPassword = new Field({
@@ -40,9 +49,17 @@ const fieldPassword = new Field({
 'field-password',
 );
 
+const errorFieldPassword= new ErrorField(
+  {
+    error: 'Пароль не верный'
+  },
+  'error-field-password',
+);
+
 
 export const button = new Button({
   text: 'Войти',
+  classButton: 'form__button',
   events: {
     click: (e: Event) => {
       console.log(e.target);
@@ -53,6 +70,8 @@ export const button = new Button({
 );
 
 export const formLogin = new FormLogin({
+  title: 'Войти',
+  link: 'Зарегестрироватся',
   events: {
     submit: (e: Event) => {
       e.preventDefault();
@@ -62,6 +81,6 @@ export const formLogin = new FormLogin({
   
 },
 
-[fieldName, fieldPassword, button]
+[fieldName, errorFieldName, fieldPassword, errorFieldPassword, button]
 );
 

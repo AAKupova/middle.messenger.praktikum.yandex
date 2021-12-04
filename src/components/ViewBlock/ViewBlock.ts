@@ -41,23 +41,22 @@ export default class ViewBlock {
     RENDER: 'render'
   };
 
-  constructor(tagName: string, props:Props, name:string, children?: ViewBlock[]) {
+  constructor(tagName: string, props: Props, name: string, children?: ViewBlock[]) {
     const eventBus = new EventBus();
+    this.eventBus = eventBus;
     this.tagName = tagName;
     this.props = props;
     this.children = children;
     this.name = name;
 
     this._meta = {
-			tagName,
-			props,
-			children,
-		};
+      tagName,
+      props,
+      children,
+    };
 
-    this._id = makeUUID();
     this.props = this._makePropsProxy({ ...props, _id: this._id });
-
-    this.eventBus = eventBus;
+    this._id = makeUUID();
     this._registerEvents();
     this.eventBus.emit(ViewBlock.EVENTS.INIT);
   }
@@ -68,33 +67,33 @@ export default class ViewBlock {
     this.eventBus.on(ViewBlock.EVENTS.INIT, this.init.bind(this));
   }
 
-  compile(block:string) {
+  compile(block: string) {
     const fragment = document.createElement('div');
     fragment.innerHTML = block;
 
-    if(this.children){
-      Object.values(this.children).forEach((block:ViewBlock) => {
+    if (this.children) {
+      Object.values(this.children).forEach((block: ViewBlock) => {
         const elementChild = fragment.querySelector(
-					`[data-component="${block.name}"]`
-				);
+          `[data-component="${block.name}"]`
+        );
 
-				if (elementChild && block._element) {
-					elementChild.replaceWith(block._element);
-				}
-			});
-		}
-		return fragment;
-
+        if (elementChild && block._element) {
+          elementChild.replaceWith(block._element);
+        }
+      });
     }
+    return fragment;
+
+  }
 
   _createElement() {
     const tagName = this._meta?.tagName;
-		if (tagName) {
-			this._element = document.createElement(tagName);
+    if (tagName) {
+      this._element = document.createElement(tagName);
       this._element.setAttribute('data-id', this._id);
 
       return this._element;
-		}
+    }
   }
 
   init() {
@@ -109,11 +108,11 @@ export default class ViewBlock {
     this._removeEvents();
 
 
-    if(typeof block === 'string'){
+    if (typeof block === 'string') {
       this._element.innerHTML = block;
-    }else{
+    } else {
       this._element.innerHTML = '';
-			this._element.appendChild(block);
+      this._element.appendChild(block);
     }
 
     this._addEvents();
@@ -194,8 +193,8 @@ export default class ViewBlock {
     this._element.style.display = 'block';
   }
 
+
   hide() {
     this._element.style.display = 'none';
   }
-
 }
