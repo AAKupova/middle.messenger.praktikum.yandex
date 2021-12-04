@@ -5,7 +5,7 @@ import ViewBlock from '../ViewBlock/ViewBlock';
 import button from './index.hbs';
 import './index.scss';
 
-class Button extends ViewBlock {
+export class Button extends ViewBlock {
   constructor(props:object, name:string) {
     super('div', props, name);
   }
@@ -15,5 +15,3 @@ class Button extends ViewBlock {
     return tmp(this.props);
   }
 }
-
-export default Button;

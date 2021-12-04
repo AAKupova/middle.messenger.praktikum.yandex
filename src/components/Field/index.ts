@@ -5,7 +5,7 @@ import ViewBlock from '../ViewBlock/ViewBlock';
 import field from './index.hbs';
 import './index.scss';
 
-class Field extends ViewBlock {
+export class Field extends ViewBlock {
   constructor(props:object, name: string) {
     super('div', props, name);
   }
@@ -15,5 +15,3 @@ class Field extends ViewBlock {
     return tmp(this.props);
   }
 }
-
-export default Field;

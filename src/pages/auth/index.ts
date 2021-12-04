@@ -1,8 +1,8 @@
 import * as Handlebars from 'handlebars';
 
 import ViewBlock from '../../components/ViewBlock/ViewBlock';
-import Field from '../../components/Field';
-import Button from '../../components/Button';
+import { Field } from '../../components/Field';
+import { Button } from '../../components/Button';
 import {
   dataFieldEmail,
   dataFieldLogin,
