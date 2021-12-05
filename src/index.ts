@@ -12,7 +12,8 @@ import { renderDom } from './utils/renderDom';
 import { login } from './pages/login/index';
 import { auth } from './pages/auth/index';
 import { pageMain } from './pages/main/index';
-import { menuPage } from './components/Menu';
+import { menu } from './pages/main';
+import { profile } from './pages/main';
 
 import './styles/normalize.css';
 import './styles/fonts.scss';
@@ -60,5 +61,16 @@ const renderPage = () => {
 // initPage();
 renderDom('.root', renderPage());
 
-document.querySelector('.menu-burger')?.addEventListener('click', () => menuPage.show());
-document.querySelector('.menu__close')?.addEventListener('click', () => menuPage.hide());
+document.querySelector('.menu-burger')?.addEventListener(
+  'click', () => menu.show()
+);
+document.querySelector('.menu__close')?.addEventListener(
+  'click', () => {
+    menu.hide();
+    profile.hide();
+  }
+);
+
+document.querySelector('.edit')?.addEventListener(
+  'click', () => profile.show()
+);

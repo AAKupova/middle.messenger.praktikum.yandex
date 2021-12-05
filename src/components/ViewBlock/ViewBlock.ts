@@ -67,12 +67,12 @@ export default class ViewBlock {
   }
 
   compile(block: string) {
-    const fragment = document.createElement('div');
-    fragment.innerHTML = block;
+    const tmp = document.createElement('template');
+    tmp.innerHTML = block;
 
     if (this.children) {
       Object.values(this.children).forEach((block: ViewBlock) => {
-        const elementChild = fragment.querySelector(
+        const elementChild = tmp.content.querySelector(
           `[data-component="${block.name}"]`
         );
 
@@ -81,8 +81,8 @@ export default class ViewBlock {
         }
       });
     }
-    
-    return fragment;
+
+    return tmp.content;
 
   }
 
@@ -104,28 +104,38 @@ export default class ViewBlock {
 
   _render() {
     const block = this.render();
-    
+
+    (typeof block === 'string')
+      ?this.renderComponent(block)
+      :this.renderPage(block);
+  }
+
+  renderComponent(block:string) {
     this._removeEvents();
-
-    if (typeof block === 'string') {
-      this._element.innerHTML = block;
-    } else {
-      this._element.innerHTML = '';
-      this._element.appendChild(block);
-    }
-
+    this._element.innerHTML = block;
     this._addEvents();
   }
 
-  render(): any {
-    return;
+  renderPage(block:DocumentFragment) {
+    this._removeEvents();
+    this._element.innerHTML = '';
+    this._element.appendChild(block);
+    this._addEvents();
+  }
+
+  render(): DocumentFragment | string {
+    return '';
   }
 
   _addEvents() {
     const { events = {} } = this.props;
 
     Object.keys(events).forEach(eventName => {
-      this._element.addEventListener(eventName, events[eventName]);
+      if(this._element.firstChild){
+        this._element.firstChild.addEventListener(eventName, events[eventName]);
+      }else{
+        this._element.addEventListener(eventName, events[eventName]);
+      }
     });
   }
 
@@ -133,7 +143,11 @@ export default class ViewBlock {
     const { events = {} } = this.props;
 
     Object.keys(events).forEach(eventName => {
-      this._element.removeEventListener(eventName, events[eventName]);
+      if(this._element.firstChild){
+        this._element.firstChild.removeEventListener(eventName, events[eventName]);
+      }else{
+        this._element.removeEventListener(eventName, events[eventName]);
+      }
     });
   }
 
@@ -189,7 +203,7 @@ export default class ViewBlock {
   }
 
   show() {
-    this._element.style.display = 'block';
+    this._element.style.display = 'flex';
   }
 
 

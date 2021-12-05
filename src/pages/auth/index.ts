@@ -23,7 +23,7 @@ class FormAuth extends ViewBlock {
     super('div', props, 'formLogin', children);
   }
 
-  render():HTMLElement {
+  render():DocumentFragment {
     const tmp = Handlebars.compile(form);
     return this.compile(tmp(this.props));
   }
