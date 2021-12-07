@@ -7,12 +7,12 @@ import './index.scss';
 
 
 export class Header extends ViewBlock {
-  constructor(props:object, name:string) {
-    super('div', props, name);
+  constructor(props:object, name:string, children: ViewBlock []) {
+    super('div', props, name, children);
   }
 
-  render():string {
+  render():DocumentFragment {
     const tmp = Handlebars.compile(header);
-    return tmp(this.props);
+    return this.compile(tmp(this.props));
   }
 }

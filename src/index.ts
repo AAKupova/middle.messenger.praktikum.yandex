@@ -74,3 +74,4 @@ document.querySelector('.menu__close')?.addEventListener(
 document.querySelector('.edit')?.addEventListener(
   'click', () => profile.show()
 );
+

@@ -29,12 +29,20 @@ export const dataButton = {
 };
 
 export const dataForm = {
+  name: 'login',
   title: 'Войти',
   link: 'Нет аккаунта?',
   events: {
     submit: (e: Event) => {
       e.preventDefault();
       console.log(e.target);
+    },
+    focus: function (e: Event) {
+      console.log(e.target);
+    },
+
+    blur: function () {
+      console.log(1111);
     }
   },
 };

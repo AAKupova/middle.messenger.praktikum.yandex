@@ -72,19 +72,39 @@ export default class ViewBlock {
 
     if (this.children) {
       Object.values(this.children).forEach((block: ViewBlock) => {
-        const elementChild = tmp.content.querySelector(
-          `[data-component="${block.name}"]`
-        );
+        if(Array.isArray(block)){
+          block.forEach(component => {
+            const elementChild = tmp.content.querySelector(
+              `[data-component="${component.name}"]`
+            );
+            elementChild?.appendChild(component._element);
 
-        if (elementChild && block._element) {
-          elementChild.replaceWith(block._element);
+          });
+        }else{
+          const elementChild = tmp.content.querySelector(
+            `[data-component="${block.name}"]`
+          );
+
+          if (elementChild && block._element) {
+            elementChild.replaceWith(block._element);
+          }
         }
-      });
+        });
     }
 
     return tmp.content;
 
   }
+
+  // _unwrap(wrapper) {
+  //   const child = wrapper.firstChild;
+
+  //   if (child && child.tagName) {
+  //     child.setAttribute('data-id', this._id);
+
+  //     return wrapper.removeChild(child);
+  //   }
+  // } 
 
   _createElement() {
     const tagName = this._meta?.tagName;

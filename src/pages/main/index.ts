@@ -9,6 +9,18 @@ import { Message } from '../../components/Message';
 import { Menu } from '../../components/Menu';
 import { Profile } from '../../components/Profile';
 import { Button } from '../../components/Button';
+import { Avatar } from '../../components/Avatar';
+import {
+  dataChat,
+  dataProfile,
+  dataButton,
+  dataMenu,
+  dataHeader,
+  dataMessage,
+  dataAvatar,
+  dataAvatarChat,
+  dataAvatarProfile
+} from './data';
 
 import main from './index.hbs';
 import './index.scss';
@@ -24,49 +36,35 @@ class PageMain extends ViewBlock {
   }
 }
 
-export const header = new Header({ name: 'Анастасия', isOnline: 'Online' }, 'header');
+
+const arrChat: ViewBlock[] = [];
+const arrMessage: ViewBlock[] = [];
+
+dataChat.forEach(data => {
+  const avatarChat = new Avatar(dataAvatarChat, 'avatar');
+  const chat: Chat = new Chat(data, 'chat', [avatarChat]);
+  arrChat.push(chat);
+});
+console.log(arrMessage);
+
+dataMessage.forEach(data => {
+  const message = new Message(data, 'message');
+  arrMessage.push(message);
+});
+export const avatarProfile = new Avatar(dataAvatarProfile, 'avatar');
+export const avatarHeader = new Avatar(dataAvatar, 'avatar');
+export const avatar = new Avatar(dataAvatar, 'avatar');
 export const textArea = new TextArea({}, 'text-area');
-export const message = new Message({
-  text: 'JavaScript — мультипарадигменный',
-  time: '12:30'
-}, 'message');
-
-
-
-export const chat = new Chat({
-  name: 'Анастасия',
-  isOnline: 'online',
-  text: 'Привет! Как дела!?',
-  count: '3',
-  time: '14:40',
-}, 'chat');
-
-export const sidebar = new Sidebar({}, 'sidebar', [chat]);
-
-export const button = new Button({text: 'Сохронить'}, 'button');
-
-export const profile = new Profile({
-  email: 'aa.kupova@gmail.com',
-  login: 'aa.kupova',
-  name: 'Анастасия',
-  surname: 'Купова',
-  nickname: 'Анастасия',
-  city: 'Москва',
-  telephone: '123345677'
-},
- 'profile',
- [button]);
-
-export const menu = new Menu({ name: 'Анастасия', city: 'Москва' },
-  'menu',
-  [profile]
-);
+export const sidebar = new Sidebar({}, 'sidebar', [arrChat]);
+export const button = new Button(dataButton, 'button');
+export const header = new Header(dataHeader, 'header', [avatarHeader]);
+export const profile = new Profile(dataProfile, 'profile', [button, avatarProfile]);
+export const menu = new Menu(dataMenu, 'menu', [profile]);
 
 menu.hide();
 profile.hide();
 
-export const pageMain = new PageMain(
-  {},
-  [sidebar, header, textArea, message, menu]
+export const pageMain = new PageMain({},
+  [sidebar, header, textArea, arrMessage, menu]
 );
 
