@@ -1,5 +1,8 @@
-// import { render } from '../../utils/render';
-// import error from '../../components/Error';
-// import { data } from './data';
+import { dataButton, dataError } from './data';
 
-// export const page404 = render(error, data);
+import { Error } from '../../components/Error';
+import { Button } from '../../components/Button';
+
+export const button = new Button(dataButton, 'button');
+
+export const page404 = new Error(dataError, 'error404', [button]);

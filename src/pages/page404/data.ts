@@ -1,8 +1,12 @@
 import img400 from '../../../static/images/img-404.svg';
 
-export const data = {
+export const dataError = {
   text: 'Страница не найдена',
-  button: 'Вернуться на главную',
   error: '404',
   img: img400,
+  href: '/',
+};
+
+export const dataButton = {
+  text: 'Вернуться на главную',
 };

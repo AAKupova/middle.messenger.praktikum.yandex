@@ -3,11 +3,8 @@
   <div class="error__info">
     <h1 class="error__title">{{error}}</h1>
     <p class="error__text">{{text}}</p>
-    {{#if button}}
-    <a href="/">
-      {{> button}}
+    <a href={{href}}>
+      <div data-component="button"></div>
     </a>
-    {{/if}}
-
   </div>
 </div>
