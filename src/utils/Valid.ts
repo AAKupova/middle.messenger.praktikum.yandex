@@ -30,7 +30,7 @@ export class  Valid {
     const element = e.target;
     const name = element.name;
     const error = document.querySelector(`.${name}-error`);
-    console.log(element.value);
+    
     if(this.patterns[name] && element.validity.valid){
       this.result = this.patterns[name].test(element.value);
       this.resultValid[name] = this.result;
