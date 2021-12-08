@@ -63,7 +63,7 @@ const renderPage = () => {
 renderDom('.root', renderPage());
 
 
-export const valid = new Valid('.form', '.field', '.button');
+export const valid = new Valid('.form', '.button', '.field');
 
 document.querySelector('.menu-burger')?.addEventListener(
   'click', () => menu.show()

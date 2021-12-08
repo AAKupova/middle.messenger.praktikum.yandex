@@ -16,4 +16,10 @@
     background: var( --color-accent);
     cursor: pointer;
   }
+
+  &:disabled{
+    background-color: var(--color-disable);
+    color: var(--color-dark-gray);
+    cursor: default;
+  }
 }

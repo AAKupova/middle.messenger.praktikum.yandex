@@ -76,6 +76,7 @@ export const dataButton = {
 export const dataForm = {
   title: 'Регестрация',
   link: 'Уже есть аккаунт',
+  href: '/login',
   events: {
     submit: (e: Event) => {
       e.preventDefault();
