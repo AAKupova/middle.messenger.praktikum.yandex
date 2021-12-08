@@ -1,6 +1,5 @@
-import * as Handlebars from 'handlebars';
-
 import ViewBlock from '../../components/ViewBlock/ViewBlock';
+import { PageMain } from '../../components/Main';
 import { Header } from '../../components/Header';
 import { Sidebar } from '../../components/Sidebar';
 import { Chat } from '../../components/Chat';
@@ -21,21 +20,6 @@ import {
   dataAvatarChat,
   dataAvatarProfile
 } from './data';
-
-import main from './index.hbs';
-import './index.scss';
-
-class PageMain extends ViewBlock {
-  constructor(props: object, children: ViewBlock[]) {
-    super('div', props, 'formLogin', children);
-  }
-
-  render():DocumentFragment {
-    const tmp = Handlebars.compile(main);
-    return this.compile(tmp(this.props));
-  }
-}
-
 
 const arrChat: ViewBlock[] = [];
 const arrMessage: ViewBlock[] = [];
