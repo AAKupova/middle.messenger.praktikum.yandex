@@ -45,7 +45,6 @@ dataChat.forEach(data => {
   const chat: Chat = new Chat(data, 'chat', [avatarChat]);
   arrChat.push(chat);
 });
-console.log(arrMessage);
 
 dataMessage.forEach(data => {
   const message = new Message(data, 'message');

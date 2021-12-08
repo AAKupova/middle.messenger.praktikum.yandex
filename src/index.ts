@@ -4,6 +4,7 @@
 // import { page404 } from './pages/page404';
 // import { page500 } from './pages/page500';
 import { removeLastChar } from './utils/removeLastChar';
+import { Valid } from './utils/Valid';
 
 // import Button from './components/Button';
 // import Field from './components/Field';
@@ -60,6 +61,9 @@ const renderPage = () => {
 
 // initPage();
 renderDom('.root', renderPage());
+
+
+export const valid = new Valid('.form', '.field', '.button');
 
 document.querySelector('.menu-burger')?.addEventListener(
   'click', () => menu.show()

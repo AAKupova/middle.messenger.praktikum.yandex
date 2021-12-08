@@ -1,24 +1,37 @@
+.label {
+  display: inline-block;
+  margin-top: 30px;
+  max-width: 306px;
+}
+
 .field {
-  &__label {
-    display: inline-block;
-    margin-top: 30px;
-  }
+  border: none;
+  outline: none;
+  border-bottom: 2px solid var(--color-dark);
+  width: 306px;
+  box-sizing: border-box;
+  background-color: transparent;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 0.8;
+  padding-bottom: 7px;
 
-  &__input {
-    border: none;
-    outline: none;
-    border-bottom: 2px solid var(--color-dark);
-    width: 306px;
-    box-sizing: border-box;
-    background-color: transparent;
-    font-weight: 500;
-    font-size: 14px;
-    line-height: 0.8;
-    padding-bottom: 7px;
-
-    &::placeholder {
-      color: var(--color-dark-gray)
-    }
+  &::placeholder {
+    color: var(--color-dark-gray)
   }
+}
+
+.error {
+  border-bottom: 2px solid var(--color-warning);
+}
+
+.error-msg {
+  color: var(--color-warning);
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1.2;
+  display: inline-block;
+  margin-top: 5px;
+
 }
 

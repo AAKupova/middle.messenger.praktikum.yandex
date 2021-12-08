@@ -71,11 +71,6 @@ export const dataFieldSecondPassword =
 export const dataButton = {
   text: 'Зарегистрироваться',
   classButton: 'form__button',
-  events: {
-    click: (e: Event) => {
-      console.log(e.target);
-    }
-  },
 };
 
 export const dataForm = {
