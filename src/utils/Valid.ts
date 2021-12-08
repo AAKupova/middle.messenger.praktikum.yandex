@@ -1,7 +1,6 @@
 export class  Valid {
   result: boolean;
   patterns: object;
-  errorMSG: object;
   resultValid: object;
   button: HTMLElement | null;
   form: HTMLElement | null;
@@ -11,12 +10,12 @@ export class  Valid {
   constructor(form:string, button:string, field:string) {
     this.patterns = {
       email: /\S+@\S+\.\S+/,
-      password: /[A-Z]/g,
-    };
-
-    this.errorMSG = {
-      email: 'Пожалуйста введите Ваш e-mail',
-      password: 'Пароль должен быть не меньше 8 символов и содержать одну заглавную букву',
+      login: /[a-z-A-Z-0-9 - _]{3,20}$/,
+      password: /^(?=.*\d)(?=.*[A-Z]).{8,40}$/,
+      second_password: /^(?=.*\d)(?=.*[A-Z]).{8,40}$/,
+      second_name: /^([А-ЯЁ]{1}[а-яё -]{1,29})|([A-Z]{1}[a-z -]{1,29})$/u,
+      first_name: /^([А-ЯЁ]{1}[а-яё -]{1,29})|([A-Z]{1}[a-z -]{1,29})$/u,
+      phone: /(\s*)?(\+)?([- _():=+]?\d[- _():=+]?){10,15}(\s*)?/,
     };
 
     this.form = document.querySelector(form);
@@ -29,32 +28,32 @@ export class  Valid {
 
   isFieldValid(e){
     const element = e.target;
-    const type = element.type;
-    const error = document.querySelector(`.${type}-error`);
-
-    if(this.patterns[type] && element.validity.valid){
-      this.result = this.patterns[type].test(element.value);
-      this.resultValid[type] = this.result;
+    const name = element.name;
+    const error = document.querySelector(`.${name}-error`);
+    console.log(element.value);
+    if(this.patterns[name] && element.validity.valid){
+      this.result = this.patterns[name].test(element.value);
+      this.resultValid[name] = this.result;
     }else{
-      this.result = this.patterns[type].test(element.value);
-      this.resultValid[type] = this.result;
+      this.result = this.patterns[name].test(element.value);
+      this.resultValid[name] = this.result;
     }
 
-    this.#isError(element, error, type);
+    this.#isError(element, error);
   }
 
   isErrorStatusField(e){
     const element = e.target;
-    const error = document.querySelector(`.${element.type}-error`);
+    const error = document.querySelector(`.${element.name}-error`);
 
     if(!this.result){
       this.#hideError(element, error);
     }
   }
 
-  #isError(element: HTMLElement, error, type:string){
+  #isError(element: HTMLElement, error){
     if(!this.result){
-      this.#showError(element, error, type);
+      this.#showError(element, error);
       this.#toggleButtonDisable();
     }else{
       this.#hideError(element, error);
@@ -62,14 +61,14 @@ export class  Valid {
     }
   }
 
-  #showError(element:HTMLElement, error, type:string) {
-    error.textContent = this.errorMSG[type];
-    element.classList.add('error');
+  #showError(element:HTMLElement, error) {
+    error.style.display = 'block';
+    element.classList.add('field_error');
   } 
 
   #hideError(element:HTMLElement, error){
-    error.textContent = '';
-    element.classList.remove('error');
+    error.style.display = 'none';
+    element.classList.remove('field_error');
   }
 
   #lockButton() {

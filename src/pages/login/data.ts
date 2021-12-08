@@ -25,20 +25,18 @@ export const dataFieldEmail =
   type: 'email',
   max: '30',
   min: '2',
+  error: 'Пожалуйста введите Ваш e-mail',
   required: 'required',
   autofocus: 'autofocus',
   events: {
     focusin: (e) => {
       valid.isErrorStatusField(e);
     },
-
     focusout: (e) => {
       valid.isFieldValid(e);
   },
 }
 };
-
-
 
 export const dataFieldPassword =
 {
@@ -48,13 +46,14 @@ export const dataFieldPassword =
   min: '8 ',
   required: 'required',
   autofocus: 'autofocus',
+  error: `Пароль должен быть 
+    не меньше 8 символов и содержать одну заглавную букву`,
   events: {
     focusin: (e) => {
       valid.isErrorStatusField(e);
     },
-
     focusout: (e) => {
       valid.isFieldValid(e);
-  },
-}
+    },
+  }
 };

@@ -1,37 +1,37 @@
 .label {
   display: inline-block;
-  margin-top: 15px;
+  margin-bottom: 25px;
   max-width: 306px;
 }
 
 .field {
   border: none;
   outline: none;
-  border-bottom: 2px solid var(--color-dark);
-  width: 306px;
+  border-bottom: 1px solid var(--color-dark);
+  width: 280px;
   box-sizing: border-box;
   background-color: transparent;
   font-weight: 500;
-  font-size: 14px;
+  font-size: 12px;
   line-height: 0.8;
   padding-bottom: 7px;
 
   &::placeholder {
     color: var(--color-dark-gray)
   }
+
+  &_error {
+    border-bottom: 1px solid var(--color-warning);
+  }
 }
 
-.error {
-  border-bottom: 2px solid var(--color-warning);
-}
-
-.error-msg {
+.error-msg{
   color: var(--color-warning);
   font-size: 12px;
   font-weight: 500;
   line-height: 1.2;
-  display: inline-block;
-  margin-top: 5px;
-
+  margin-top: 7px;
+  display: none;
+  width: 280px;
 }
 
