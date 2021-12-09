@@ -4,8 +4,6 @@ import { Valid } from './utils/Valid';
 import { login } from './pages/login/index';
 import { auth } from './pages/auth/index';
 import { pageMain } from './pages/main/index';
-import { menu } from './pages/main';
-import { profile } from './pages/main';
 
 import { renderDom } from './utils/renderDom';
 import { removeLastChar } from './utils/removeLastChar';
@@ -15,7 +13,7 @@ import './styles/fonts.scss';
 import './styles/index.scss';
 
 const getPath = () => {
-  let path = window.location.pathname;
+  let path:string | undefined = window.location.pathname;
 
   if (path !== '/' ) {
     path = removeLastChar(path, '/');
@@ -35,13 +33,13 @@ const renderPage = () => {
     '/500': page500,
   };
 
-  return pathToPage[path] || page404;
+  if(path){
+    return pathToPage[path] || page404;
+  }
+
+  return page404;
 };
 
 renderDom('.root', renderPage());
 
 export const valid = new Valid('.form', '.button', '.field');
-
-document.querySelector('.menu-burger')?.addEventListener(
-  'click', () => menu.show()
-);
