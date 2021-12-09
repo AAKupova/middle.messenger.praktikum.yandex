@@ -7,6 +7,7 @@
     "module": "commonjs",
     "strictNullChecks": true,
     "sourceMap": true,
+    "noImplicitAny": true,
     "moduleResolution": "node",
     "typeRoots": ["./src/@types", "./node_modules/@types"],
   },

@@ -131,10 +131,10 @@ export const dataFieldEmail =
   autofocus: 'autofocus',
   error: 'Некорректный e-mail',
   events: {
-    focusin: (e: Event) => {
+    focusin: (e: { target: HTMLInputElement }) => {
       valid.isErrorStatusField(e);
     },
-    focusout: (e: Event) => {
+    focusout: (e: { target: HTMLInputElement }) => {
       valid.isFieldValid(e);
     },
   }
@@ -150,10 +150,10 @@ required: 'required',
 autofocus: 'autofocus',
 error: 'Некорректный login',
 events: {
-focusin: (e: Event) => {
+focusin: (e: { target: HTMLInputElement }) => {
   valid.isErrorStatusField(e);
 },
-focusout: (e: Event) => {
+focusout: (e: { target: HTMLInputElement }) => {
   valid.isFieldValid(e);
 },
 }
@@ -169,10 +169,10 @@ export const dataFieldFirstName =
   autofocus: 'autofocus',
   error: 'Имя с заглавной буквы',
   events: {
-    focusin: (e: Event) => {
+    focusin: (e: { target: HTMLInputElement }) => {
       valid.isErrorStatusField(e);
     },
-    focusout: (e: Event) => {
+    focusout: (e: { target: HTMLInputElement }) => {
       valid.isFieldValid(e);
     },
   }
@@ -188,10 +188,10 @@ export const dataFieldSecondName =
   autofocus: 'autofocus',
   error: 'Имя с заглавной буквы',
   events: {
-    focusin: (e: Event) => {
+    focusin: (e: { target: HTMLInputElement }) => {
       valid.isErrorStatusField(e);
     },
-    focusout: (e: Event) => {
+    focusout: (e: { target: HTMLInputElement }) => {
       valid.isFieldValid(e);
     },
   }
@@ -206,10 +206,10 @@ export const dataFieldPhone = {
   autofocus: 'autofocus',
   error: 'Некорректный номер телефона',
   events: {
-    focusin: (e: Event) => {
+    focusin: (e: { target: HTMLInputElement }) => {
       valid.isErrorStatusField(e);
     },
-    focusout: (e: Event) => {
+    focusout: (e: { target: HTMLInputElement }) => {
       valid.isFieldValid(e);
     },
   }
@@ -224,10 +224,10 @@ export const dataFieldCity = {
   autofocus: 'autofocus',
   error: 'Введите название города',
   events: {
-    focusin: (e: Event) => {
+    focusin: (e: { target: HTMLInputElement }) => {
       valid.isErrorStatusField(e);
     },
-    focusout: (e: Event) => {
+    focusout: (e: { target: HTMLInputElement }) => {
       valid.isFieldValid(e);
     },
   }
@@ -240,7 +240,7 @@ export const dataForm = {
   events: {
     submit: (e: Event) => {
       e.preventDefault();
-      valid.submit(e);
+      valid.submit(e as any);
     },
   },
 };

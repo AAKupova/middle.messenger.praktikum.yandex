@@ -22,3 +22,8 @@ declare module '*.hbs'{
   const content: string;
   export default content;
 }
+
+  // declare module 'uuid'{
+  //   const content: string;
+  //   export default content;
+  // }

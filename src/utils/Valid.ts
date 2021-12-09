@@ -1,7 +1,7 @@
 export class  Valid {
   result: boolean;
-  patterns: object;
-  resultValid: object;
+  patterns:{ [key: string]: RegExp };
+  resultValid: { [key: string]: boolean };
   button: HTMLElement | null;
   form: HTMLElement | null;
   fields: NodeListOf<Element> | undefined;
@@ -9,14 +9,14 @@ export class  Valid {
   
   constructor(form:string, button:string, field:string) {
     this.patterns = {
-      email: /\S+@\S+\.\S+/,
-      login: /[a-z-A-Z-0-9 - _]{3,20}$/,
-      password: /^(?=.*\d)(?=.*[A-Z]).{8,40}$/,
-      second_password: /^(?=.*\d)(?=.*[A-Z]).{8,40}$/,
-      phone: /(\s*)?(\+)?([- _():=+]?\d[- _():=+]?){10,15}(\s*)?/,
-      city: /^([А-ЯЁ]{1}[а-яё -]{1,14})|([A-Z]{1}[a-z -]{1,14})$/u,
-      second_name: /^([А-ЯЁ]{1}[а-яё -]{1,29})|([A-Z]{1}[a-z -]{1,29})$/u,
-      first_name: /^([А-ЯЁ]{1}[а-яё -]{1,29})|([A-Z]{1}[a-z -]{1,29})$/u,
+      'email': /\S+@\S+\.\S+/,
+      'login': /[a-z-A-Z-0-9 - _]{3,20}$/,
+      'password': /^(?=.*\d)(?=.*[A-Z]).{8,40}$/,
+      'second_password': /^(?=.*\d)(?=.*[A-Z]).{8,40}$/,
+      'phone': /(\s*)?(\+)?([- _():=+]?\d[- _():=+]?){10,15}(\s*)?/,
+      'city': /^([А-ЯЁ]{1}[а-яё -]{1,14})|([A-Z]{1}[a-z -]{1,14})$/u,
+      'second_name': /^([А-ЯЁ]{1}[а-яё -]{1,29})|([A-Z]{1}[a-z -]{1,29})$/u,
+      'first_name': /^([А-ЯЁ]{1}[а-яё -]{1,29})|([A-Z]{1}[a-z -]{1,29})$/u,
     };
 
     this.form = document.querySelector(form);
@@ -27,11 +27,10 @@ export class  Valid {
     this.result;
   }
 
-  isFieldValid(e){
+  isFieldValid(e: { target: HTMLInputElement }){
     const element = e.target;
     const name = element.name;
     const error = document.querySelector(`.${name}-error`);
-
     if(this.patterns[name] && element.validity.valid){
       this.result = this.patterns[name].test(element.value);
       this.resultValid[name] = this.result;
@@ -40,19 +39,19 @@ export class  Valid {
       this.resultValid[name] = this.result;
     }
 
-    this.#isError(element, error);
+    this.#isError(element, error as HTMLElement);
   }
 
-  isErrorStatusField(e){
+  isErrorStatusField(e: { target: HTMLInputElement }){
     const element = e.target;
     const error = document.querySelector(`.${element.name}-error`);
 
     if(!this.result){
-      this.#hideError(element, error);
+      this.#hideError(element, error as HTMLElement);
     }
   }
 
-  #isError(element: HTMLElement, error){
+  #isError(element: HTMLElement, error: HTMLElement | null){
     if(!this.result){
       this.#showError(element, error);
       this.#toggleButtonDisable();
@@ -62,13 +61,17 @@ export class  Valid {
     }
   }
 
-  #showError(element:HTMLElement, error) {
-    error.style.display = 'block';
+  #showError(element:HTMLElement, error:HTMLElement | null) {
+    if(error){
+      error.style.display = 'block';
+    }
     element.classList.add('field_error');
   } 
 
-  #hideError(element:HTMLElement, error){
-    error.style.display = 'none';
+  #hideError(element:HTMLElement, error:HTMLElement | null){
+    if(error){
+      error.style.display = 'none';
+    }
     element.classList.remove('field_error');
   }
 
@@ -93,7 +96,7 @@ export class  Valid {
     }
   }
 
-  submit(e){
+  submit(e: { target: HTMLFormElement }){
     const form = new FormData(e.target);
 
     if(this.isNotValid){

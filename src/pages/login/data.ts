@@ -14,7 +14,7 @@ export const dataForm = {
   events: {
     submit: (e: Event) => {
       e.preventDefault();
-      valid.submit(e);
+      valid.submit(e as any);
     },
   },
 };
@@ -29,10 +29,10 @@ export const dataFieldEmail =
   required: 'required',
   autofocus: 'autofocus',
   events: {
-    focusin: (e) => {
+    focusin: (e: { target: HTMLInputElement }) => {
       valid.isErrorStatusField(e);
     },
-    focusout: (e) => {
+    focusout: (e: { target: HTMLInputElement }) => {
       valid.isFieldValid(e);
   },
 }
@@ -48,10 +48,10 @@ export const dataFieldPassword =
   autofocus: 'autofocus',
   error: 'Пароль не меньше 8 символов',
   events: {
-    focusin: (e) => {
+    focusin: (e: { target: HTMLInputElement }) => {
       valid.isErrorStatusField(e);
     },
-    focusout: (e) => {
+    focusout: (e: { target: HTMLInputElement }) => {
       valid.isFieldValid(e);
     },
   }

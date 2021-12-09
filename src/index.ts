@@ -11,6 +11,11 @@ import { removeLastChar } from './utils/removeLastChar';
 import './styles/normalize.css';
 import './styles/fonts.scss';
 import './styles/index.scss';
+import ViewBlock from './components/ViewBlock/ViewBlock';
+
+interface PathToPage {
+  [key: string]: ViewBlock;
+}
 
 const getPath = () => {
   let path:string | undefined = window.location.pathname;
@@ -26,7 +31,7 @@ const getPath = () => {
 const path = getPath();
 
 const renderPage = () => {
-  const pathToPage = {
+  const pathToPage: PathToPage = {
     '/': pageMain,
     '/auth': auth,
     '/login': login,

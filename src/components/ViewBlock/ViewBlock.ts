@@ -1,9 +1,13 @@
 import { EventBus } from '../../utils/EventBus';
 import { v4 as makeUUID } from 'uuid';
 
-interface Events {
-  click: object;
-}
+interface Events { 
+  [key: string]: () => void 
+} 
+
+interface Target { 
+  [key: string]: any;
+} 
 
 interface Props {
   events?: Events,
@@ -148,7 +152,7 @@ export default class ViewBlock {
   }
 
   _addEvents() {
-    const { events = {} } = this.props;
+    const events = this.props.events || {};
 
     Object.keys(events).forEach(eventName => {
       if(this._element.firstChild){
@@ -160,9 +164,9 @@ export default class ViewBlock {
   }
 
   _removeEvents() {
-    const { events = {} } = this.props;
+    const events = this.props.events || {};
 
-    Object.keys(events).forEach(eventName => {
+    Object.keys(events).forEach((eventName:string) => {
       if(this._element.firstChild){
         this._element.firstChild.removeEventListener(eventName, events[eventName]);
       }else{
@@ -197,7 +201,8 @@ export default class ViewBlock {
 
   _makePropsProxy(props: object) {
     const proxyProps = new Proxy(props, {
-      get(target, prop: string) {
+      get(target: Target, prop: string) {
+        console.log(target);
         if (prop.indexOf('_') === 0) {
           throw new Error('Нет прав');
         }
