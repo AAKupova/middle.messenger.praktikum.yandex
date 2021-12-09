@@ -6,6 +6,7 @@ export class  Valid {
   form: HTMLElement | null;
   fields: NodeListOf<Element> | undefined;
   isNotValid: boolean;
+  disabled: boolean;
   
   constructor(form:string, button:string, field:string) {
     this.patterns = {
@@ -25,6 +26,33 @@ export class  Valid {
     this.resultValid = {};
     this.isNotValid;
     this.result;
+    this.disabled = true;
+
+    this.init();
+  }
+
+  #isFieldValid(){
+    let arrField;
+    
+    if(this.fields){
+      arrField = Array.from(this.fields);
+    }
+
+    return arrField?.some((field:HTMLInputElement) => !field.validity.valid);
+  }
+
+  init() {
+    if (this.#isFieldValid()) {
+      this.disabled = true;
+    } else {
+      this.disabled = false;
+    }
+
+    if(this.disabled){
+      this.#lockButton();
+    } else {
+      this.#unlockButton();
+    }
   }
 
   isFieldValid(e: { target: HTMLInputElement }){
@@ -87,12 +115,18 @@ export class  Valid {
     const arrValid = Object.values(this.resultValid);
     this.isNotValid = arrValid.some((result) => result === false);
     
-    if(arrValid.length === this.fields?.length){
+    if(!(arrValid.length === this.fields?.length)){
       if (this.isNotValid) {
-        this.#lockButton();
+        this.disabled = true;
       } else {
-        this.#unlockButton();
+        this.disabled = false;
       }
+    }
+
+    if(this.disabled){
+      this.#lockButton();
+    } else {
+      this.#unlockButton();
     }
   }
 

@@ -17,8 +17,8 @@ export const dataChat = [
     name: 'Анастасия',
     isOnline: 'online',
     text: 'Привет! Как дела!?',
-    count: '3',
     time: '14:40',
+    active: 'active',
   },
   {
     name: 'Анастасия',
@@ -38,14 +38,12 @@ export const dataChat = [
     name: 'Анастасия',
     isOnline: 'online',
     text: 'Привет! Как дела!?',
-    count: '3',
     time: '14:40',
   },
   {
     name: 'Анастасия',
     isOnline: 'online',
     text: 'Привет! Как дела!?',
-    count: '3',
     time: '14:40',
   },
 ];
@@ -129,6 +127,7 @@ export const dataFieldEmail =
   min: '2',
   required: 'required',
   autofocus: 'autofocus',
+  value: 'aa.kupova@gmail.com',
   error: 'Некорректный e-mail',
   events: {
     focusin: (e: { target: HTMLInputElement }) => {
@@ -148,6 +147,7 @@ max: '20',
 min: '3',
 required: 'required',
 autofocus: 'autofocus',
+value: 'aaKupova',
 error: 'Некорректный login',
 events: {
 focusin: (e: { target: HTMLInputElement }) => {
@@ -167,6 +167,7 @@ export const dataFieldFirstName =
   min: '2',
   required: 'required',
   autofocus: 'autofocus',
+  value: 'Анастасия',
   error: 'Имя с заглавной буквы',
   events: {
     focusin: (e: { target: HTMLInputElement }) => {
@@ -187,6 +188,7 @@ export const dataFieldSecondName =
   required: 'required',
   autofocus: 'autofocus',
   error: 'Имя с заглавной буквы',
+  value: 'Купова',
   events: {
     focusin: (e: { target: HTMLInputElement }) => {
       valid.isErrorStatusField(e);
@@ -204,6 +206,7 @@ export const dataFieldPhone = {
   min: '10',
   required: 'required',
   autofocus: 'autofocus',
+  value: '+79770000000',
   error: 'Некорректный номер телефона',
   events: {
     focusin: (e: { target: HTMLInputElement }) => {
@@ -220,6 +223,7 @@ export const dataFieldCity = {
   type: 'text',
   max: '15',
   min: '3',
+  value: 'Москва',
   required: 'required',
   autofocus: 'autofocus',
   error: 'Введите название города',

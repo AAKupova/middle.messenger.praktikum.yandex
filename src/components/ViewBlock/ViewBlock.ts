@@ -1,13 +1,13 @@
 import { EventBus } from '../../utils/EventBus';
 import { v4 as makeUUID } from 'uuid';
 
-interface Events { 
-  [key: string]: () => void 
-} 
+interface Events {
+  [key: string]: () => void
+}
 
-interface Target { 
+interface Target {
   [key: string]: any;
-} 
+}
 
 interface Props {
   events?: Events,
@@ -76,7 +76,7 @@ export default class ViewBlock {
 
     if (this.children) {
       Object.values(this.children).forEach((block: ViewBlock) => {
-        if(Array.isArray(block)){
+        if (Array.isArray(block)) {
           block.forEach(component => {
             const elementChild = tmp.content.querySelector(
               `[data-component="${component.name}"]`
@@ -84,7 +84,7 @@ export default class ViewBlock {
             elementChild?.appendChild(component._element);
 
           });
-        }else{
+        } else {
           const elementChild = tmp.content.querySelector(
             `[data-component="${block.name}"]`
           );
@@ -93,7 +93,7 @@ export default class ViewBlock {
             elementChild.replaceWith(block._element);
           }
         }
-        });
+      });
     }
 
     return tmp.content;
@@ -130,17 +130,17 @@ export default class ViewBlock {
     const block = this.render();
 
     (typeof block === 'string')
-      ?this.renderComponent(block)
-      :this.renderPage(block);
+      ? this.renderComponent(block)
+      : this.renderPage(block);
   }
 
-  renderComponent(block:string) {
+  renderComponent(block: string) {
     this._removeEvents();
     this._element.innerHTML = block;
     this._addEvents();
   }
 
-  renderPage(block:DocumentFragment) {
+  renderPage(block: DocumentFragment) {
     this._removeEvents();
     this._element.innerHTML = '';
     this._element.appendChild(block);
@@ -155,9 +155,9 @@ export default class ViewBlock {
     const events = this.props.events || {};
 
     Object.keys(events).forEach(eventName => {
-      if(this._element.firstChild){
+      if (this._element.firstChild) {
         this._element.firstChild.addEventListener(eventName, events[eventName]);
-      }else{
+      } else {
         this._element.addEventListener(eventName, events[eventName]);
       }
     });
@@ -166,10 +166,10 @@ export default class ViewBlock {
   _removeEvents() {
     const events = this.props.events || {};
 
-    Object.keys(events).forEach((eventName:string) => {
-      if(this._element.firstChild){
+    Object.keys(events).forEach((eventName: string) => {
+      if (this._element.firstChild) {
         this._element.firstChild.removeEventListener(eventName, events[eventName]);
-      }else{
+      } else {
         this._element.removeEventListener(eventName, events[eventName]);
       }
     });
@@ -202,7 +202,6 @@ export default class ViewBlock {
   _makePropsProxy(props: object) {
     const proxyProps = new Proxy(props, {
       get(target: Target, prop: string) {
-        console.log(target);
         if (prop.indexOf('_') === 0) {
           throw new Error('Нет прав');
         }
