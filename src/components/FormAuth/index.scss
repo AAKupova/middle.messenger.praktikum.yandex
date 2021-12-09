@@ -1,4 +1,4 @@
-.form {
+.form-auth {
   padding: 26px 20px;
   width: 360px;
   margin: auto auto;
@@ -28,28 +28,6 @@
     margin: 0 0 30px 0;
   }
 
-  &__label {
-    display: inline-block;
-    margin: 64px 0 10px 0;
-  }
-
-  &__field {
-    border: none;
-    outline: none;
-    border-bottom: 2px solid var(--color-dark);
-    width: 306px;
-    box-sizing: border-box;
-    background: transparent;
-    font-weight: 500;
-    font-size: 16px;
-    line-height: 0.8;
-    padding-bottom: 10px;
-
-    &::placeholder {
-      color: var(--color-dark);
-    }
-  }
-
   &__link {
     font-weight: 400;
     font-size: 14px;
@@ -60,7 +38,6 @@
     border-bottom: 2px solid transparent;
     text-decoration: none;
     color: var(--color-dark);
-    
 
     &:hover {
       border-bottom: 2px solid var(--color-dark);

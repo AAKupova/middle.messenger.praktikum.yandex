@@ -13,9 +13,10 @@ export class  Valid {
       login: /[a-z-A-Z-0-9 - _]{3,20}$/,
       password: /^(?=.*\d)(?=.*[A-Z]).{8,40}$/,
       second_password: /^(?=.*\d)(?=.*[A-Z]).{8,40}$/,
+      phone: /(\s*)?(\+)?([- _():=+]?\d[- _():=+]?){10,15}(\s*)?/,
+      city: /^([А-ЯЁ]{1}[а-яё -]{1,14})|([A-Z]{1}[a-z -]{1,14})$/u,
       second_name: /^([А-ЯЁ]{1}[а-яё -]{1,29})|([A-Z]{1}[a-z -]{1,29})$/u,
       first_name: /^([А-ЯЁ]{1}[а-яё -]{1,29})|([A-Z]{1}[a-z -]{1,29})$/u,
-      phone: /(\s*)?(\+)?([- _():=+]?\d[- _():=+]?){10,15}(\s*)?/,
     };
 
     this.form = document.querySelector(form);
@@ -30,7 +31,7 @@ export class  Valid {
     const element = e.target;
     const name = element.name;
     const error = document.querySelector(`.${name}-error`);
-    
+
     if(this.patterns[name] && element.validity.valid){
       this.result = this.patterns[name].test(element.value);
       this.resultValid[name] = this.result;
@@ -91,8 +92,6 @@ export class  Valid {
       }
     }
   }
-
-
 
   submit(e){
     const form = new FormData(e.target);

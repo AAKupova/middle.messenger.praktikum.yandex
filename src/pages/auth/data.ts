@@ -8,7 +8,7 @@ export const dataFieldEmail =
   min: '2',
   required: 'required',
   autofocus: 'autofocus',
-  error: 'Пожалуйста введите Ваш e-mail',
+  error: 'Некорректный e-mail',
   events: {
     focusin: (e: Event) => {
       valid.isErrorStatusField(e);
@@ -27,8 +27,7 @@ export const dataFieldLogin =
   min: '3',
   required: 'required',
   autofocus: 'autofocus',
-  error: `Login может содержать цифры, дефис,
-  нижнее подчёркивание и не меньше 3 символов`,
+  error: 'Некорректный login',
   events: {
     focusin: (e: Event) => {
       valid.isErrorStatusField(e);
@@ -47,7 +46,7 @@ export const dataFieldFirstName =
   min: '2',
   required: 'required',
   autofocus: 'autofocus',
-  error: 'Имя должно начинатся с заглавной буквы и не меньше 2 символов',
+  error: 'Имя с заглавной буквы',
   events: {
     focusin: (e: Event) => {
       valid.isErrorStatusField(e);
@@ -66,7 +65,7 @@ export const dataFieldSecondName =
   min: '2',
   required: 'required',
   autofocus: 'autofocus',
-  error: 'Имя должно начинатся с заглавной буквы и не меньше 2 символов',
+  error: 'Имя с заглавной буквы',
   events: {
     focusin: (e: Event) => {
       valid.isErrorStatusField(e);
@@ -85,7 +84,7 @@ export const dataFieldPhone =
   min: '10',
   required: 'required',
   autofocus: 'autofocus',
-  error: 'Введите номер телефона',
+  error: 'Некорректный номер телефона',
   events: {
     focusin: (e: Event) => {
       valid.isErrorStatusField(e);
@@ -104,8 +103,7 @@ export const dataFieldPassword =
   min: '8',
   required: 'required',
   autofocus: 'autofocus',
-  error: `Пароль должен быть 
-    не меньше 8 символов и содержать одну заглавную букву`,
+  error: 'Пароль не меньше 8 символов',
   events: {
     focusin: (e: Event) => {
       valid.isErrorStatusField(e);
@@ -124,8 +122,7 @@ export const dataFieldSecondPassword =
   min: '8',
   required: 'required',
   autofocus: 'autofocus',
-  error: `Пароль должен быть 
-    не меньше 8 символов и содержать одну заглавную букву`,
+  error: 'Пароль не меньше 8 символов',
   events: {
     focusin: (e: Event) => {
       valid.isErrorStatusField(e);
@@ -138,7 +135,7 @@ export const dataFieldSecondPassword =
 
 export const dataButton = {
   text: 'Зарегистрироваться',
-  classButton: 'form__button',
+  classButton: 'form-auth__button',
 };
 
 export const dataForm = {

@@ -45,14 +45,3 @@ export const valid = new Valid('.form', '.button', '.field');
 document.querySelector('.menu-burger')?.addEventListener(
   'click', () => menu.show()
 );
-document.querySelector('.menu__close')?.addEventListener(
-  'click', () => {
-    menu.hide();
-    profile.hide();
-  }
-);
-
-document.querySelector('.edit')?.addEventListener(
-  'click', () => profile.show()
-);
-
