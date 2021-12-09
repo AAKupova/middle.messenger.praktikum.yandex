@@ -5,7 +5,7 @@ export class  Valid {
   button: HTMLElement | null;
   form: HTMLElement | null;
   fields: NodeListOf<Element> | undefined;
-  isNotValid: boolean;
+  isValid: boolean;
   disabled: boolean;
   
   constructor(form:string, button:string, field:string) {
@@ -13,27 +13,25 @@ export class  Valid {
       'email': /\S+@\S+\.\S+/,
       'login': /[a-z-A-Z-0-9 - _]{3,20}$/,
       'password': /^(?=.*\d)(?=.*[A-Z]).{8,40}$/,
-      'second_password': /^(?=.*\d)(?=.*[A-Z]).{8,40}$/,
       'phone': /(\s*)?(\+)?([- _():=+]?\d[- _():=+]?){10,15}(\s*)?/,
       'city': /^([А-ЯЁ]{1}[а-яё -]{1,14})|([A-Z]{1}[a-z -]{1,14})$/u,
-      'second_name': /^([А-ЯЁ]{1}[а-яё -]{1,29})|([A-Z]{1}[a-z -]{1,29})$/u,
-      'first_name': /^([А-ЯЁ]{1}[а-яё -]{1,29})|([A-Z]{1}[a-z -]{1,29})$/u,
+      'name': /^([А-ЯЁ]{1}[а-яё -]{1,29})|([A-Z]{1}[a-z -]{1,29})$/u,
     };
 
     this.form = document.querySelector(form);
     this.fields = this.form?.querySelectorAll(field);
     this.button = document.querySelector(button);
     this.resultValid = {};
-    this.isNotValid;
+    this.isValid;
     this.result;
     this.disabled = true;
 
-    this.init();
+    this.#initValidation();
   }
 
   #isFieldValid(){
     let arrField;
-    
+
     if(this.fields){
       arrField = Array.from(this.fields);
     }
@@ -41,7 +39,7 @@ export class  Valid {
     return arrField?.some((field:HTMLInputElement) => !field.validity.valid);
   }
 
-  init() {
+  #initValidation() {
     if (this.#isFieldValid()) {
       this.disabled = true;
     } else {
@@ -57,14 +55,12 @@ export class  Valid {
 
   isFieldValid(e: { target: HTMLInputElement }){
     const element = e.target;
-    const name = element.name;
-    const error = document.querySelector(`.${name}-error`);
-    if(this.patterns[name] && element.validity.valid){
-      this.result = this.patterns[name].test(element.value);
-      this.resultValid[name] = this.result;
-    }else{
-      this.result = this.patterns[name].test(element.value);
-      this.resultValid[name] = this.result;
+    const patter = element.getAttribute('data-patter');
+    const error = document.querySelector(`.${element.name}-error`);
+
+    if(patter){
+      this.result = this.patterns[patter].test(element.value);
+      this.resultValid[patter] = this.result;
     }
 
     this.#isError(element, error as HTMLElement);
@@ -111,17 +107,21 @@ export class  Valid {
     this.button?.removeAttribute('disabled');
   }
 
-  #toggleButtonDisable() {
+
+  #isValid() {
     const arrValid = Object.values(this.resultValid);
-    this.isNotValid = arrValid.some((result) => result === false);
+    this.isValid = arrValid.some((result) => result === false);
     
     if(!(arrValid.length === this.fields?.length)){
-      if (this.isNotValid) {
+      if (this.isValid) {
         this.disabled = true;
       } else {
         this.disabled = false;
       }
     }
+  }
+  #toggleButtonDisable() {
+    this.#isValid();
 
     if(this.disabled){
       this.#lockButton();
@@ -133,9 +133,9 @@ export class  Valid {
   submit(e: { target: HTMLFormElement }){
     const form = new FormData(e.target);
 
-    if(this.isNotValid){
-      console.log('Данные некорректные');
+    if(this.isValid){
       this.#lockButton();
+      console.log('Данные некорректные');
     }else{
       form.forEach((value, key) => {
         console.log(`${key}: ${value}`);

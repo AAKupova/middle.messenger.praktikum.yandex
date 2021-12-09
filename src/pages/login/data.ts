@@ -28,6 +28,8 @@ export const dataFieldEmail =
   error: 'Некорректный e-mail',
   required: 'required',
   autofocus: 'autofocus',
+  patter: 'email',
+  text: 'Почта',
   events: {
     focusin: (e: { target: HTMLInputElement }) => {
       valid.isErrorStatusField(e);
@@ -46,7 +48,9 @@ export const dataFieldPassword =
   min: '8 ',
   required: 'required',
   autofocus: 'autofocus',
+  patter: 'password',
   error: 'Пароль не меньше 8 символов',
+  text: 'Пароль',
   events: {
     focusin: (e: { target: HTMLInputElement }) => {
       valid.isErrorStatusField(e);

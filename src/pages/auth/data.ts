@@ -9,6 +9,8 @@ export const dataFieldEmail =
   required: 'required',
   autofocus: 'autofocus',
   error: 'Некорректный e-mail',
+  patter: 'email',
+  text: 'Почта',
   events: {
     focusin: (e: { target: HTMLInputElement }) => {
       valid.isErrorStatusField(e);
@@ -28,6 +30,8 @@ export const dataFieldLogin =
   required: 'required',
   autofocus: 'autofocus',
   error: 'Некорректный login',
+  patter: 'login',
+  text: 'Логин',
   events: {
     focusin: (e: { target: HTMLInputElement }) => {
       valid.isErrorStatusField(e);
@@ -47,6 +51,8 @@ export const dataFieldFirstName =
   required: 'required',
   autofocus: 'autofocus',
   error: 'Имя с заглавной буквы',
+  patter: 'name',
+  text: 'Имя',
   events: {
     focusin: (e: { target: HTMLInputElement }) => {
       valid.isErrorStatusField(e);
@@ -66,6 +72,8 @@ export const dataFieldSecondName =
   required: 'required',
   autofocus: 'autofocus',
   error: 'Имя с заглавной буквы',
+  patter: 'name',
+  text: 'Фамилия',
   events: {
     focusin: (e: { target: HTMLInputElement }) => {
       valid.isErrorStatusField(e);
@@ -85,6 +93,8 @@ export const dataFieldPhone =
   required: 'required',
   autofocus: 'autofocus',
   error: 'Некорректный номер телефона',
+  patter: 'phone',
+  text: 'Телефон',
   events: {
     focusin: (e: { target: HTMLInputElement }) => {
       valid.isErrorStatusField(e);
@@ -104,6 +114,8 @@ export const dataFieldPassword =
   required: 'required',
   autofocus: 'autofocus',
   error: 'Пароль не меньше 8 символов',
+  patter: 'password',
+  text: 'Пароль',
   events: {
     focusin: (e: { target: HTMLInputElement }) => {
       valid.isErrorStatusField(e);
@@ -123,6 +135,8 @@ export const dataFieldSecondPassword =
   required: 'required',
   autofocus: 'autofocus',
   error: 'Пароль не меньше 8 символов',
+  patter: 'password',
+  text: 'Пароль',
   events: {
     focusin: (e: { target: HTMLInputElement }) => {
       valid.isErrorStatusField(e);

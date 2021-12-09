@@ -129,6 +129,8 @@ export const dataFieldEmail =
   autofocus: 'autofocus',
   value: 'aa.kupova@gmail.com',
   error: 'Некорректный e-mail',
+  patter: 'email',
+  text: 'Почта',
   events: {
     focusin: (e: { target: HTMLInputElement }) => {
       valid.isErrorStatusField(e);
@@ -149,6 +151,8 @@ required: 'required',
 autofocus: 'autofocus',
 value: 'aaKupova',
 error: 'Некорректный login',
+patter: 'login',
+text: 'Логин',
 events: {
 focusin: (e: { target: HTMLInputElement }) => {
   valid.isErrorStatusField(e);
@@ -169,6 +173,8 @@ export const dataFieldFirstName =
   autofocus: 'autofocus',
   value: 'Анастасия',
   error: 'Имя с заглавной буквы',
+  patter: 'name',
+  text: 'Имя',
   events: {
     focusin: (e: { target: HTMLInputElement }) => {
       valid.isErrorStatusField(e);
@@ -189,6 +195,8 @@ export const dataFieldSecondName =
   autofocus: 'autofocus',
   error: 'Имя с заглавной буквы',
   value: 'Купова',
+  patter: 'name',
+  text: 'Фамилия',
   events: {
     focusin: (e: { target: HTMLInputElement }) => {
       valid.isErrorStatusField(e);
@@ -208,6 +216,8 @@ export const dataFieldPhone = {
   autofocus: 'autofocus',
   value: '+79770000000',
   error: 'Некорректный номер телефона',
+  patter: 'phone',
+  text: 'Телефон',
   events: {
     focusin: (e: { target: HTMLInputElement }) => {
       valid.isErrorStatusField(e);
@@ -227,6 +237,8 @@ export const dataFieldCity = {
   required: 'required',
   autofocus: 'autofocus',
   error: 'Введите название города',
+  patter: 'city',
+  text: 'Город',
   events: {
     focusin: (e: { target: HTMLInputElement }) => {
       valid.isErrorStatusField(e);
