@@ -1,5 +1,5 @@
 # Проект: MyChat
-Ссылка на pull request ветки sprint_1 -> https://github.com/AAKupova/middle.messenger.praktikum.yandex/pull/1
+Ссылка на pull request ветки sprint_2 -> https://github.com/AAKupova/middle.messenger.praktikum.yandex/pull/3
 
 ### Ветка, в которой делаете задания спринта, должна называться sprint_i, где i - номер спринта. Не переименовывайте её.
 
