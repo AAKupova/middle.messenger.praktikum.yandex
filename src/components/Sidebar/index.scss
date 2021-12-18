@@ -25,7 +25,20 @@
   }
 
   &__list-chat {
-    padding: 0 27px;
+    padding: 10px 27px;
+    overflow-y: scroll;
+    height: 444px;
+
+    &::-webkit-scrollbar {
+      width: 4px;
+      background-color: var(--color-light-gray);
+    }
+
+    &::-webkit-scrollbar-thumb {
+      border-radius: 2px;
+      background-color: var(--color-dark-gray);
+
+    }
   }
 }
 
