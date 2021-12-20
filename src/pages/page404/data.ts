@@ -4,7 +4,7 @@ export const dataError = {
   text: 'Страница не найдена',
   error: '404',
   img: img400,
-  href: '/',
+  href: '/messenger',
 };
 
 export const dataButton = {

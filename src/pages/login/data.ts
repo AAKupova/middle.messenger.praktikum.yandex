@@ -10,7 +10,7 @@ export const dataForm = {
   name: 'login',
   title: 'Войти',
   link: 'Нет аккаунта?',
-  href: '/auth',
+  href: '/sign-up',
   events: {
     submit: (e: Event) => {
       e.preventDefault();
