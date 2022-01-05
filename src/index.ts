@@ -1,8 +1,8 @@
 // import ViewBlock from './components/ViewBlock/ViewBlock';
-import { Router } from './utils/Router';
+import { router } from './utils/Router/Router';
 // import { page404 } from './pages/page404';
 // import { page500 } from './pages/page500';
-import { Valid } from './utils/Valid';
+import { Validation } from './utils/Validation';
 import { login } from './pages/login/index';
 import { auth } from './pages/auth/index';
 import { pageMain } from './pages/main/index';
@@ -47,11 +47,11 @@ import './styles/index.scss';
 
 // renderDom('.root', renderPage());
 
-const router = new Router('.root');
 router
   .use('/', login)
   .use('/sign-up/', auth)
   .use('/messenger/', pageMain)
   .start();
 
-export const valid = new Valid('.form', '.button', '.field');
+export const valid = new Validation('.form', '.button', '.field');
+

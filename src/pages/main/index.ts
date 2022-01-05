@@ -4,7 +4,9 @@ import { Sidebar } from '../../components/Sidebar';
 import { TextArea } from '../../components/TextArea';
 import { Menu } from '../../components/Menu';
 import { Profile } from '../../components/Profile';
+
 import { Avatar } from '../../components/Avatar';
+import { EditAvatar } from '../../components/EditAvatar';
 import { formProfile } from './formProfile';
 import { messages } from './messages';
 import { chats } from './chats';
@@ -13,7 +15,8 @@ import {
   dataHeader,
   dataAvatar,
   dataAvatarProfile,
-  dataSidebar
+  dataSidebar,
+  dataEditAvatar
 } from './data';
 
 export const textArea = new TextArea({}, 'text-area');
@@ -22,8 +25,8 @@ export const sidebar = new Sidebar(dataSidebar, 'sidebar', [chats]);
 export const avatarHeader = new Avatar(dataAvatar, 'avatar');
 export const header = new Header(dataHeader, 'header', [avatarHeader]);
 
-
-export const avatarProfile = new Avatar(dataAvatarProfile, 'avatar');
+export const editAvatar = new EditAvatar(dataEditAvatar, 'editAvatar');
+export const avatarProfile = new Avatar(dataAvatarProfile, 'avatar', [editAvatar]);
 export const profile = new Profile({}, 'profile', [avatarProfile, formProfile]);
 export const avatarMenu = new Avatar(dataAvatarProfile, 'avatar');
 export const menu = new Menu(dataMenu, 'menu', [profile, avatarMenu]);

@@ -1,10 +1,25 @@
 import avatarImg from '../../../static/images/photo-avatar.png';
 import { valid } from '../../../src/index';
 import { profile, menu } from '../main';
+import ApiAuth from '../../utils/Api/ApiAuth';
+import { userData } from '../../utils/getUserData';
 
 export const dataAvatar = { img: avatarImg, size: 'avatar__img_size_m'};
 export const dataAvatarProfile = { img: avatarImg, size: 'avatar__img_size_l'};
 export const dataAvatarChat = { img: avatarImg };
+export const dataEditAvatar = {
+  events: {
+    click: (e: Event) => {
+      const input = e.target;
+
+      (input as HTMLElement).addEventListener('change', () => {
+        const form =  (input as HTMLElement).closest('form');
+        const dataForm = new FormData(form as HTMLFormElement);
+          console.log(dataForm);
+      });
+    }
+  }
+};
 export const dataChat = [
   {
     name: 'Анастасия',
@@ -59,13 +74,21 @@ export const dataSidebar = {
       const menuBurger = document.querySelector('.menu-burger');
       if(e.target === menuBurger){
         menu.show();
+
+        const apiAuth = new ApiAuth();
+
+        apiAuth.postAuthLogout({})
+        .then(data => {
+          console.log(data);
+          return data;
+        });
       }
     }
   }
 };
 
 export const dataMenu = {
-  name: 'Анастасия',
+  name: userData.name,
   city: 'Москва',
   events: {
     click: (e: Event) => {
@@ -82,7 +105,7 @@ export const dataMenu = {
   }
 
 };
-export const dataHeader = { name: 'Анастасия', isOnline: 'Online' };
+export const dataHeader = { name: userData.name, isOnline: 'Online' };
 export const dataMessage = [
   {
     text: 'JavaScript — мультипарадигменный',
@@ -127,8 +150,8 @@ export const dataFieldEmail =
   min: '2',
   required: 'required',
   autofocus: 'autofocus',
-  value: 'aa.kupova@gmail.com',
-  error: 'Некорректный e-mail',
+  value: userData.email,
+  error: 'Некорректный email',
   patter: 'email',
   text: 'Почта',
   events: {
@@ -149,7 +172,7 @@ max: '20',
 min: '3',
 required: 'required',
 autofocus: 'autofocus',
-value: 'aaKupova',
+value: userData.login,
 error: 'Некорректный login',
 patter: 'login',
 text: 'Логин',

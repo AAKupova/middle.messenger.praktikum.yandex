@@ -1,7 +1,7 @@
-import ViewBlock from '../components/ViewBlock/ViewBlock';
+import ViewBlock from '../../components/ViewBlock/ViewBlock';
 import { Route } from './Route';
 
-export class Router {
+class Router {
   static __instance: Router;
   routes: Route[];
   history: any;
@@ -71,3 +71,5 @@ export class Router {
     return this.routes.find(route => route.match(pathname));
   }
 }
+
+export const router = new Router('.root');

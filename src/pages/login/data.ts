@@ -1,4 +1,5 @@
 import { valid } from '../../../src/index';
+import ApiAuth from '../../utils/Api/ApiAuth';
 
 export const dataButton = {
   text: 'Войти',
@@ -14,7 +15,28 @@ export const dataForm = {
   events: {
     submit: (e: Event) => {
       e.preventDefault();
-      valid.submit(e as any);
+      const result = valid.submit(e as any);
+      const obj = {};
+      if (result) {
+        result.forEach((value, key) => {
+          obj[key] = value;
+        });
+      }
+
+      const apiAuth = new ApiAuth();
+      apiAuth.postAuthSignin(obj)
+      .then(data => {
+        console.log(data);
+        return data;
+      // }).then(data => {
+      //   console.log(data);
+      //   apiAuth.getAuthUser()
+      //   .then(r => r.json())
+      //   .then(data => {
+      //     console.log('user', data);
+      //   });
+      });
+
     },
   },
 };

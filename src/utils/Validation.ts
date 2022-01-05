@@ -1,4 +1,4 @@
-export class  Valid {
+export class  Validation {
   result: boolean;
   patterns:{ [key: string]: RegExp };
   resultValid: { [key: string]: boolean };
@@ -137,9 +137,11 @@ export class  Valid {
       this.#lockButton();
       console.log('Данные некорректные');
     }else{
-      form.forEach((value, key) => {
-        console.log(`${key}: ${value}`);
-      });
+      // form.forEach((value, key) => {
+      //   console.log(`${key}: ${value}`);
+      // });
+
+      return form;
     }
   }
 }

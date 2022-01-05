@@ -54,6 +54,6 @@ export const formProfile = new FormProfile(
     fieldProfileLogin,
     fieldProfileCity,
     fieldProfileSecondName,
-    fieldProfilePhone
+    fieldProfilePhone,
   ]
 );

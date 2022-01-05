@@ -1,13 +1,4 @@
-interface Headers {
-  [key:string]: string;
-}
-
-interface Options {
-  data?: string,
-  timeout?: number,
-  headers?: Headers,
-  method?: string;
-}
+import { Options } from '../types/type';
 
 const METHODS = {
   GET: 'GET',
@@ -21,11 +12,12 @@ const queryStringify = (data: any) => {
 };
 
 export class HTTPTransport {
-  get = (url: string, options:Options = {}, ...args:unknown[]) => {
-    console.log(...args);
-    const { data, ...rest } = options;
+  get = (url: string, options:Options = {}) => {
+    // console.log(...args);
+    const {...rest } = options;
+    console.log(rest);
     return (
-      this.request(`${url}${queryStringify(data)}`,
+      this.request(`${url}`,
       { ...rest, method: METHODS.GET }, options.timeout)
     );  
   };
@@ -48,9 +40,6 @@ export class HTTPTransport {
     return new Promise((resolve, reject) => {
       const xhr = new XMLHttpRequest();
       xhr.timeout = timeout;
-      Object.keys(headers).forEach(key => {
-        xhr.setRequestHeader(key, headers[key]);
-      });
 
       xhr.onabort = reject;
       xhr.onerror = reject;
@@ -61,6 +50,12 @@ export class HTTPTransport {
       };
 
       xhr.open(method, url);
+      xhr.withCredentials = true;
+
+      Object.keys(headers).forEach(key => {
+        xhr.setRequestHeader(key, headers[key]);
+      });
+
       if(method){
         if (method === 'GET' || !data) {
           xhr.send();
@@ -69,5 +64,6 @@ export class HTTPTransport {
         }
       }
     });
+
   };
 }
