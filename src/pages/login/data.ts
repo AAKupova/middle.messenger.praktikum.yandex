@@ -1,5 +1,5 @@
 import { valid } from '../../../src/index';
-import ApiAuth from '../../utils/Api/ApiAuth';
+// import ApiAuth from '../../utils/api/ApiAuth';
 
 export const dataButton = {
   text: 'Войти',
@@ -22,12 +22,12 @@ export const dataForm = {
           obj[key] = value;
         });
       }
-
-      const apiAuth = new ApiAuth();
-      apiAuth.postAuthSignin(obj)
-      .then(data => {
-        console.log(data);
-        return data;
+      console.log(obj);
+      // const apiAuth = new ApiAuth();
+      // apiAuth.postAuthSignin(obj)
+      // .then(data => {
+      //   console.log(data);
+      //   return data;
       // }).then(data => {
       //   console.log(data);
       //   apiAuth.getAuthUser()
@@ -35,7 +35,7 @@ export const dataForm = {
       //   .then(data => {
       //     console.log('user', data);
       //   });
-      });
+      // });
 
     },
   },

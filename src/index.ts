@@ -1,5 +1,5 @@
 // import ViewBlock from './components/ViewBlock/ViewBlock';
-import { router } from './utils/Router/Router';
+import { router } from './utils/router/Router';
 // import { page404 } from './pages/page404';
 // import { page500 } from './pages/page500';
 import { Validation } from './utils/Validation';

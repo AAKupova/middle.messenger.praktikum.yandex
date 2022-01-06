@@ -1,6 +1,7 @@
 import { valid } from '../../../src/index';
-import ApiAuth from '../../utils/Api/ApiAuth';
-import { router } from './utils/Router';
+import UserController from '../../utils/UserController';
+// import ApiAuth from '../../utils/api/ApiAuth';
+// import { router } from '../../utils/router/Router';
 
 export const dataFieldEmail =
 {
@@ -161,29 +162,8 @@ export const dataForm = {
   events: {
     submit: (e: Event) => {
       e.preventDefault();
-      const result = valid.submit(e as any);
-      const obj = {};
-      if (result) {
-        result.forEach((value, key) => {
-          obj[key] = value;
-        });
-      }
-
-      const apiAuth = new ApiAuth();
-      apiAuth.postAuthSignup(obj)
-      .then((data: any) => data.response)
-      .then((data: any) => {
-        return data;
-      }).then((data: any) => {
-        console.log(data);
-        apiAuth.getAuthUser(data)
-        .then((data: any) => data.response)
-        .then(data => {
-          console.log('user', data);
-          
-          router.go('/messenger/');
-        });
-      });
-  },
-}
+      UserController.isValidData(e);
+      UserController.getUser();
+    },
+  }
 };

@@ -1,8 +1,29 @@
 import avatarImg from '../../../static/images/photo-avatar.png';
 import { valid } from '../../../src/index';
+import { UserData } from '../../types/type';
 import { profile, menu } from '../main';
-import ApiAuth from '../../utils/Api/ApiAuth';
-import { userData } from '../../utils/getUserData';
+
+const initDataUser = {
+  'first_name': '',
+  'second_name': '',
+  'display_name': '',
+  'login': '',
+  'email': '',
+  'password': '',
+  'phone': '',
+  'avatar': '',
+  'id': 0,
+};
+
+export const mergeUserData = (data: UserData) => {
+  let obj = initDataUser;
+
+  if(data){
+    obj = Object.assign(obj, data);
+  }
+
+  return obj;
+};
 
 export const dataAvatar = { img: avatarImg, size: 'avatar__img_size_m'};
 export const dataAvatarProfile = { img: avatarImg, size: 'avatar__img_size_l'};
@@ -74,21 +95,12 @@ export const dataSidebar = {
       const menuBurger = document.querySelector('.menu-burger');
       if(e.target === menuBurger){
         menu.show();
-
-        const apiAuth = new ApiAuth();
-
-        apiAuth.postAuthLogout({})
-        .then(data => {
-          console.log(data);
-          return data;
-        });
       }
     }
   }
 };
 
 export const dataMenu = {
-  name: userData.name,
   city: 'Москва',
   events: {
     click: (e: Event) => {
@@ -105,7 +117,8 @@ export const dataMenu = {
   }
 
 };
-export const dataHeader = { name: userData.name, isOnline: 'Online' };
+
+export const dataHeader = { name: 'Настя', isOnline: 'Online' };
 export const dataMessage = [
   {
     text: 'JavaScript — мультипарадигменный',
@@ -150,7 +163,7 @@ export const dataFieldEmail =
   min: '2',
   required: 'required',
   autofocus: 'autofocus',
-  value: userData.email,
+  value: 'aa.kupova@gmail.com',
   error: 'Некорректный email',
   patter: 'email',
   text: 'Почта',
@@ -172,7 +185,7 @@ max: '20',
 min: '3',
 required: 'required',
 autofocus: 'autofocus',
-value: userData.login,
+value: 'aa.kupova',
 error: 'Некорректный login',
 patter: 'login',
 text: 'Логин',

@@ -46,8 +46,7 @@ export default class ViewBlock {
   };
 
   constructor(tagName: string, props: Props, name: string, children?: ViewBlock[]) {
-    const eventBus = new EventBus();
-    this.eventBus = eventBus;
+    this.eventBus = new EventBus();
     this.props = props;
     this.children = children;
     this.name = name;
