@@ -16,6 +16,7 @@ class UserController {
     this.apiAuth = new ApiAuth();
   }
 
+//Валидация данных!
   isValidData(e: any){
     this.resulrValid = valid.submit(e as any);
   }
@@ -32,7 +33,8 @@ class UserController {
     return obj;
   }
 
-  authSignup() {
+//Авторизация!
+  authSignUp() {
     return this.apiAuth.postAuthSignup(this.addData())
     .then((data: any) => data.response)
     .then((data: any) => {
@@ -40,22 +42,61 @@ class UserController {
     });
   }
 
-  getUser(){
-    this.authSignup()
+//Получение данных user при авторизации!
+  getSignUpDataUser(){
+    this.authSignUp()
       .then((data: any) => {
-        this.apiAuth.getAuthUser(data)
+        console.log(data);
+        this.apiAuth.getAuthUser()
           .then((data: any) => data.response)
           .then(data => {
             Store.set('user', data);
 
-            if(Store.getState().user){
-              console.log(Store.getState());
+            if(Store.getState()){
               router.go('/messenger/');
             }
             
           });
       });
   }
+
+//Получение данных user при авторизации!
+  getSignInDataUser(){
+    this.authSignIn()
+      .then((data: any) => {
+        console.log(data);
+        this.apiAuth.getAuthUser()
+          .then((data: any) => data.response)
+          .then(data => {
+            Store.set('user', data);
+
+            if(Store.getState()){
+              router.go('/messenger/');
+            }
+            
+          });
+      });
+  }
+
+//Вход!
+authSignIn() {
+    return this.apiAuth.postAuthSignin(this.addData())
+    .then((data: any) => data.response)
+    .then((data: any) => {
+      return data;
+    });
+  }
+
+//Выход!
+  authLogout() {
+    return this.apiAuth.postAuthLogout(this.addData())
+    .then((data: any) => data.response)
+    .then((data: any) => {
+      router.go('/');
+      return data;
+    });
+  }
+
 }
 
 export default new UserController(); 

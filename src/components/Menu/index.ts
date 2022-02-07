@@ -17,7 +17,6 @@ export class Menu extends ViewBlock {
   }
 
   render():DocumentFragment {
-    console.log(this.props);
     const tmp = Handlebars.compile(menu);
     return this.compile(tmp(this.props));
   }

@@ -13,12 +13,9 @@ const METHODS = {
 
 export class HTTPTransport {
   get = (url: string, options:Options = {}) => {
-    // console.log(...args);
-    const {...rest } = options;
-    console.log(rest);
     return (
       this.request(`${url}`,
-      { ...rest, method: METHODS.GET }, options.timeout)
+      { method: METHODS.GET }, options.timeout)
     );  
   };
 

@@ -9,6 +9,7 @@ class Store extends EventBus{
   state: unknown = {};
 
   getState() {
+    console.log(this.state);
     return this.state;
   }
 

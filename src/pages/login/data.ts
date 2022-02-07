@@ -1,5 +1,5 @@
 import { valid } from '../../../src/index';
-// import ApiAuth from '../../utils/api/ApiAuth';
+import UserController from '../../utils/UserController';
 
 export const dataButton = {
   text: 'Войти',
@@ -15,43 +15,23 @@ export const dataForm = {
   events: {
     submit: (e: Event) => {
       e.preventDefault();
-      const result = valid.submit(e as any);
-      const obj = {};
-      if (result) {
-        result.forEach((value, key) => {
-          obj[key] = value;
-        });
-      }
-      console.log(obj);
-      // const apiAuth = new ApiAuth();
-      // apiAuth.postAuthSignin(obj)
-      // .then(data => {
-      //   console.log(data);
-      //   return data;
-      // }).then(data => {
-      //   console.log(data);
-      //   apiAuth.getAuthUser()
-      //   .then(r => r.json())
-      //   .then(data => {
-      //     console.log('user', data);
-      //   });
-      // });
-
+      UserController.isValidData(e);
+      UserController.getSignInDataUser();
     },
   },
 };
 
 export const dataFieldEmail =
 {
-  name: 'email',
-  type: 'email',
+  name: 'login',
+  type: 'text',
   max: '30',
   min: '2',
   error: 'Некорректный e-mail',
   required: 'required',
   autofocus: 'autofocus',
-  patter: 'email',
-  text: 'Почта',
+  patter: 'login',
+  text: 'Логин',
   events: {
     focusin: (e: { target: HTMLInputElement }) => {
       valid.isErrorStatusField(e);

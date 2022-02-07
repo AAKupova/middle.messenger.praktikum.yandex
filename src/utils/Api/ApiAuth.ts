@@ -38,16 +38,16 @@ export default class ApiAuth extends Api {
         ...data
       },
       headers: {
+        'accept': 'application/json',
         'Content-Type': 'application/json',
       } 
     };
+    console.log(options);
     return this.feach.post(`${this.baseUrl}/auth/signin`, options);
   }
 
-  getAuthUser(d: any) {
-    const data = JSON.parse(d);
+  getAuthUser() {
     const options  = {
-      data,
       headers: {
         'accept': 'application/json',
       } 

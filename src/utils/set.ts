@@ -20,7 +20,6 @@ export const set = (object: any, path: any, value: any): any => {
      
      return {[val]: {[acc]: value}};
   });
-
   return merge(object,newObj);
 
   }

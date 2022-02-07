@@ -1,29 +1,7 @@
 import avatarImg from '../../../static/images/photo-avatar.png';
+import UserController from '../../utils/UserController';
 import { valid } from '../../../src/index';
-import { UserData } from '../../types/type';
 import { profile, menu } from '../main';
-
-const initDataUser = {
-  'first_name': '',
-  'second_name': '',
-  'display_name': '',
-  'login': '',
-  'email': '',
-  'password': '',
-  'phone': '',
-  'avatar': '',
-  'id': 0,
-};
-
-export const mergeUserData = (data: UserData) => {
-  let obj = initDataUser;
-
-  if(data){
-    obj = Object.assign(obj, data);
-  }
-
-  return obj;
-};
 
 export const dataAvatar = { img: avatarImg, size: 'avatar__img_size_m'};
 export const dataAvatarProfile = { img: avatarImg, size: 'avatar__img_size_l'};
@@ -106,12 +84,16 @@ export const dataMenu = {
     click: (e: Event) => {
       const edit = document.querySelector('.edit');
       const close = document.querySelector('.menu__close');
+      const exit = document.querySelector('.icon-exit');
       if(e.target === edit){
         profile.show();
       }
       if(e.target === close){
         profile.hide();
         menu.hide();
+      }
+      if(e.target === exit) {
+        UserController.authLogout();
       }
     }
   }

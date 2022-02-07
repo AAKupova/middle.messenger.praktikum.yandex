@@ -1,7 +1,5 @@
 import { valid } from '../../../src/index';
 import UserController from '../../utils/UserController';
-// import ApiAuth from '../../utils/api/ApiAuth';
-// import { router } from '../../utils/router/Router';
 
 export const dataFieldEmail =
 {
@@ -163,7 +161,7 @@ export const dataForm = {
     submit: (e: Event) => {
       e.preventDefault();
       UserController.isValidData(e);
-      UserController.getUser();
+      UserController.getSignUpDataUser();
     },
   }
 };
