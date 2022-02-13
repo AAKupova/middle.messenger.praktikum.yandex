@@ -1,5 +1,6 @@
 import { valid } from '../index';
 import ApiAuth from '../utils/api/ApiAuth';
+import ApiUsers from './api/ApiUsers';
 import { router } from './router/Router';
 import Store from './Store';
 
@@ -10,10 +11,12 @@ interface MyObject {
 class UserController {
 
   apiAuth: ApiAuth;
+  apiUser: ApiUsers;
   resulrValid: MyObject | undefined;
 
   constructor() {
     this.apiAuth = new ApiAuth();
+    this.apiUser = new ApiUsers();
   }
 
 //Валидация данных!
@@ -82,9 +85,7 @@ class UserController {
 authSignIn() {
     return this.apiAuth.postAuthSignin(this.addData())
     .then((data: any) => data.response)
-    .then((data: any) => {
-      return data;
-    });
+    .then((data: any) => data);
   }
 
 //Выход!
@@ -97,6 +98,25 @@ authSignIn() {
     });
   }
 
+  putAvatar(data:any) {
+    return this.apiUser.putUsersAvatar(data)
+    .then((data: any) => data.response)
+    .then((data: any) => data);
+  }
+
+  //Получение данных user при авторизации!
+  getDataAvatarUser(data:any){
+    this.putAvatar(data)
+    .then((data: any) => {
+      Store.set('user', data);
+    });
+  }
+  putUserProfile() {
+    console.log(this.addData());
+    return this.apiUser.putUserProfile(this.addData())
+    .then((data: any) => data.response)
+    .then((data: any) => console.log(data));
+  }
 }
 
 export default new UserController(); 

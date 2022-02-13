@@ -2,19 +2,29 @@ import Api from './Api';
 import { Options } from '../../types/type';
 
 export default class ApiUsers extends Api {
-  data: Options | FormData;
+  data: Options;
 
-  constructor () {
+  constructor() {
     super();
   }
 
-  putUsersAvatar(data: FormData){
+  putUsersAvatar(formData: FormData) {
     const headers = {
-      'accept': 'application/json',
-      'Content-Type': 'multipart/form-data',
+      'Content-Type': ' multipart/form-data',
+      'mode': 'cors',
+      credentials: 'include',
     };
-    const options  = { ...data, ...headers };
+    const options = { formData, ...headers };
     return this.feach.put(`${this.baseUrl}/user/profile/avatar`, options);
   }
-  
+
+  putUserProfile(data: Options){
+    const headers = {
+      'accept': 'application/json',
+      'Content-Type': 'application/json',
+    };
+    const options = { data, headers };
+      return this.feach.put(`${this.baseUrl}/user/profile`, options);
+  }
+
 }

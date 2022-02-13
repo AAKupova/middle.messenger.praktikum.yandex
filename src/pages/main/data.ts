@@ -1,21 +1,20 @@
-import avatarImg from '../../../static/images/photo-avatar.png';
+import avatarDefault from '../../../static/images/default-avatar.svg';
 import UserController from '../../utils/UserController';
 import { valid } from '../../../src/index';
 import { profile, menu } from '../main';
 
-export const dataAvatar = { img: avatarImg, size: 'avatar__img_size_m'};
-export const dataAvatarProfile = { img: avatarImg, size: 'avatar__img_size_l'};
-export const dataAvatarChat = { img: avatarImg };
+export const dataAvatar = { avatar: avatarDefault, size: 'avatar__img_size_m' };
+export const dataAvatarProfile = { avatar: avatarDefault, size: 'avatar__img_size_l' };
+export const dataAvatarChat = { avatar: avatarDefault };
 export const dataEditAvatar = {
   events: {
-    click: (e: Event) => {
-      const input = e.target;
-
-      (input as HTMLElement).addEventListener('change', () => {
-        const form =  (input as HTMLElement).closest('form');
-        const dataForm = new FormData(form as HTMLFormElement);
-          console.log(dataForm);
-      });
+    change: (e: Event) => {
+        const files = (<HTMLInputElement>e.target).files;
+        const formData = new FormData();
+        if(files) {
+          formData.append('avatar', files[0]);
+          UserController.getDataAvatarUser(formData);
+        }
     }
   }
 };
@@ -64,14 +63,14 @@ export const dataChat = [
 
 export const dataButton = {
   text: 'Сохронить',
-  classButton: 'form-profile__button'
+  classButton: 'form-profile__button',
 };
 
 export const dataSidebar = {
   events: {
     click: (e: Event) => {
       const menuBurger = document.querySelector('.menu-burger');
-      if(e.target === menuBurger){
+      if (e.target === menuBurger) {
         menu.show();
       }
     }
@@ -82,25 +81,28 @@ export const dataMenu = {
   city: 'Москва',
   events: {
     click: (e: Event) => {
-      const edit = document.querySelector('.edit');
+      const iconSettings = document.querySelector('.icon-settings');
+      const iconExit = document.querySelector('.icon-exit');
       const close = document.querySelector('.menu__close');
-      const exit = document.querySelector('.icon-exit');
-      if(e.target === edit){
+      const edit = document.querySelector('.settings_js');
+      const exit = document.querySelector('.exit_js');
+
+      if (e.target === iconSettings || e.target === edit ) {
         profile.show();
       }
-      if(e.target === close){
+      if (e.target === close) {
         profile.hide();
         menu.hide();
       }
-      if(e.target === exit) {
+      if (e.target === iconExit || e.target === exit ) {
         UserController.authLogout();
       }
     }
   }
 
 };
-
-export const dataHeader = { name: 'Настя', isOnline: 'Online' };
+//export const dataHeader = { name: 'Настя', isOnline: 'Online' };
+export const dataHeader = {};
 export const dataMessage = [
   {
     text: 'JavaScript — мультипарадигменный',
@@ -146,7 +148,7 @@ export const dataFieldEmail =
   required: 'required',
   autofocus: 'autofocus',
   value: 'aa.kupova@gmail.com',
-  error: 'Некорректный email',
+  error: 'Некорректный адрес почты',
   patter: 'email',
   text: 'Почта',
   events: {
@@ -161,24 +163,46 @@ export const dataFieldEmail =
 
 export const dataFieldLogin =
 {
-name: 'login',
-type: 'text',
-max: '20',
-min: '3',
-required: 'required',
-autofocus: 'autofocus',
-value: 'aa.kupova',
-error: 'Некорректный login',
-patter: 'login',
-text: 'Логин',
-events: {
-focusin: (e: { target: HTMLInputElement }) => {
-  valid.isErrorStatusField(e);
-},
-focusout: (e: { target: HTMLInputElement }) => {
-  valid.isFieldValid(e);
-},
-}
+  name: 'login',
+  type: 'text',
+  max: '20',
+  min: '3',
+  required: 'required',
+  autofocus: 'autofocus',
+  value: 'aa.kupova',
+  error: 'Некорректный Логин',
+  patter: 'login',
+  text: 'Логин',
+  events: {
+    focusin: (e: { target: HTMLInputElement }) => {
+      valid.isErrorStatusField(e);
+    },
+    focusout: (e: { target: HTMLInputElement }) => {
+      valid.isFieldValid(e);
+    },
+  }
+};
+
+export const dataFieldDisplayName =
+{
+  name: 'display_name ',
+  type: 'text',
+  max: '20',
+  min: '3',
+  required: 'required',
+  autofocus: 'autofocus',
+  value: 'aa.kupova',
+  error: 'Некорректный псевдоним',
+  patter: 'name',
+  text: 'Псевдоним',
+  events: {
+    focusin: (e: { target: HTMLInputElement }) => {
+      valid.isErrorStatusField(e);
+    },
+    focusout: (e: { target: HTMLInputElement }) => {
+      valid.isFieldValid(e);
+    },
+  }
 };
 
 export const dataFieldFirstName =
@@ -274,7 +298,8 @@ export const dataForm = {
   events: {
     submit: (e: Event) => {
       e.preventDefault();
-      valid.submit(e as any);
+      UserController.isValidData(e);
+      UserController.putUserProfile();
     },
   },
 };

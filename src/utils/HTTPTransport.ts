@@ -12,27 +12,27 @@ const METHODS = {
 // };
 
 export class HTTPTransport {
-  get = (url: string, options:Options = {}) => {
+  get = (url: string, options: Options = {}) => {
     return (
       this.request(`${url}`,
-      { method: METHODS.GET }, options.timeout)
-    );  
+        { method: METHODS.GET }, options.timeout)
+    );
   };
 
-  put = (url:string, options:Options = {}) => {
+  put = (url: string, options: Options = {}) => {
     return this.request(url, { ...options, method: METHODS.PUT }, options.timeout);
   };
 
-  post = (url:string, options:Options = {}) => {
+  post = (url: string, options: Options = {}) => {
     return this.request(url, { ...options, method: METHODS.POST }, options.timeout);
   };
 
-  delete = (url:string, options:Options = {}) => {
+  delete = (url: string, options: Options = {}) => {
     return this.request(url, { ...options, method: METHODS.DELETE }, options.timeout);
   };
 
-  request = (url:string, options: Options = {}, timeout = 5000) => {
-    const { method = '', data, headers = {}} = options;
+  request = (url: string, options: Options = {}, timeout = 5000) => {
+    const { method = '', data, formData, headers = {} } = options;
 
     return new Promise((resolve, reject) => {
       const xhr = new XMLHttpRequest();
@@ -53,10 +53,13 @@ export class HTTPTransport {
         xhr.setRequestHeader(key, headers[key]);
       });
 
-      if(method){
-        if (method === 'GET' || !data) {
+      if (method) {
+        if (method === 'GET' && (!data && !formData)) {
           xhr.send();
+        } else if (formData) {
+          xhr.send(formData);
         } else {
+          console.log(777, JSON.stringify(data));
           xhr.send(JSON.stringify(data));
         }
       }

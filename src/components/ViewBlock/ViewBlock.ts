@@ -191,7 +191,6 @@ export default class ViewBlock {
 
     const oldProps = this.props;
     this.props = Object.assign(this.props, nextProps);
-    console.log(oldProps, this.props);
     this.eventBus.emit(ViewBlock.EVENTS.PROPS_MUTATION, { oldProps, props: this.props });
   };
 

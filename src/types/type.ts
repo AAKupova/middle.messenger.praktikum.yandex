@@ -2,8 +2,8 @@ export interface UserData {
   first_name?: string,
   second_name?: string,
   login?: string,
-  email: string,
-  password: string,
+  email?: string,
+  password?: string,
   phone?: string,
   id?: number,
   display_name?: string,
@@ -19,4 +19,5 @@ export interface Options {
   timeout?: number,
   headers?: Headers,
   method?: string;
+  formData?: FormData;
 }
