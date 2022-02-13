@@ -9,7 +9,6 @@ import {
   dataFieldSecondName,
   dataFieldDisplayName,
   dataFieldPhone,
-  dataFieldCity,
   dataForm,
 } from './data';
 
@@ -26,11 +25,6 @@ export const fieldProfileFirstName = new FieldProfile(
 export const fieldProfileLogin = new FieldProfile(
   dataFieldLogin,
   'field-login'
-);
-
-export const fieldProfileCity = new FieldProfile(
-  dataFieldCity,
-  'field-city'
 );
 
 export const fieldProfileSecondName = new FieldProfile(
@@ -58,7 +52,6 @@ export const formProfile = new FormProfile(
     fieldProfileEmail,
     fieldProfileFirstName,
     fieldProfileLogin,
-    fieldProfileCity,
     fieldProfileSecondName,
     fieldProfileDisplayName,
     fieldProfilePhone,

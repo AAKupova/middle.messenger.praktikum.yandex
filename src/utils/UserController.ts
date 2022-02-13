@@ -2,6 +2,7 @@ import { valid } from '../index';
 import ApiAuth from '../utils/api/ApiAuth';
 import ApiUsers from './api/ApiUsers';
 import { router } from './router/Router';
+import { UserData } from '../types/type';
 import Store from './Store';
 
 interface MyObject {
@@ -107,15 +108,13 @@ authSignIn() {
   //Получение данных user при авторизации!
   getDataAvatarUser(data:any){
     this.putAvatar(data)
-    .then((data: any) => {
-      Store.set('user', data);
-    });
+    .then((data: any) => Store.set('user', data));
   }
   putUserProfile() {
     console.log(this.addData());
     return this.apiUser.putUserProfile(this.addData())
     .then((data: any) => data.response)
-    .then((data: any) => console.log(data));
+    .then((data: UserData) => Store.set('user', data));
   }
 }
 

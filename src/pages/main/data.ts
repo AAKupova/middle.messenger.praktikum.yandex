@@ -1,11 +1,11 @@
-import avatarDefault from '../../../static/images/default-avatar.svg';
+import avatar from '../../../static/images/default-avatar.svg';
 import UserController from '../../utils/UserController';
 import { valid } from '../../../src/index';
 import { profile, menu } from '../main';
 
-export const dataAvatar = { avatar: avatarDefault, size: 'avatar__img_size_m' };
-export const dataAvatarProfile = { avatar: avatarDefault, size: 'avatar__img_size_l' };
-export const dataAvatarChat = { avatar: avatarDefault };
+export const dataAvatar = { avatar: avatar, size: 'avatar__img_size_m' };
+export const dataAvatarProfile = { avatar: avatar, size: 'avatar__img_size_l' };
+export const dataAvatarChat = { avatar: avatar };
 export const dataEditAvatar = {
   events: {
     change: (e: Event) => {
@@ -78,7 +78,6 @@ export const dataSidebar = {
 };
 
 export const dataMenu = {
-  city: 'Москва',
   events: {
     click: (e: Event) => {
       const iconSettings = document.querySelector('.icon-settings');
@@ -147,7 +146,6 @@ export const dataFieldEmail =
   min: '2',
   required: 'required',
   autofocus: 'autofocus',
-  value: 'aa.kupova@gmail.com',
   error: 'Некорректный адрес почты',
   patter: 'email',
   text: 'Почта',
@@ -169,7 +167,6 @@ export const dataFieldLogin =
   min: '3',
   required: 'required',
   autofocus: 'autofocus',
-  value: 'aa.kupova',
   error: 'Некорректный Логин',
   patter: 'login',
   text: 'Логин',
@@ -191,7 +188,6 @@ export const dataFieldDisplayName =
   min: '3',
   required: 'required',
   autofocus: 'autofocus',
-  value: 'aa.kupova',
   error: 'Некорректный псевдоним',
   patter: 'name',
   text: 'Псевдоним',
@@ -213,7 +209,6 @@ export const dataFieldFirstName =
   min: '2',
   required: 'required',
   autofocus: 'autofocus',
-  value: 'Анастасия',
   error: 'Имя с заглавной буквы',
   patter: 'name',
   text: 'Имя',
@@ -236,7 +231,6 @@ export const dataFieldSecondName =
   required: 'required',
   autofocus: 'autofocus',
   error: 'Имя с заглавной буквы',
-  value: 'Купова',
   patter: 'name',
   text: 'Фамилия',
   events: {
@@ -256,31 +250,9 @@ export const dataFieldPhone = {
   min: '10',
   required: 'required',
   autofocus: 'autofocus',
-  value: '+79770000000',
   error: 'Некорректный номер телефона',
   patter: 'phone',
   text: 'Телефон',
-  events: {
-    focusin: (e: { target: HTMLInputElement }) => {
-      valid.isErrorStatusField(e);
-    },
-    focusout: (e: { target: HTMLInputElement }) => {
-      valid.isFieldValid(e);
-    },
-  }
-};
-
-export const dataFieldCity = {
-  name: 'city',
-  type: 'text',
-  max: '15',
-  min: '3',
-  value: 'Москва',
-  required: 'required',
-  autofocus: 'autofocus',
-  error: 'Введите название города',
-  patter: 'city',
-  text: 'Город',
   events: {
     focusin: (e: { target: HTMLInputElement }) => {
       valid.isErrorStatusField(e);
