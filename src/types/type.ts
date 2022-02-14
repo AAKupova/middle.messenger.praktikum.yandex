@@ -1,13 +1,13 @@
 export interface UserData {
-  first_name?: string,
+  display_name?: string,
   second_name?: string,
+  first_name?: string,
+  password?: string,
+  avatar?: string,
   login?: string,
   email?: string,
-  password?: string,
   phone?: string,
   id?: number,
-  display_name?: string,
-  avatar?: string,
 }
 
 export interface Headers {
@@ -15,9 +15,9 @@ export interface Headers {
 }
 
 export interface Options {
-  data?: UserData,
-  timeout?: number,
-  headers?: Headers,
-  method?: string;
   formData?: FormData;
+  headers?: Headers,
+  timeout?: number,
+  method?: string,
+  data?: UserData,
 }

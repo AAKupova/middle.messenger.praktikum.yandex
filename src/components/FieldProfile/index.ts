@@ -27,6 +27,6 @@ function mapUserToProps(state: any, props: any) {
   const obj = JSON.parse(state.user);
   const key = props.name;
   return {
-    value: obj[key]? obj[key]: 'Москва',
+    value: obj[key]? obj[key] : 'Добавте псевданим',
   };
 }

@@ -78,6 +78,7 @@ export const dataSidebar = {
 };
 
 export const dataMenu = {
+  phone: 'phone',
   events: {
     click: (e: Event) => {
       const iconSettings = document.querySelector('.icon-settings');
@@ -182,7 +183,7 @@ export const dataFieldLogin =
 
 export const dataFieldDisplayName =
 {
-  name: 'display_name ',
+  name: 'display_name',
   type: 'text',
   max: '20',
   min: '3',

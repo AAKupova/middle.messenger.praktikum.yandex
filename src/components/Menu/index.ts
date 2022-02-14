@@ -26,5 +26,6 @@ function mapUserToProps(state: any) {
   const obj = JSON.parse(state.user);
   return {
     name: obj.first_name,
+    status: obj.status? obj.status : 'Мой статус!',
   };
 }

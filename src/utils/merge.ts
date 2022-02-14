@@ -10,5 +10,6 @@ export const merge = (objOne: any, objTwo: any): any => {
       objOne[prop] = objTwo[prop];
     }
   }
+  console.log(objOne);
   return objOne;
 };

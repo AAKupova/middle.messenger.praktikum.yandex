@@ -42,7 +42,6 @@ export default class ApiAuth extends Api {
         'Content-Type': 'application/json',
       } 
     };
-    console.log(options);
     return this.feach.post(`${this.baseUrl}/auth/signin`, options);
   }
 

@@ -111,10 +111,11 @@ authSignIn() {
     .then((data: any) => Store.set('user', data));
   }
   putUserProfile() {
-    console.log(this.addData());
     return this.apiUser.putUserProfile(this.addData())
     .then((data: any) => data.response)
-    .then((data: UserData) => Store.set('user', data));
+    .then((data: UserData) => {
+      Store.set('user', data);
+    });
   }
 }
 

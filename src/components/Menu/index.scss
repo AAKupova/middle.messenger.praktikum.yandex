@@ -11,13 +11,13 @@
   overflow: hidden;
 
   &__content {
-    width: 334px;
+    width: 300px;
     box-sizing: border-box;
     background-color: var(--color-dark);
     flex-direction: column;
     height: 100%;
     display: flex;
-    flex: 0 0 334px;
+    flex: 0 0 300px;
   }
 
   &_show {
@@ -72,7 +72,7 @@
     margin: 0;
   }
 
-  &__phone {
+  &__status {
     padding: 0;
     margin: 8px 0 0 0;
     font-weight: 400;
@@ -94,7 +94,7 @@
     align-items: center;
     gap: 20px;
     margin-bottom: 20px;
-    transition: all 0.5s ease-in-out;
+    transition: all 0.2s ease-in-out;
 
     &:last-child {
       margin-bottom: 0;
@@ -108,7 +108,7 @@
     background-color: var(--color-dark);
     background-position: center;
     background-repeat: no-repeat;
-    transition: all 0.5s ease-in-out;
+    transition: all 0.2s ease-in-out;
   }
 
   &__text {
