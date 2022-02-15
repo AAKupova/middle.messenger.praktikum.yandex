@@ -1,4 +1,4 @@
-import { HTTPTransport } from '../HTTPTransport';
+import { HTTPTransport } from '../../utils/HTTPTransport';
 
 export default class Api {
   baseUrl: string;

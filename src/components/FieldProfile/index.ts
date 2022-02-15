@@ -1,8 +1,8 @@
 import * as Handlebars from 'handlebars';
 
 import ViewBlock from '../ViewBlock/ViewBlock';
-import Store from '../../utils/Store';
-import { StoreEvents } from '../../utils/Store';
+import Store from '../../models/Api/Store';
+import { StoreEvents } from '../../models/Api/Store';
 
 import fieldProfile from './index.hbs';
 import './index.scss';

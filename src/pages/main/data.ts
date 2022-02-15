@@ -1,5 +1,5 @@
 import avatar from '../../../static/images/default-avatar.svg';
-import UserController from '../../utils/UserController';
+import UserController from '../../controllers/UserController';
 import { valid } from '../../../src/index';
 import { profile, menu } from '../main';
 

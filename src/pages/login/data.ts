@@ -1,5 +1,5 @@
 import { valid } from '../../../src/index';
-import UserController from '../../utils/UserController';
+import UserController from '../../controllers/UserController';
 
 export const dataButton = {
   text: 'Войти',

@@ -1,9 +1,9 @@
 import { valid } from '../index';
-import ApiAuth from '../utils/api/ApiAuth';
-import ApiUsers from './api/ApiUsers';
-import { router } from './router/Router';
+import ApiAuth from '../models/Api/ApiAuth';
+import ApiUsers from '../models/Api/ApiUsers';
+import { router } from '../routers/Router';
 import { UserData } from '../types/type';
-import Store from './Store';
+import Store from '../models/Api/Store';
 
 interface MyObject {
   [key: string]: any;
@@ -112,6 +112,14 @@ authSignIn() {
   }
   putUserProfile() {
     return this.apiUser.putUserProfile(this.addData())
+    .then((data: any) => data.response)
+    .then((data: UserData) => {
+      Store.set('user', data);
+    });
+  }
+
+  postUserAvatar() {
+    return this.apiUser.postUserAvatar('')
     .then((data: any) => data.response)
     .then((data: UserData) => {
       Store.set('user', data);

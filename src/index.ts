@@ -1,8 +1,8 @@
 // import ViewBlock from './components/ViewBlock/ViewBlock';
-import { router } from './utils/router/Router';
+import { router } from './routers/Router';
 // import { page404 } from './pages/page404';
 // import { page500 } from './pages/page500';
-import { Validation } from './utils/Validation';
+import { Validation } from './models/Validation';
 import { login } from './pages/login/index';
 import { auth } from './pages/auth/index';
 import { pageMain } from './pages/main/index';

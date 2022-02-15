@@ -18,6 +18,14 @@ export default class ApiUsers extends Api {
     return this.feach.put(`${this.baseUrl}/user/profile/avatar`, options);
   }
 
+  postUserAvatar (strUrl:string) {
+    const headers = {
+      'accept': 'application/json',
+    };
+    const options = { ...headers };
+    return this.feach.post(`${this.baseUrl}/user/profile/avatar/${strUrl}`, options);
+  }
+
   putUserProfile(data: Options){
     const headers = {
       'accept': 'application/json',

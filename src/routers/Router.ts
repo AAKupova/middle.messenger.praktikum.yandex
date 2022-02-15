@@ -1,4 +1,4 @@
-import ViewBlock from '../../components/ViewBlock/ViewBlock';
+import ViewBlock from '../components/ViewBlock/ViewBlock';
 import { Route } from './Route';
 
 class Router {

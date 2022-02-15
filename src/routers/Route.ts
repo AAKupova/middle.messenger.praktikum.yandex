@@ -1,6 +1,6 @@
-import { isEqual } from '../isEqual';
-import ViewBlock from '../../components/ViewBlock/ViewBlock';
-import { renderDom } from '../renderDom';
+import { isEqual } from '../utils/isEqual';
+import ViewBlock from '../components/ViewBlock/ViewBlock';
+import { renderDom } from '../utils/renderDom';
 
 
 interface Props {
