@@ -11,19 +11,23 @@ export default class ApiUsers extends Api {
   putUsersAvatar(formData: FormData) {
     const headers = {
       'Content-Type': ' multipart/form-data',
-      'mode': 'cors',
-      credentials: 'include',
+      'accept': 'application/json',
     };
     const options = { formData, ...headers };
     return this.feach.put(`${this.baseUrl}/user/profile/avatar`, options);
   }
 
-  postUserAvatar (strUrl:string) {
+  getUserAvatar(strUrl:string) {
     const headers = {
       'accept': 'application/json',
     };
+
+    // ${url}${queryStringify(data)}`
     const options = { ...headers };
-    return this.feach.post(`${this.baseUrl}/user/profile/avatar/${strUrl}`, options);
+    return this.feach.post(
+      `${this.baseUrl}/resources/${this.baseUrl}/user/profile/avatar/${strUrl}`,
+      options
+    );
   }
 
   putUserProfile(data: Options){

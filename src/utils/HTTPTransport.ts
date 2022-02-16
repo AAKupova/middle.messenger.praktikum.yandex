@@ -7,10 +7,6 @@ const METHODS = {
   DELETE: 'DELETE',
 };
 
-// const queryStringify = (data: any) => {
-//   return `?${Object.keys(data).map(key => `${key}=${data[key]}`).join('&')}`;
-// };
-
 export class HTTPTransport {
   get = (url: string, options: Options = {}) => {
     return (

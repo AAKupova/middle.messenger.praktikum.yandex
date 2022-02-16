@@ -3,7 +3,7 @@ import ApiAuth from '../models/Api/ApiAuth';
 import ApiUsers from '../models/Api/ApiUsers';
 import { router } from '../routers/Router';
 import { UserData } from '../types/type';
-import Store from '../models/Api/Store';
+import Store from '../models/Store';
 
 interface MyObject {
   [key: string]: any;
@@ -99,32 +99,35 @@ authSignIn() {
     });
   }
 
-  putAvatar(data:any) {
+  putAvatar(data: FormData) {
     return this.apiUser.putUsersAvatar(data)
     .then((data: any) => data.response)
-    .then((data: any) => data);
+    .then((data: UserData) => Store.set('user', data));
   }
 
-  //Получение данных user при авторизации!
-  getDataAvatarUser(data:any){
-    this.putAvatar(data)
-    .then((data: any) => Store.set('user', data));
-  }
+  // //Получение данных user при авторизации!
+  // getDataAvatarUser(data:any){
+  //   this.putAvatar(data)
+  //   .then((data: any) => data.response)
+  //   .then((data: any) => {
+  //     Store.set('user', data);
+  //     console.log(Store.getState());
+  //   });
+  // }
+
   putUserProfile() {
     return this.apiUser.putUserProfile(this.addData())
     .then((data: any) => data.response)
-    .then((data: UserData) => {
-      Store.set('user', data);
-    });
+    .then((data: UserData) => Store.set('user', data));
   }
 
-  postUserAvatar() {
-    return this.apiUser.postUserAvatar('')
-    .then((data: any) => data.response)
-    .then((data: UserData) => {
-      Store.set('user', data);
-    });
-  }
+  // getUserAvatar(file: string) {
+  //   return this.apiUser.getUserAvatar(file)
+  //   .then((data: any) => data.response)
+  //   .then((data: UserData) => {
+  //     console.log(data);
+  //   });
+  // }
 }
 
 export default new UserController(); 

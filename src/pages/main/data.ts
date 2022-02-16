@@ -13,7 +13,7 @@ export const dataEditAvatar = {
         const formData = new FormData();
         if(files) {
           formData.append('avatar', files[0]);
-          UserController.getDataAvatarUser(formData);
+          UserController.putAvatar(formData);
         }
     }
   }
