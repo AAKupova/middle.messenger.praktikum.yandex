@@ -8,6 +8,10 @@ export default class Api {
   constructor () { 
     this.baseUrl = 'https://ya-praktikum.tech/api/v2';
     this.feach = new HTTPTransport();
+    this.headers = {
+      'Content-Type': 'application/json',
+      'accept': 'application/json',
+    };
   }
 
   // create() { throw new Error('Not implemented'); }

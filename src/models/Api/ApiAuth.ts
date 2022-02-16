@@ -9,48 +9,25 @@ export default class ApiAuth extends Api {
   }
 
   postAuthSignup(data: Options) {
-    const options  = {
-      data: {
-        ...data
-      },
-      headers: {
-        'Content-Type': 'application/json',
-      } 
-    };
-    return this.feach.post(`${this.baseUrl}/auth/signup`, options);
+    return this.feach.post(`${this.baseUrl}/auth/signup`, this.mergeData(data));
   }
 
   postAuthLogout(data: Options) {
-    const options  = {
-      data: {
-        ...data
-      },
-      headers: {
-        'accept': 'application/json',
-      } 
-    };
-    return this.feach.post(`${this.baseUrl}/auth/logout`, options);
+    return this.feach.post(`${this.baseUrl}/auth/logout`, this.mergeData(data));
   }
 
   postAuthSignin(data: Options) {
-    const options  = {
-      data: {
-        ...data
-      },
-      headers: {
-        'accept': 'application/json',
-        'Content-Type': 'application/json',
-      } 
-    };
-    return this.feach.post(`${this.baseUrl}/auth/signin`, options);
+    return this.feach.post(`${this.baseUrl}/auth/signin`, this.mergeData(data));
   }
 
   getAuthUser() {
-    const options  = {
-      headers: {
-        'accept': 'application/json',
-      } 
-    };
-    return this.feach.get(`${this.baseUrl}/auth/user`, options);
+    return this.feach.get(`${this.baseUrl}/auth/user`, this.mergeData());
+  }
+
+  private mergeData(data: any = null) {
+    if(data){ 
+      return { data: { ...data }, headers: { ...(this.headers) }};
+    }
+    return { headers: { ...(this.headers) }};
   }
 }

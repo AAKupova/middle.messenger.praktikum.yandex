@@ -3,6 +3,7 @@ import { router } from './routers/Router';
 // import { page404 } from './pages/page404';
 // import { page500 } from './pages/page500';
 import { Validation } from './models/Validation';
+import UserController from './controllers/AuthController';
 import { login } from './pages/login/index';
 import { auth } from './pages/auth/index';
 import { pageMain } from './pages/main/index';
@@ -52,6 +53,13 @@ router
   .use('/sign-up/', auth)
   .use('/messenger/', pageMain)
   .start();
+
+  window.onload = () => {
+    const path: string = window.location.pathname;
+    if(path === '/messenger/') {
+      UserController.getDataUser();
+    }
+  };
 
 export const valid = new Validation('.form', '.button', '.field');
 

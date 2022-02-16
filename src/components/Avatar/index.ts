@@ -1,32 +1,10 @@
-// import * as Handlebars from 'handlebars';
-
-// import ViewBlock from '../ViewBlock/ViewBlock';
-
-// import avatar from './index.hbs';
-// import './index.scss';
-
-// export class Avatar extends ViewBlock {
-//   constructor(props:object, name:string, children?:ViewBlock[]) {
-//     super('div', props, name, children);
-//   }
-
-//   render():DocumentFragment | string {
-//     if(this.children){
-//       const tmp = Handlebars.compile(avatar);
-//       return this.compile(tmp(this.props));
-//     }else{
-//       const tmp = Handlebars.compile(avatar);
-//       return tmp(this.props);
-//     }
-//   }
-// }
-
 import * as Handlebars from 'handlebars';
 
+import avatarImg from '../../../static/images/default-avatar.svg';
+import { StoreEvents } from '../../models/Store';
+// import { StateData } from '../../types/type';
 import ViewBlock from '../ViewBlock/ViewBlock';
 import Store from '../../models/Store';
-import { StoreEvents } from '../../models/Store';
-import avatarImg from '../../../static/images/default-avatar.svg';
 
 import avatar from './index.hbs';
 import './index.scss';
@@ -53,7 +31,8 @@ export class Avatar extends ViewBlock {
 
 function mapUserToProps(state: any) {
   const obj = JSON.parse(state.user);
+  const urlImg = `https://ya-praktikum.tech/api/v2/resources${obj.avatar}`;
   return {
-    avatar: obj? `https://ya-praktikum.tech/api/v2/resources${obj.avatar}` : avatarImg,
+    avatar: obj? urlImg : avatarImg,
   };
 }

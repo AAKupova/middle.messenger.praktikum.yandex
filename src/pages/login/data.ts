@@ -1,5 +1,5 @@
 import { valid } from '../../../src/index';
-import UserController from '../../controllers/UserController';
+import AuthController from '../../controllers/AuthController';
 
 export const dataButton = {
   text: 'Войти',
@@ -15,8 +15,8 @@ export const dataForm = {
   events: {
     submit: (e: Event) => {
       e.preventDefault();
-      UserController.isValidData(e);
-      UserController.getSignInDataUser();
+      AuthController.isValidData(e);
+      AuthController.signIn();
     },
   },
 };

@@ -1,5 +1,5 @@
 import { valid } from '../../../src/index';
-import UserController from '../../controllers/UserController';
+import AuthController from '../../controllers/AuthController';
 
 export const dataFieldEmail =
 {
@@ -160,8 +160,8 @@ export const dataForm = {
   events: {
     submit: (e: Event) => {
       e.preventDefault();
-      UserController.isValidData(e);
-      UserController.getSignUpDataUser();
+      AuthController.isValidData(e);
+      AuthController.signUp();
     },
   }
 };

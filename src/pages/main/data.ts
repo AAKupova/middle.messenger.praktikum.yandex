@@ -1,4 +1,5 @@
 import avatar from '../../../static/images/default-avatar.svg';
+import AuthController from '../../controllers/AuthController';
 import UserController from '../../controllers/UserController';
 import { valid } from '../../../src/index';
 import { profile, menu } from '../main';
@@ -13,7 +14,7 @@ export const dataEditAvatar = {
         const formData = new FormData();
         if(files) {
           formData.append('avatar', files[0]);
-          UserController.putAvatar(formData);
+          UserController.editAvatar(formData);
         }
     }
   }
@@ -95,7 +96,7 @@ export const dataMenu = {
         menu.hide();
       }
       if (e.target === iconExit || e.target === exit ) {
-        UserController.authLogout();
+        AuthController.logout();
       }
     }
   }
@@ -272,7 +273,7 @@ export const dataForm = {
     submit: (e: Event) => {
       e.preventDefault();
       UserController.isValidData(e);
-      UserController.putUserProfile();
+      UserController.editProfile();
     },
   },
 };
