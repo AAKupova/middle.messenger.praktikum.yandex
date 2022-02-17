@@ -1,59 +1,35 @@
-import { Button } from '../../components/Button';
-import { FormProfile } from '../../components/FormProfile';
 import { FieldProfile } from '../../components/FieldProfile';
+import { FormProfile } from '../../components/FormProfile';
+import { Button } from '../../components/Button';
 import {
   dataButton,
-  dataFieldEmail,
-  dataFieldLogin,
-  dataFieldFirstName,
-  dataFieldSecondName,
-  dataFieldDisplayName,
-  dataFieldPhone,
+  dataEmail,
+  dataLogin,
+  dataFirstName,
+  dataSecondName,
+  dataDisplayName,
+  dataPhone,
   dataForm,
 } from './data';
 
-export const fieldProfileEmail = new FieldProfile(
-  dataFieldEmail,
-  'field-email'
-);
-
-export const fieldProfileFirstName = new FieldProfile(
-  dataFieldFirstName,
-  'field-first-name'
-);
-
-export const fieldProfileLogin = new FieldProfile(
-  dataFieldLogin,
-  'field-login'
-);
-
-export const fieldProfileSecondName = new FieldProfile(
-  dataFieldSecondName,
-  'field-second-name'
-);
-
-export const fieldProfileDisplayName = new FieldProfile(
-  dataFieldDisplayName,
-  'display-name'
-);
-
-export const fieldProfilePhone = new FieldProfile(
-  dataFieldPhone,
-  'field-phone'
-);
-
+export const fieldSecondName = new FieldProfile(dataSecondName, 'field-second-name');
+export const fieldDisplayName = new FieldProfile(dataDisplayName, 'display-name');
+export const fieldFirstName = new FieldProfile(dataFirstName, 'field-first-name');
+export const fieldEmail = new FieldProfile(dataEmail, 'field-email');
+export const fieldLogin = new FieldProfile(dataLogin, 'field-login');
+export const fieldPhone = new FieldProfile(dataPhone, 'field-phone');
 export const button = new Button(dataButton, 'button');
 
 export const formProfile = new FormProfile(
   dataForm,
   'form',
   [
+    fieldDisplayName,
+    fieldSecondName,
+    fieldFirstName,
+    fieldEmail,
+    fieldLogin,
+    fieldPhone,
     button,
-    fieldProfileEmail,
-    fieldProfileFirstName,
-    fieldProfileLogin,
-    fieldProfileSecondName,
-    fieldProfileDisplayName,
-    fieldProfilePhone,
   ]
 );

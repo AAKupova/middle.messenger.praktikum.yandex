@@ -2,7 +2,7 @@ import { MyObject } from '../types/type';
 import { valid } from '../index';
 
 export class Controller {
-  resulrValid: MyObject | undefined;
+  resulrValid: any;
 
   isValidData(e: any){
     this.resulrValid = valid.submit(e as any);
@@ -16,7 +16,6 @@ export class Controller {
         obj[key] = value;
       });
     }
-    
     return obj;
   }
 }

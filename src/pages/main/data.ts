@@ -1,8 +1,192 @@
 import avatar from '../../../static/images/default-avatar.svg';
 import AuthController from '../../controllers/AuthController';
 import UserController from '../../controllers/UserController';
-import { valid } from '../../../src/index';
 import { profile, menu } from '../main';
+import { valid } from '../../index';
+
+export const dataPhone = {
+  events: {
+    focusin: (e: { target: HTMLInputElement }) => {
+      valid.isErrorStatusField(e);
+    },
+    focusout: (e: { target: HTMLInputElement }) => {
+      valid.isFieldValid(e);
+    },
+  },
+  required: 'required',
+  autofocus: 'autofocus',
+  name: 'phone',
+  type: 'phone',
+  max: '15',
+  min: '10',
+  error: 'Некорректный номер телефона',
+  patter: 'phone',
+  text: 'Телефон',
+};
+
+export const dataSecondName = {
+  events: {
+    focusin: (e: { target: HTMLInputElement }) => {
+      valid.isErrorStatusField(e);
+    },
+    focusout: (e: { target: HTMLInputElement }) => {
+      valid.isFieldValid(e);
+    },
+  },
+  required: 'required',
+  autofocus: 'autofocus',
+  name: 'second_name',
+  type: 'text',
+  max: '30',
+  min: '2',
+  error: 'Имя с заглавной буквы',
+  patter: 'name',
+  text: 'Фамилия',
+};
+
+export const dataFirstName = {
+  events: {
+    focusin: (e: { target: HTMLInputElement }) => {
+      valid.isErrorStatusField(e);
+    },
+    focusout: (e: { target: HTMLInputElement }) => {
+      valid.isFieldValid(e);
+    },
+  },
+  required: 'required',
+  autofocus: 'autofocus',
+  name: 'first_name',
+  type: 'text',
+  max: '30',
+  min: '2',
+  error: 'Имя с заглавной буквы',
+  patter: 'name',
+  text: 'Имя',
+};
+
+export const dataDisplayName = {
+  events: {
+    focusin: (e: { target: HTMLInputElement }) => {
+      valid.isErrorStatusField(e);
+    },
+    focusout: (e: { target: HTMLInputElement }) => {
+      valid.isFieldValid(e);
+    },
+  },
+  required: 'required',
+  autofocus: 'autofocus',
+  name: 'display_name',
+  type: 'text',
+  max: '20',
+  min: '3',
+  error: 'Некорректный псевдоним',
+  patter: 'name',
+  text: 'Псевдоним',
+};
+
+export const dataLogin = {
+  events: {
+    focusin: (e: { target: HTMLInputElement }) => {
+      valid.isErrorStatusField(e);
+    },
+    focusout: (e: { target: HTMLInputElement }) => {
+      valid.isFieldValid(e);
+    },
+  },
+  required: 'required',
+  autofocus: 'autofocus',
+  name: 'login',
+  type: 'text',
+  max: '20',
+  min: '3',
+  error: 'Некорректный Логин',
+  patter: 'login',
+  text: 'Логин',
+};
+
+export const dataEmail = {
+  events: {
+    focusin: (e: { target: HTMLInputElement }) => {
+      valid.isErrorStatusField(e);
+    },
+    focusout: (e: { target: HTMLInputElement }) => {
+      valid.isFieldValid(e);
+    },
+  },
+  required: 'required',
+  autofocus: 'autofocus',
+  name: 'email',
+  type: 'email',
+  max: '30',
+  min: '2',
+  error: 'Некорректный адрес почты',
+  patter: 'email',
+  text: 'Почта',
+};
+
+export const dataButton = {
+  text: 'Сохронить',
+  classButton: 'form-profile__button',
+  disabled: 'disabled'
+};
+
+export const dataForm = {
+  title: 'Регестрация',
+  link: 'Уже есть аккаунт',
+  href: '/',
+  events: {
+    submit: (e: Event) => {
+      e.preventDefault();
+      console.log(e);
+      UserController.isValidData(e);
+      UserController.editProfile();
+    },
+  },
+};
+
+export const dataPopupButton = {
+  text: 'Сохронить',
+  classButton: 'form-login__button',
+};
+export const dataNewPasswordField = {
+  events: {
+    focusin: (e: { target: HTMLInputElement }) => {
+      valid.isErrorStatusField(e);
+    },
+    focusout: (e: { target: HTMLInputElement }) => {
+      valid.isFieldValid(e);
+    },
+  },
+  required: 'required',
+  autofocus: 'autofocus',
+  name: 'password',
+  type: 'password',
+  max: '40',
+  min: '8',
+  error: 'Пароль не меньше 8 символов',
+  patter: 'password',
+  text: 'Новый пароль',
+};
+
+export const dataOldPasswordField = {
+  events: {
+    focusin: (e: { target: HTMLInputElement }) => {
+      valid.isErrorStatusField(e);
+    },
+    focusout: (e: { target: HTMLInputElement }) => {
+      valid.isFieldValid(e);
+    },
+  },
+  required: 'required',
+  autofocus: 'autofocus',
+  name: 'old-password',
+  type: 'password',
+  max: '40',
+  min: '8',
+  error: 'Пароль не меньше 8 символов',
+  patter: 'password',
+  text: 'Старый пароль',
+};
 
 export const dataAvatar = { avatar: avatar, size: 'avatar__img_size_m' };
 export const dataAvatarProfile = { avatar: avatar, size: 'avatar__img_size_l' };
@@ -61,11 +245,6 @@ export const dataChat = [
     time: '14:40',
   },
 ];
-
-export const dataButton = {
-  text: 'Сохронить',
-  classButton: 'form-profile__button',
-};
 
 export const dataSidebar = {
   events: {
@@ -139,141 +318,3 @@ export const dataMessage = [
     time: '12:30'
   },
 ];
-
-export const dataFieldEmail =
-{
-  name: 'email',
-  type: 'email',
-  max: '30',
-  min: '2',
-  required: 'required',
-  autofocus: 'autofocus',
-  error: 'Некорректный адрес почты',
-  patter: 'email',
-  text: 'Почта',
-  events: {
-    focusin: (e: { target: HTMLInputElement }) => {
-      valid.isErrorStatusField(e);
-    },
-    focusout: (e: { target: HTMLInputElement }) => {
-      valid.isFieldValid(e);
-    },
-  }
-};
-
-export const dataFieldLogin =
-{
-  name: 'login',
-  type: 'text',
-  max: '20',
-  min: '3',
-  required: 'required',
-  autofocus: 'autofocus',
-  error: 'Некорректный Логин',
-  patter: 'login',
-  text: 'Логин',
-  events: {
-    focusin: (e: { target: HTMLInputElement }) => {
-      valid.isErrorStatusField(e);
-    },
-    focusout: (e: { target: HTMLInputElement }) => {
-      valid.isFieldValid(e);
-    },
-  }
-};
-
-export const dataFieldDisplayName =
-{
-  name: 'display_name',
-  type: 'text',
-  max: '20',
-  min: '3',
-  required: 'required',
-  autofocus: 'autofocus',
-  error: 'Некорректный псевдоним',
-  patter: 'name',
-  text: 'Псевдоним',
-  events: {
-    focusin: (e: { target: HTMLInputElement }) => {
-      valid.isErrorStatusField(e);
-    },
-    focusout: (e: { target: HTMLInputElement }) => {
-      valid.isFieldValid(e);
-    },
-  }
-};
-
-export const dataFieldFirstName =
-{
-  name: 'first_name',
-  type: 'text',
-  max: '30',
-  min: '2',
-  required: 'required',
-  autofocus: 'autofocus',
-  error: 'Имя с заглавной буквы',
-  patter: 'name',
-  text: 'Имя',
-  events: {
-    focusin: (e: { target: HTMLInputElement }) => {
-      valid.isErrorStatusField(e);
-    },
-    focusout: (e: { target: HTMLInputElement }) => {
-      valid.isFieldValid(e);
-    },
-  }
-};
-
-export const dataFieldSecondName =
-{
-  name: 'second_name',
-  type: 'text',
-  max: '30',
-  min: '2',
-  required: 'required',
-  autofocus: 'autofocus',
-  error: 'Имя с заглавной буквы',
-  patter: 'name',
-  text: 'Фамилия',
-  events: {
-    focusin: (e: { target: HTMLInputElement }) => {
-      valid.isErrorStatusField(e);
-    },
-    focusout: (e: { target: HTMLInputElement }) => {
-      valid.isFieldValid(e);
-    },
-  }
-};
-
-export const dataFieldPhone = {
-  name: 'phone',
-  type: 'phone',
-  max: '15',
-  min: '10',
-  required: 'required',
-  autofocus: 'autofocus',
-  error: 'Некорректный номер телефона',
-  patter: 'phone',
-  text: 'Телефон',
-  events: {
-    focusin: (e: { target: HTMLInputElement }) => {
-      valid.isErrorStatusField(e);
-    },
-    focusout: (e: { target: HTMLInputElement }) => {
-      valid.isFieldValid(e);
-    },
-  }
-};
-
-export const dataForm = {
-  title: 'Регестрация',
-  link: 'Уже есть аккаунт',
-  href: '/',
-  events: {
-    submit: (e: Event) => {
-      e.preventDefault();
-      UserController.isValidData(e);
-      UserController.editProfile();
-    },
-  },
-};

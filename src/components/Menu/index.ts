@@ -25,7 +25,7 @@ export class Menu extends ViewBlock {
 function mapUserToProps(state: any) {
   const obj = JSON.parse(state.user);
   return {
-    name: obj.first_name,
+    name: obj.display_name,
     status: obj.status? obj.status : 'Мой статус!',
   };
 }
