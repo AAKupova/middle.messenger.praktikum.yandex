@@ -90,6 +90,7 @@ export class  Validation {
       error.style.display = 'block';
     }
     element.classList.add('field_error');
+    this.#lockButton();
   } 
 
   #hideError(element:HTMLElement, error:HTMLElement | null){
@@ -97,6 +98,7 @@ export class  Validation {
       error.style.display = 'none';
     }
     element.classList.remove('field_error');
+    this.#unlockButton();
   }
 
   #lockButton() {
@@ -135,12 +137,8 @@ export class  Validation {
 
     if(this.isValid){
       this.#lockButton();
-      console.log('Данные некорректные');
+      return console.log('Данные некорректные');
     }else{
-      // form.forEach((value, key) => {
-      //   console.log(`${key}: ${value}`);
-      // });
-
       return form;
     }
   }

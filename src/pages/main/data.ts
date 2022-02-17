@@ -1,7 +1,7 @@
 import avatar from '../../../static/images/default-avatar.svg';
 import AuthController from '../../controllers/AuthController';
 import UserController from '../../controllers/UserController';
-import { profile, menu } from '../main';
+import { profile, menu, popup } from '../main';
 import { valid } from '../../index';
 
 export const dataPhone = {
@@ -130,17 +130,40 @@ export const dataButton = {
   disabled: 'disabled'
 };
 
+export const dataPopup = {
+  title: 'Изменить пароль',
+  events: {
+    click: (e: Event) => {
+      const close = document.querySelector('.popup__close');
+      if(e.target === close) {
+        popup.hide();
+      }
+    }
+  }
+};
+
 export const dataForm = {
-  title: 'Регестрация',
-  link: 'Уже есть аккаунт',
-  href: '/',
   events: {
     submit: (e: Event) => {
       e.preventDefault();
-      console.log(e);
       UserController.isValidData(e);
       UserController.editProfile();
     },
+    click: (e: Event) => {
+      const editIcon = document.querySelector('.form-profile__icon-edit');
+      const editText = document.querySelector('.form-profile__text-edit');
+      const exitText = document.querySelector('.form-profile__text-exit');
+      const exitIcon = document.querySelector('.form-profile__icon-exit');
+
+      if(e.target === editIcon || e.target === editText) {
+        popup.show();
+      }
+
+      if(e.target === exitText || e.target === exitIcon) {
+        AuthController.logout();
+      }
+
+    }
   },
 };
 

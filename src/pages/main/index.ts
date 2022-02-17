@@ -1,51 +1,41 @@
+import { FormPasswordEdit } from '../../components/FormPasswordEdit';
+import { EditAvatar } from '../../components/EditAvatar';
+import { TextArea } from '../../components/TextArea';
+import { Profile } from '../../components/Profile';
+import { Sidebar } from '../../components/Sidebar';
+import { Avatar } from '../../components/Avatar';
 import { PageMain } from '../../components/Main';
 import { Header } from '../../components/Header';
-import { Sidebar } from '../../components/Sidebar';
-import { TextArea } from '../../components/TextArea';
 import { Button } from '../../components/Button';
 import { Popup } from '../../components/Popup';
 import { Field } from '../../components/Field';
 import { Menu } from '../../components/Menu';
-import { Profile } from '../../components/Profile';
-import { FormPasswordEdit } from '../../components/FormPasswordEdit';
-import { Avatar } from '../../components/Avatar';
-import { EditAvatar } from '../../components/EditAvatar';
 import { formProfile } from './formProfile';
 // import { messages } from './messages';
 // import { chats } from './chats';
 import {
-  dataMenu,
+  dataNewPasswordField,
+  dataOldPasswordField,
+  dataAvatarProfile,
+  dataEditAvatar,
+  dataPopupButton,
+  dataSidebar,
   dataHeader,
   dataAvatar,
-  dataAvatarProfile,
-  dataSidebar,
-  dataEditAvatar,
-  dataNewPasswordField,
-  dataOldPasswordField,
-  dataPopupButton,
+  dataPopup,
+  dataMenu,
 } from './data';
 
-export const fieldNewPassword= new Field(
-  dataNewPasswordField,
-  'newPassword'
-);
-export const fieldOldPassword= new Field(
-  dataOldPasswordField,
-  'oldPassword'
-);
-export const button = new Button(dataPopupButton, 'button');
+export const fieldNewPassword= new Field(dataNewPasswordField, 'newPassword');
+export const fieldOldPassword= new Field(dataOldPasswordField, 'oldPassword');
+export const buttonPasswordEdit = new Button(dataPopupButton, 'button');
 
 export const formPasswordEdit = new FormPasswordEdit (
   {},
-  'form', 
-  [button, fieldNewPassword, fieldOldPassword]
+  'form-password-edit', 
+  [buttonPasswordEdit, fieldNewPassword, fieldOldPassword]
 );
-export const popup = new Popup(
-  { title: 'Изменить пароль' },
-  'popup',
-  [formPasswordEdit]
-);
-
+export const popup = new Popup(dataPopup, 'popup', [formPasswordEdit]);
 export const textArea = new TextArea({}, 'text-area');
 
 //Удалила chats потому что когда новый user и не будет изначально!
@@ -62,7 +52,7 @@ export const editAvatar = new EditAvatar(dataEditAvatar, 'editAvatar');
 export const avatarProfile = new Avatar(dataAvatarProfile, 'avatar', [editAvatar]);
 export const profile = new Profile({}, 'profile', [avatarProfile, formProfile]);
 export const avatarMenu = new Avatar(dataAvatarProfile, 'avatar');
-export const menu = new Menu(dataMenu, 'menu', [profile, avatarMenu]);
+export const menu = new Menu(dataMenu, 'menu', [profile, avatarMenu, popup]);
 
 menu.hide();
 profile.hide();
@@ -74,6 +64,6 @@ popup.hide();
 //   [sidebar, header, textArea, messages, menu]
 // );
 export const pageMain = new PageMain({},
-  [sidebar, header, menu, popup]
+  [sidebar, header, menu]
 );
 

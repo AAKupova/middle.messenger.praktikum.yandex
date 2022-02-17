@@ -20,10 +20,6 @@
     background-repeat: no-repeat;
   }
 
-  &__link {
-    margin-left: auto;
-  }
-
   &__text-edit,
   &__text-exit {
     display: inline-block;
@@ -50,4 +46,14 @@
   &__button {
     margin-top: 30px;
   }
+}
+
+.block-exit,
+.block-edit {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.block-exit {
+  margin-left: auto;
 }

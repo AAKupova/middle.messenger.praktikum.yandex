@@ -33,4 +33,18 @@
     color:  var(--color-dark);
     margin: 16px 0 40px 0;
   }
+  &__close {
+    width: 24px;
+    height: 24px;
+    background-image: url(../../../static/images/close-icon-dark.svg);
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    width: 24px;
+
+    &:hover {
+      opacity: .5;
+      cursor: pointer;
+    }
+  }
 }
