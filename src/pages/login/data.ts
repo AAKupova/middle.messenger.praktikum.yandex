@@ -1,4 +1,4 @@
-import { valid } from '../../../src/index';
+import { validFormLogin } from '../../../src/index';
 import AuthController from '../../controllers/AuthController';
 
 export const dataButton = {
@@ -15,7 +15,7 @@ export const dataForm = {
   events: {
     submit: (e: Event) => {
       e.preventDefault();
-      AuthController.isValidData(e);
+      AuthController.isValidData(e, validFormLogin);
       AuthController.signIn();
     },
   },
@@ -34,10 +34,10 @@ export const dataFieldEmail =
   text: 'Логин',
   events: {
     focusin: (e: { target: HTMLInputElement }) => {
-      valid.isErrorStatusField(e);
+      validFormLogin.isErrorStatusField(e);
     },
     focusout: (e: { target: HTMLInputElement }) => {
-      valid.isFieldValid(e);
+      validFormLogin.isFieldValid(e);
   },
 }
 };
@@ -55,10 +55,10 @@ export const dataFieldPassword =
   text: 'Пароль',
   events: {
     focusin: (e: { target: HTMLInputElement }) => {
-      valid.isErrorStatusField(e);
+      validFormLogin.isErrorStatusField(e);
     },
     focusout: (e: { target: HTMLInputElement }) => {
-      valid.isFieldValid(e);
+      validFormLogin.isFieldValid(e);
     },
   }
 };

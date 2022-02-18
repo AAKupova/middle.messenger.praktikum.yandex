@@ -2,7 +2,7 @@ export class  Validation {
   result: boolean;
   patterns:{ [key: string]: RegExp };
   resultValid: { [key: string]: boolean };
-  button: HTMLElement | null;
+  button: HTMLElement | null | undefined;
   form: HTMLElement | null;
   fields: NodeListOf<Element> | undefined;
   isValid: boolean;
@@ -20,7 +20,7 @@ export class  Validation {
 
     this.form = document.querySelector(form);
     this.fields = this.form?.querySelectorAll(field);
-    this.button = document.querySelector(button);
+    this.button = this.form?.querySelector(button);
     this.resultValid = {};
     this.isValid;
     this.result;
@@ -78,9 +78,11 @@ export class  Validation {
   #isError(element: HTMLElement, error: HTMLElement | null){
     if(!this.result){
       this.#showError(element, error);
+      this.disabled = true;
       this.#toggleButtonDisable();
     }else{
       this.#hideError(element, error);
+      this.disabled = false;
       this.#toggleButtonDisable();
     }
   }
@@ -90,7 +92,6 @@ export class  Validation {
       error.style.display = 'block';
     }
     element.classList.add('field_error');
-    this.#lockButton();
   } 
 
   #hideError(element:HTMLElement, error:HTMLElement | null){
@@ -98,14 +99,15 @@ export class  Validation {
       error.style.display = 'none';
     }
     element.classList.remove('field_error');
-    this.#unlockButton();
   }
 
   #lockButton() {
+    console.log('add Attribute', this.button);
     this.button?.setAttribute('disabled', 'disabled');
   }
 
   #unlockButton() {
+    console.log('remove Attribute', this.button);
     this.button?.removeAttribute('disabled');
   }
 
@@ -137,7 +139,7 @@ export class  Validation {
 
     if(this.isValid){
       this.#lockButton();
-      return console.log('Данные некорректные');
+      console.log('Данные некорректные');
     }else{
       return form;
     }

@@ -1,16 +1,17 @@
 import avatar from '../../../static/images/default-avatar.svg';
 import AuthController from '../../controllers/AuthController';
 import UserController from '../../controllers/UserController';
+import { validFormPopupEdit } from '../../index';
+import { validFormProfile} from '../../index';
 import { profile, menu, popup } from '../main';
-import { valid } from '../../index';
 
 export const dataPhone = {
   events: {
     focusin: (e: { target: HTMLInputElement }) => {
-      valid.isErrorStatusField(e);
+      validFormProfile.isErrorStatusField(e);
     },
     focusout: (e: { target: HTMLInputElement }) => {
-      valid.isFieldValid(e);
+      validFormProfile.isFieldValid(e);
     },
   },
   required: 'required',
@@ -27,10 +28,10 @@ export const dataPhone = {
 export const dataSecondName = {
   events: {
     focusin: (e: { target: HTMLInputElement }) => {
-      valid.isErrorStatusField(e);
+      validFormProfile.isErrorStatusField(e);
     },
     focusout: (e: { target: HTMLInputElement }) => {
-      valid.isFieldValid(e);
+      validFormProfile.isFieldValid(e);
     },
   },
   required: 'required',
@@ -47,10 +48,10 @@ export const dataSecondName = {
 export const dataFirstName = {
   events: {
     focusin: (e: { target: HTMLInputElement }) => {
-      valid.isErrorStatusField(e);
+      validFormProfile.isErrorStatusField(e);
     },
     focusout: (e: { target: HTMLInputElement }) => {
-      valid.isFieldValid(e);
+      validFormProfile.isFieldValid(e);
     },
   },
   required: 'required',
@@ -67,10 +68,10 @@ export const dataFirstName = {
 export const dataDisplayName = {
   events: {
     focusin: (e: { target: HTMLInputElement }) => {
-      valid.isErrorStatusField(e);
+      validFormProfile.isErrorStatusField(e);
     },
     focusout: (e: { target: HTMLInputElement }) => {
-      valid.isFieldValid(e);
+      validFormProfile.isFieldValid(e);
     },
   },
   required: 'required',
@@ -87,10 +88,10 @@ export const dataDisplayName = {
 export const dataLogin = {
   events: {
     focusin: (e: { target: HTMLInputElement }) => {
-      valid.isErrorStatusField(e);
+      validFormProfile.isErrorStatusField(e);
     },
     focusout: (e: { target: HTMLInputElement }) => {
-      valid.isFieldValid(e);
+      validFormProfile.isFieldValid(e);
     },
   },
   required: 'required',
@@ -107,10 +108,10 @@ export const dataLogin = {
 export const dataEmail = {
   events: {
     focusin: (e: { target: HTMLInputElement }) => {
-      valid.isErrorStatusField(e);
+      validFormProfile.isErrorStatusField(e);
     },
     focusout: (e: { target: HTMLInputElement }) => {
-      valid.isFieldValid(e);
+      validFormProfile.isFieldValid(e);
     },
   },
   required: 'required',
@@ -146,7 +147,7 @@ export const dataForm = {
   events: {
     submit: (e: Event) => {
       e.preventDefault();
-      UserController.isValidData(e);
+      UserController.isValidData(e, validFormProfile);
       UserController.editProfile();
     },
     click: (e: Event) => {
@@ -169,15 +170,16 @@ export const dataForm = {
 
 export const dataPopupButton = {
   text: 'Сохронить',
-  classButton: 'form-login__button',
+  classButton: 'form-popup__button',
 };
+
 export const dataNewPasswordField = {
   events: {
     focusin: (e: { target: HTMLInputElement }) => {
-      valid.isErrorStatusField(e);
+      validFormPopupEdit.isErrorStatusField(e);
     },
     focusout: (e: { target: HTMLInputElement }) => {
-      valid.isFieldValid(e);
+      validFormPopupEdit.isFieldValid(e);
     },
   },
   required: 'required',
@@ -194,10 +196,10 @@ export const dataNewPasswordField = {
 export const dataOldPasswordField = {
   events: {
     focusin: (e: { target: HTMLInputElement }) => {
-      valid.isErrorStatusField(e);
+      validFormPopupEdit.isErrorStatusField(e);
     },
     focusout: (e: { target: HTMLInputElement }) => {
-      valid.isFieldValid(e);
+      validFormPopupEdit.isFieldValid(e);
     },
   },
   required: 'required',

@@ -1,4 +1,4 @@
-import { valid } from '../../../src/index';
+import { validFormAuth } from '../../../src/index';
 import AuthController from '../../controllers/AuthController';
 
 export const dataFieldEmail =
@@ -14,10 +14,10 @@ export const dataFieldEmail =
   text: 'Почта',
   events: {
     focusin: (e: { target: HTMLInputElement }) => {
-      valid.isErrorStatusField(e);
+      validFormAuth.isErrorStatusField(e);
     },
     focusout: (e: { target: HTMLInputElement }) => {
-      valid.isFieldValid(e);
+      validFormAuth.isFieldValid(e);
     },
   }
 };
@@ -35,10 +35,10 @@ export const dataFieldLogin =
   text: 'Логин',
   events: {
     focusin: (e: { target: HTMLInputElement }) => {
-      valid.isErrorStatusField(e);
+      validFormAuth.isErrorStatusField(e);
     },
     focusout: (e: { target: HTMLInputElement }) => {
-      valid.isFieldValid(e);
+      validFormAuth.isFieldValid(e);
     },
   }
 };
@@ -56,10 +56,10 @@ export const dataFieldFirstName =
   text: 'Имя',
   events: {
     focusin: (e: { target: HTMLInputElement }) => {
-      valid.isErrorStatusField(e);
+      validFormAuth.isErrorStatusField(e);
     },
     focusout: (e: { target: HTMLInputElement }) => {
-      valid.isFieldValid(e);
+      validFormAuth.isFieldValid(e);
     },
   }
 };
@@ -77,10 +77,10 @@ export const dataFieldSecondName =
   text: 'Фамилия',
   events: {
     focusin: (e: { target: HTMLInputElement }) => {
-      valid.isErrorStatusField(e);
+      validFormAuth.isErrorStatusField(e);
     },
     focusout: (e: { target: HTMLInputElement }) => {
-      valid.isFieldValid(e);
+      validFormAuth.isFieldValid(e);
     },
   }
 };
@@ -98,10 +98,10 @@ export const dataFieldPhone =
   text: 'Телефон',
   events: {
     focusin: (e: { target: HTMLInputElement }) => {
-      valid.isErrorStatusField(e);
+      validFormAuth.isErrorStatusField(e);
     },
     focusout: (e: { target: HTMLInputElement }) => {
-      valid.isFieldValid(e);
+      validFormAuth.isFieldValid(e);
     },
   }
 };
@@ -119,10 +119,10 @@ export const dataFieldPassword =
   text: 'Пароль',
   events: {
     focusin: (e: { target: HTMLInputElement }) => {
-      valid.isErrorStatusField(e);
+      validFormAuth.isErrorStatusField(e);
     },
     focusout: (e: { target: HTMLInputElement }) => {
-      valid.isFieldValid(e);
+      validFormAuth.isFieldValid(e);
     },
   }
 };
@@ -140,10 +140,10 @@ export const dataFieldSecondPassword =
   text: 'Пароль',
   events: {
     focusin: (e: { target: HTMLInputElement }) => {
-      valid.isErrorStatusField(e);
+      validFormAuth.isErrorStatusField(e);
     },
     focusout: (e: { target: HTMLInputElement }) => {
-      valid.isFieldValid(e);
+      validFormAuth.isFieldValid(e);
     },
   }
 };
@@ -160,7 +160,7 @@ export const dataForm = {
   events: {
     submit: (e: Event) => {
       e.preventDefault();
-      AuthController.isValidData(e);
+      AuthController.isValidData(e, validFormAuth);
       AuthController.signUp();
     },
   }

@@ -61,5 +61,8 @@ router
     }
   };
 
-export const valid = new Validation('.form', '.button', '.field');
+export const validFormLogin = new Validation('.form-login', '.button', '.field');
+export const validFormAuth = new Validation('.form-auth', '.button', '.field');
+export const validFormProfile = new Validation('.form-profile', '.button', '.field');
+export const validFormPopupEdit = new Validation('.form-password-edit', '.button', '.field');
 
