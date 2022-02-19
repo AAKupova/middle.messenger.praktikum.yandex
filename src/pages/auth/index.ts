@@ -1,48 +1,40 @@
-import { Field } from '../../components/Field';
-import { Button } from '../../components/Button';
 import { FormAuth } from '../../components/FormAuth';
-import {
-  dataFieldEmail,
-  dataFieldLogin,
-  dataFieldFirstName,
-  dataFieldSecondName,
-  dataFieldPhone,
-  dataFieldPassword,
-  dataFieldSecondPassword,
-  dataButton,
-  dataForm
-} from './data';
+import { Validation } from '../../models/Validation';
+import AuthController from '../../controllers/AuthController';
 
-export const fieldFirstName = new Field(
-  dataFieldFirstName,
-  'field-first-name'
-);
-export const fieldSecondName = new Field(
-  dataFieldSecondName,
-  'field-second-name'
-);
-export const fieldSecondPassword = new Field(
-  dataFieldSecondPassword,
-  'field-second-password'
-);
+import { createFirstName } from './components/firstName';
+import { createSecondName } from './components/secondName';
+import { createSecondPassword } from './components/secondPassword';
+import { createEmail } from './components/email';
+import { createLogin } from './components/login';
+import { createPhone } from './components/phone';
+import { createPassword } from './components/password';
+import { createButton } from './components/button';
 
-export const fieldEmail = new Field(dataFieldEmail, 'field-email');
-export const fieldLogin = new Field(dataFieldLogin, 'field-login');
-export const fieldPhone = new Field(dataFieldPhone, 'field-phone');
-export const fieldPassword = new Field(dataFieldPassword, 'field-password');
-export const button = new Button(dataButton, 'button');
+export const initFormAuth = () => {
+  const validFormAuth = new Validation('.form-auth', '.button', '.field');
 
-export const auth = new FormAuth(
-  dataForm,
-  [ 
-    fieldEmail,
-    fieldLogin,
-    fieldFirstName,
-    fieldSecondName,
-    fieldPhone,
-    fieldPassword,
-    fieldSecondPassword,
-    button,
-  ]
-);
+  const dataForm = {
+    title: 'Регестрация',
+    link: 'Уже есть аккаунт',
+    href: '/',
+    events: {
+      submit: (e: Event) => {
+        e.preventDefault();
+        AuthController.isValidData(e, validFormAuth);
+        AuthController.signUp();
+      },
+    },
+  };
 
+  return new FormAuth(dataForm, [
+    createFirstName({ validFormAuth }),
+    createSecondName({ validFormAuth }),
+    createSecondPassword({ validFormAuth }),
+    createEmail({ validFormAuth }),
+    createLogin({ validFormAuth }),
+    createPhone({ validFormAuth }),
+    createPassword({ validFormAuth }),
+    createButton(),
+  ]);
+};

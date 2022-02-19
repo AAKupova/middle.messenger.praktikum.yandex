@@ -3,7 +3,7 @@ import { router } from '../routers/Router';
 import { Controller } from './Controller';
 import Store from '../models/Store';
 
-class AuthController extends Controller{
+class AuthController extends Controller {
 
   apiAuth: ApiAuth;
 
@@ -12,48 +12,50 @@ class AuthController extends Controller{
     this.apiAuth = new ApiAuth();
   }
 
-//Регистрация!
+  //Регистрация!
   signUp() {
     return this.apiAuth.postAuthSignup(this.addData())
-    .then((data: any) => data.response)
-    .then((data: any) => {
-      this.getDataUser();
-      return data;
-    });
+      .then((data: any) => data.response)
+      .then((data: any) => {
+        this.getDataUser();
+        return data;
+      });
   }
 
-//Вход!
+  //Вход!
   signIn() {
-  return this.apiAuth.postAuthSignin(this.addData())
-    .then((data: any) => data.response)
-    .then((data: any) => {
-      this.getDataUser();
-      return data;
-    });
+    return this.apiAuth.postAuthSignin(this.addData())
+      .then((data: any) => {
+        router.go('/messenger/');
+        this.getDataUser();
+        return data;
+      });
   }
 
-//Выход!
+  //Выход!
   logout() {
     return this.apiAuth.postAuthLogout(this.addData())
-    .then((data: any) => data.response)
-    .then((data: any) => {
-      router.go('/');
-      return data;
-    });
+      .then((data: any) => {
+        router.go('/');
+        this.getDataUser();
+
+        return data;
+      });
   }
 
-//Получение данных user 
+  //Получение данных user 
   getDataUser() {
     this.apiAuth.getAuthUser()
-    .then((data: any) => data.response)
-    .then(data => {
-      Store.set('user', data);
-
-      if(Store.getState()){
+      .then((data: any) => data.response)
+      .then(data => {
+        Store.set('user', data);
+        console.log(123)
         router.go('/messenger/');
-      }
-      
-    }).catch(err => alert(err));
+      }).catch(err => {
+        router.go('/');
+
+        throw err;
+      });
   }
 }
 

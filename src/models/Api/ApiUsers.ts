@@ -8,7 +8,7 @@ export default class ApiUsers extends Api {
     super();
   }
 
-  putUsersAvatar(formData: FormData) {
+  putAvatar(formData: FormData) {
     const headers = {
       'Content-Type': ' multipart/form-data',
       'accept': 'application/json',
@@ -17,13 +17,23 @@ export default class ApiUsers extends Api {
     return this.feach.put(`${this.baseUrl}/user/profile/avatar`, options);
   }
 
-  putUserProfile(data: any){
+  putProfile(data: any){
     const headers = {
       'accept': 'application/json',
       'Content-Type': 'application/json',
     };
     const options = { data, headers };
-      return this.feach.put(`${this.baseUrl}/user/profile`, options);
+    return this.feach.put(`${this.baseUrl}/user/profile`, options);
+  }
+
+  putPassword(data: any) {
+    const headers = {
+      'accept': 'application/json',
+      'Content-Type': 'application/json',
+    };
+
+    const options = { data, headers };
+    return this.feach.put(`${this.baseUrl}/user/password`, options);
   }
 
 }

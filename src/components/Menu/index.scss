@@ -99,6 +99,10 @@
     &:last-child {
       margin-bottom: 0;
     }
+
+    div {
+      pointer-events: none;
+    }
   }
 
   &__icon {

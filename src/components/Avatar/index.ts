@@ -10,7 +10,7 @@ import avatar from './index.hbs';
 import './index.scss';
 
 export class Avatar extends ViewBlock {
-  constructor(props:object, name:string, children?:ViewBlock[]) {
+  constructor(props: object, name: string, children?: ViewBlock[]) {
     super('div', props, name, children);
 
     Store.on(StoreEvents.Updated, () => {
@@ -18,11 +18,11 @@ export class Avatar extends ViewBlock {
     });
   }
 
-  render():DocumentFragment | string {
-    if(this.children){
+  render(): DocumentFragment | string {
+    if (this.children) {
       const tmp = Handlebars.compile(avatar);
       return this.compile(tmp(this.props));
-    }else{
+    } else {
       const tmp = Handlebars.compile(avatar);
       return tmp(this.props);
     }
@@ -30,9 +30,9 @@ export class Avatar extends ViewBlock {
 }
 
 function mapUserToProps(state: any) {
-  const obj = JSON.parse(state.user);
-  const urlImg = `https://ya-praktikum.tech/api/v2/resources${obj.avatar}`;
+  const { avatar } = JSON.parse(state.user);
+  const urlImg = `https://ya-praktikum.tech/api/v2/resources${avatar}`;
   return {
-    avatar: obj? urlImg : avatarImg,
+    avatar: avatar ? urlImg : avatarImg,
   };
 }

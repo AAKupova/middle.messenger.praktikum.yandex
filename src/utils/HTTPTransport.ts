@@ -33,13 +33,18 @@ export class HTTPTransport {
     return new Promise((resolve, reject) => {
       const xhr = new XMLHttpRequest();
       xhr.timeout = timeout;
+      xhr.withCredentials = true;
 
       xhr.onabort = reject;
       xhr.onerror = reject;
       xhr.ontimeout = reject;
 
       xhr.onload = function () {
-        resolve(xhr);
+        if (xhr.status === 200) {
+          resolve(xhr);
+        } else {
+          reject(xhr);
+        }
       };
 
       xhr.open(method, url);

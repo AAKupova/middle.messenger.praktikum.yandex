@@ -1,16 +1,31 @@
-import { Field }  from '../../components/Field';
-import { Button } from '../../components/Button';
 import { FormLogin } from '../../components/FormLogin';
-import {
-  dataFieldEmail,
-  dataFieldPassword,
-  dataButton,
-  dataForm,
-} from './data';
+import { Validation } from '../../models/Validation';
+import AuthController from '../../controllers/AuthController';
 
-export const fieldEmail = new Field(dataFieldEmail, 'field-email');
-export const fieldPassword = new Field(dataFieldPassword, 'field-password');
-export const button = new Button(dataButton, 'button');
+import { createPassword } from './components/password';
+import { createEmail } from './components/email';
+import { createButton } from './components/button';
 
-export const login = new FormLogin(dataForm, [fieldEmail,fieldPassword,button]);
+export const initFormLogin = () => {
+  const validFormLogin = new Validation('.form-login', '.button', '.field');
 
+  const dataForm = {
+    name: 'login',
+    title: 'Войти',
+    link: 'Нет аккаунта?',
+    href: '/sign-up',
+    events: {
+      submit: (e: Event) => {
+        e.preventDefault();
+        AuthController.isValidData(e, validFormLogin);
+        AuthController.signIn();
+      },
+    },
+  };
+
+  return new FormLogin(dataForm, [
+    createEmail({ validFormLogin }),
+    createPassword({ validFormLogin }),
+    createButton(),
+  ]);
+};

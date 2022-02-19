@@ -6,7 +6,8 @@
     "lint": "eslint src --ext .ts",
     "dev": "parcel index.html",
     "build": "parcel build index.html",
-    "start": "parcel build index.html && node server"
+    "start": "parcel watch index.html",
+    "server": "node server"
   },
   "keywords": [],
   "author": "",

@@ -4,9 +4,9 @@ import { router } from './routers/Router';
 // import { page500 } from './pages/page500';
 import { Validation } from './models/Validation';
 import UserController from './controllers/AuthController';
-import { login } from './pages/login/index';
-import { auth } from './pages/auth/index';
-import { pageMain } from './pages/main/index';
+import { initFormLogin } from './pages/login/index';
+import { initFormAuth } from './pages/auth/index';
+import { initMain } from './pages/main/index';
 // import { removeLastChar } from './utils/removeLastChar';
 
 import './styles/normalize.css';
@@ -23,7 +23,7 @@ import './styles/index.scss';
 
 //   if (path !== '/' ) {
 //     path = removeLastChar(path, '/');
-    
+
 //   }
 
 //   return path;
@@ -49,20 +49,17 @@ import './styles/index.scss';
 // renderDom('.root', renderPage());
 
 router
-  .use('/', login)
-  .use('/sign-up/', auth)
-  .use('/messenger/', pageMain)
+  .use('/', initFormLogin)
+  .use('/sign-up/', initFormAuth)
+  .use('/messenger/', initMain)
   .start();
 
-  window.onload = () => {
-    const path: string = window.location.pathname;
-    if(path === '/messenger/') {
-      UserController.getDataUser();
-    }
-  };
+window.onload = () => {
+  UserController.getDataUser();
+};
 
-export const validFormLogin = new Validation('.form-login', '.button', '.field');
-export const validFormAuth = new Validation('.form-auth', '.button', '.field');
+// export const validFormLogin = new Validation('.form-login', '.button', '.field');
+// export const validFormAuth = new Validation('.form-auth', '.button', '.field');
 export const validFormProfile = new Validation('.form-profile', '.button', '.field');
 export const validFormPopupEdit = new Validation('.form-password-edit', '.button', '.field');
 

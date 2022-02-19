@@ -1,69 +1,13 @@
-import { FormPasswordEdit } from '../../components/FormPasswordEdit';
-import { EditAvatar } from '../../components/EditAvatar';
-import { TextArea } from '../../components/TextArea';
-import { Profile } from '../../components/Profile';
-import { Sidebar } from '../../components/Sidebar';
-import { Avatar } from '../../components/Avatar';
 import { PageMain } from '../../components/Main';
-import { Header } from '../../components/Header';
-import { Button } from '../../components/Button';
-import { Popup } from '../../components/Popup';
-import { Field } from '../../components/Field';
-import { Menu } from '../../components/Menu';
-import { formProfile } from './formProfile';
-// import { messages } from './messages';
-// import { chats } from './chats';
-import {
-  dataNewPasswordField,
-  dataOldPasswordField,
-  dataAvatarProfile,
-  dataEditAvatar,
-  dataPopupButton,
-  dataSidebar,
-  dataHeader,
-  dataAvatar,
-  dataPopup,
-  dataMenu,
-} from './data';
 
-export const fieldNewPassword= new Field(dataNewPasswordField, 'newPassword');
-export const fieldOldPassword= new Field(dataOldPasswordField, 'oldPassword');
-export const buttonPasswordEdit = new Button(dataPopupButton, 'button');
+import { createSidebar } from './components/sidebar';
+import { createHeader } from './components/header';
+import { createMenu } from './components/menu';
 
-export const formPasswordEdit = new FormPasswordEdit (
-  {},
-  'form-password-edit', 
-  [buttonPasswordEdit, fieldNewPassword, fieldOldPassword]
-);
-export const popup = new Popup(dataPopup, 'popup', [formPasswordEdit]);
-export const textArea = new TextArea({}, 'text-area');
+export const initMain = () => {
+  const menu = createMenu();
 
-//Удалила chats потому что когда новый user и не будет изначально!
-// export const sidebar = new Sidebar(dataSidebar, 'sidebar', [chats]);
-export const sidebar = new Sidebar(dataSidebar, 'sidebar', []);
+  menu.hide();
 
-export const avatarHeader = new Avatar(dataAvatar, 'avatar');
-
-//Удалила avatarHeader потому что когда новый user и не будет изначально!
-//export const header = new Header(dataHeader, 'header', [avatarHeader]);
-export const header = new Header(dataHeader, 'header', []);
-
-export const editAvatar = new EditAvatar(dataEditAvatar, 'editAvatar');
-export const avatarProfile = new Avatar(dataAvatarProfile, 'avatar', [editAvatar]);
-export const profile = new Profile({}, 'profile', [avatarProfile, formProfile]);
-export const avatarMenu = new Avatar(dataAvatarProfile, 'avatar');
-export const menu = new Menu(dataMenu, 'menu', [profile, avatarMenu, popup]);
-
-menu.hide();
-profile.hide();
-popup.hide();
-
-// Удалила компоненты textArea, messages,
-//потому что когда новый user и не будет изначально!
-// export const pageMain = new PageMain({},
-//   [sidebar, header, textArea, messages, menu]
-// );
-export const pageMain = new PageMain({},
-  [sidebar, header, menu]
-);
-
+  return new PageMain({}, [createSidebar({ menu }), createHeader(), menu]);
+};

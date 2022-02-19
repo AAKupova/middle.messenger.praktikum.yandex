@@ -10,7 +10,7 @@ export class PageMain extends ViewBlock {
     super('div', props, 'formLogin', children);
   }
 
-  render():DocumentFragment {
+  render(): DocumentFragment {
     const tmp = Handlebars.compile(main);
     return this.compile(tmp(this.props));
   }

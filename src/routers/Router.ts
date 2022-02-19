@@ -1,4 +1,4 @@
-import ViewBlock from '../components/ViewBlock/ViewBlock';
+// import ViewBlock from '../components/ViewBlock/ViewBlock';
 import { Route } from './Route';
 
 class Router {
@@ -22,8 +22,8 @@ class Router {
     Router.__instance = this;
   }
 
-  use(pathname: string, block: ViewBlock) {
-    const route: Route = new Route(pathname, block, { rootQuery: this._rootQuery });
+  use(pathname: string, init: any) {
+    const route: Route = new Route(pathname, init, { rootQuery: this._rootQuery });
     this.routes.push(route);
 
     return this;
@@ -42,6 +42,8 @@ class Router {
 
   _onRoute(pathname: string) {
     const route = this.getRoute(pathname);
+
+    console.error(999, route)
     if (!route) {
       return;
     }
@@ -55,6 +57,7 @@ class Router {
   }
 
   go(pathname: string) {
+    console.log('go')
     this.history.pushState({ pathname }, '', pathname);
     this._onRoute(pathname);
   }

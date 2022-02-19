@@ -1,5 +1,5 @@
 import { isEqual } from '../utils/isEqual';
-import ViewBlock from '../components/ViewBlock/ViewBlock';
+// import ViewBlock from '../components/ViewBlock/ViewBlock';
 import { renderDom } from '../utils/renderDom';
 
 
@@ -9,13 +9,13 @@ interface Props {
 
 export class Route {
   _pathname: string;
-  _blockClass: ViewBlock;
-  _block: ViewBlock | null;
+  init: any;
+  _block: any | null;
   _props: Props;
 
-  constructor(pathname: string, view: ViewBlock, props: Props) {
+  constructor(pathname: string, init: any, props: Props) {
     this._pathname = pathname;
-    this._blockClass = view;
+    this.init = init;
     this._block = null;
     this._props = props;
   }
@@ -28,6 +28,7 @@ export class Route {
   }
 
   leave() {
+    console.log(this._block)
     if (this._block) {
       this._block.hide();
     }
@@ -39,7 +40,9 @@ export class Route {
 
   render() {
     if (!this._block) {
-      this._block = this._blockClass;
+      console.log(this._pathname, this.init)
+      this._block = this.init();
+      console.log(123, this._block)
       renderDom(this._props.rootQuery, this._block);
       return;
     }

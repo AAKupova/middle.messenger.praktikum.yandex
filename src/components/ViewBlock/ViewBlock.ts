@@ -154,11 +154,13 @@ export default class ViewBlock {
     const events = this.props.events || {};
 
     Object.keys(events).forEach(eventName => {
-      if (this._element.firstChild) {
-        this._element.firstChild.addEventListener(eventName, events[eventName]);
-      } else {
-        this._element.addEventListener(eventName, events[eventName]);
-      }
+      // if (this._element.firstChild) {
+      //   // console.log(this._element.firstChild, this._element);
+      //   this._element.firstChild.addEventListener(eventName, events[eventName]);
+      // } else {
+      //   this._element.addEventListener(eventName, events[eventName]);
+      // }
+      this._element.addEventListener(eventName, events[eventName]);
     });
   }
 
@@ -166,11 +168,12 @@ export default class ViewBlock {
     const events = this.props.events || {};
 
     Object.keys(events).forEach((eventName: string) => {
-      if (this._element.firstChild) {
-        this._element.firstChild.removeEventListener(eventName, events[eventName]);
-      } else {
-        this._element.removeEventListener(eventName, events[eventName]);
-      }
+      // if (this._element.firstChild) {
+      //   this._element.firstChild.removeEventListener(eventName, events[eventName]);
+      // } else {
+      //   this._element.removeEventListener(eventName, events[eventName]);
+      // }
+      this._element.removeEventListener(eventName, events[eventName]);
     });
   }
 
