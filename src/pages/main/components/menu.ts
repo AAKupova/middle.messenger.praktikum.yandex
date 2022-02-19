@@ -3,7 +3,7 @@ import AuthController from '../../../controllers/AuthController';
 
 import { createProfile } from './profile';
 import { createPopup } from './popup';
-import { createAvatarProfile } from './avatarProfile';
+import { createAvatar } from './avatar';
 
 export const createMenu = () => {
   let menu: null | Menu = null;
@@ -34,7 +34,7 @@ export const createMenu = () => {
   profile.hide();
   popup.hide();
 
-  menu = new Menu(data, 'menu', [profile, createAvatarProfile(), popup]);
+  menu = new Menu(data, 'menu', [profile, createAvatar(), popup]);
 
   return menu;
 };

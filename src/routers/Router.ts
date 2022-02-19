@@ -8,7 +8,6 @@ class Router {
   _currentRoute: any | null;
   _rootQuery: string;
 
-
   constructor(rootQuery: string) {
     if (Router.__instance) {
       return Router.__instance;
@@ -23,7 +22,9 @@ class Router {
   }
 
   use(pathname: string, init: any) {
-    const route: Route = new Route(pathname, init, { rootQuery: this._rootQuery });
+    const route: Route = new Route(pathname, init, {
+      rootQuery: this._rootQuery,
+    });
     this.routes.push(route);
 
     return this;
@@ -33,9 +34,13 @@ class Router {
     const pathname = window.location.pathname;
     history.replaceState({ pathname }, '', pathname);
 
-    window.addEventListener('popstate', (e: PopStateEvent) => {
-      this._onRoute(e.state.pathname);
-    }, false);
+    window.addEventListener(
+      'popstate',
+      (e: PopStateEvent) => {
+        this._onRoute(e.state.pathname);
+      },
+      false
+    );
 
     this._onRoute(window.location.pathname);
   }
@@ -43,7 +48,6 @@ class Router {
   _onRoute(pathname: string) {
     const route = this.getRoute(pathname);
 
-    console.error(999, route)
     if (!route) {
       return;
     }
@@ -57,7 +61,6 @@ class Router {
   }
 
   go(pathname: string) {
-    console.log('go')
     this.history.pushState({ pathname }, '', pathname);
     this._onRoute(pathname);
   }
@@ -71,7 +74,7 @@ class Router {
   }
 
   getRoute(pathname: string) {
-    return this.routes.find(route => route.match(pathname));
+    return this.routes.find((route) => route.match(pathname));
   }
 }
 

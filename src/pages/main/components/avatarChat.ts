@@ -1,4 +1,4 @@
-import { Field } from '../../../components/Field';
+import { Avatar } from '../../../components/Avatar';
 import avatar from '../../../../static/images/default-avatar.svg';
 
-export const createAvatarChat = () => new Field({ avatar }, 'field-password');
+export const createAvatarChat = () => new Avatar({ avatar, size: 'avatar__img_size_m' }, 'avatar');

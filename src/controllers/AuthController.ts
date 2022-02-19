@@ -4,7 +4,6 @@ import { Controller } from './Controller';
 import Store from '../models/Store';
 
 class AuthController extends Controller {
-
   apiAuth: ApiAuth;
 
   constructor() {
@@ -14,7 +13,8 @@ class AuthController extends Controller {
 
   //Регистрация!
   signUp() {
-    return this.apiAuth.postAuthSignup(this.addData())
+    return this.apiAuth
+      .postAuthSignup(this.addData())
       .then((data: any) => data.response)
       .then((data: any) => {
         this.getDataUser();
@@ -24,34 +24,33 @@ class AuthController extends Controller {
 
   //Вход!
   signIn() {
-    return this.apiAuth.postAuthSignin(this.addData())
-      .then((data: any) => {
-        router.go('/messenger/');
-        this.getDataUser();
-        return data;
-      });
+    return this.apiAuth.postAuthSignin(this.addData()).then((data: any) => {
+      router.go('/messenger/');
+      this.getDataUser();
+      return data;
+    });
   }
 
   //Выход!
   logout() {
-    return this.apiAuth.postAuthLogout(this.addData())
-      .then((data: any) => {
-        router.go('/');
-        this.getDataUser();
+    return this.apiAuth.postAuthLogout(this.addData()).then((data: any) => {
+      router.go('/');
+      this.getDataUser();
 
-        return data;
-      });
+      return data;
+    });
   }
 
-  //Получение данных user 
+  //Получение данных user
   getDataUser() {
-    this.apiAuth.getAuthUser()
+    this.apiAuth
+      .getAuthUser()
       .then((data: any) => data.response)
-      .then(data => {
+      .then((data) => {
         Store.set('user', data);
-        console.log(123)
         router.go('/messenger/');
-      }).catch(err => {
+      })
+      .catch((err) => {
         router.go('/');
 
         throw err;
@@ -59,4 +58,4 @@ class AuthController extends Controller {
   }
 }
 
-export default new AuthController(); 
+export default new AuthController();

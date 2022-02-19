@@ -2,7 +2,6 @@ import { isEqual } from '../utils/isEqual';
 // import ViewBlock from '../components/ViewBlock/ViewBlock';
 import { renderDom } from '../utils/renderDom';
 
-
 interface Props {
   rootQuery: string;
 }
@@ -28,7 +27,6 @@ export class Route {
   }
 
   leave() {
-    console.log(this._block)
     if (this._block) {
       this._block.hide();
     }
@@ -40,9 +38,7 @@ export class Route {
 
   render() {
     if (!this._block) {
-      console.log(this._pathname, this.init)
       this._block = this.init();
-      console.log(123, this._block)
       renderDom(this._props.rootQuery, this._block);
       return;
     }
