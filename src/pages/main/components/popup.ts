@@ -15,7 +15,9 @@ export const createPopup = () => {
       },
     },
   };
-  popup = new Popup(data, 'popup', [createFormPasswordEdit()]);
+  const form = createFormPasswordEdit(popup);
+  console.log(form);
+  popup = new Popup(data, 'popup', [form]);
 
   return popup;
 };

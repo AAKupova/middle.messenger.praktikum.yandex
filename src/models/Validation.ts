@@ -26,6 +26,7 @@ export class Validation {
     this.result;
     this.disabled = true;
 
+    console.log(this.form);
     this.#initValidation();
   }
 
@@ -102,10 +103,12 @@ export class Validation {
   }
 
   #lockButton() {
+    console.log('add',this.button);
     this.button?.setAttribute('disabled', 'disabled');
   }
 
   #unlockButton() {
+    console.log('remove',this.button);
     this.button?.removeAttribute('disabled');
   }
 

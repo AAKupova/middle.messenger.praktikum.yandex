@@ -11,7 +11,8 @@
     height: var(--size);
     object-fit: initial;
     border-radius: 100%;
-    background-color: #262626;
+    background-color: var(--color-dark);
+    border: 1px solid var(--color-accent);
 
     &_size_m {
       --size: 60px;

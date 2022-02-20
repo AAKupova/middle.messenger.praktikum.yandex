@@ -2,7 +2,7 @@
 import { router } from './routers/Router';
 // import { page404 } from './pages/page404';
 // import { page500 } from './pages/page500';
-import { Validation } from './models/Validation';
+// import { Validation } from './models/Validation';
 import UserController from './controllers/AuthController';
 import { initFormLogin } from './pages/login/index';
 import { initFormAuth } from './pages/auth/index';
@@ -60,6 +60,6 @@ window.onload = () => {
 
 // export const validFormLogin = new Validation('.form-login', '.button', '.field');
 // export const validFormAuth = new Validation('.form-auth', '.button', '.field');
-export const validFormProfile = new Validation('.form-profile', '.button', '.field');
-export const validFormPopupEdit = new Validation('.form-password-edit', '.button', '.field');
+// export const validFormProfile = new Validation('.form-profile', '.button', '.field');
+// export const validFormPopupEdit = new Validation('.form-password-edit', '.button', '.field');
 

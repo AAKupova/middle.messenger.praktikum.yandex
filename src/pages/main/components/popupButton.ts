@@ -6,5 +6,5 @@ export const createPopupButton = () => {
     classButton: 'form-popup__button',
   };
 
-  return new Button(data, 'field-password');
+  return new Button(data, 'button');
 };
