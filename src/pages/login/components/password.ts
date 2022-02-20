@@ -1,11 +1,11 @@
 import { Field } from '../../../components/Field';
 
 interface CreatePasswordProps {
-  validFormLogin: any;
+  validForm: any;
 }
 
-export const createPassword = ({ validFormLogin }: CreatePasswordProps) => {
-  const dataFieldPassword = {
+export const createPassword = ({ validForm }: CreatePasswordProps) => {
+  const data = {
     name: 'password',
     type: 'password',
     max: '40',
@@ -17,13 +17,13 @@ export const createPassword = ({ validFormLogin }: CreatePasswordProps) => {
     text: 'Пароль',
     events: {
       focusin: (e: { target: HTMLInputElement }) => {
-        validFormLogin.isErrorStatusField(e);
+        validForm.isErrorStatusField(e);
       },
       focusout: (e: { target: HTMLInputElement }) => {
-        validFormLogin.isFieldValid(e);
+        validForm.isFieldValid(e);
       },
     },
   };
 
-  return new Field(dataFieldPassword, 'field-password');
+  return new Field(data, 'field-password');
 };

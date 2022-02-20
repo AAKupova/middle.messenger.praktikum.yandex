@@ -48,6 +48,10 @@
   align-items: center;
   transition: all 0.3s ease-in-out;
   height: 20px;
+
+  span {
+    pointer-events: none;
+  }
 }
 
 .add-use__button,

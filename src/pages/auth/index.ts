@@ -9,7 +9,7 @@ import { createEmail } from './components/email';
 import { createLogin } from './components/login';
 import { createPhone } from './components/phone';
 import { createPassword } from './components/password';
-import { createButton } from './components/button';
+import { createButton } from '../components/button';
 
 export const initFormAuth = () => {
   const validFormAuth = new Validation('.form-auth', '.button', '.field');
@@ -35,6 +35,10 @@ export const initFormAuth = () => {
     createLogin({ validFormAuth }),
     createPhone({ validFormAuth }),
     createPassword({ validFormAuth }),
-    createButton(),
+    createButton({
+      text: 'Зарегистрироваться',
+      classButton: 'form-auth__button',
+      disabled: 'none'
+    }),
   ]);
 };

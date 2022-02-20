@@ -2,12 +2,12 @@ import { Menu } from '../../../components/Menu';
 import AuthController from '../../../controllers/AuthController';
 
 import { createProfile } from './profile';
-import { createPopup } from './popup';
+import { createPopupPassword } from './popupPassword';
 import { createAvatar } from './avatar';
 
 export const createMenu = () => {
   let menu: null | Menu = null;
-  const popup = createPopup();
+  const popup = createPopupPassword();
   const profile = createProfile({ popup });
   const data = {
     phone: 'phone',

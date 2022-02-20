@@ -4,7 +4,7 @@ import ViewBlock from '../ViewBlock/ViewBlock';
 
 import form from './index.hbs';
 
-export class FormPasswordEdit extends ViewBlock {
+export class FormAddUser extends ViewBlock {
   constructor(props:object, name:string, children?:ViewBlock[]) {
     super('div', props, name, children);
   }

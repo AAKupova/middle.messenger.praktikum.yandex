@@ -3,11 +3,11 @@ import { Validation } from '../../models/Validation';
 import AuthController from '../../controllers/AuthController';
 
 import { createPassword } from './components/password';
-import { createEmail } from './components/email';
-import { createButton } from './components/button';
+import { createLogin } from './components/login';
+import { createButton } from '../components/button';
 
 export const initFormLogin = () => {
-  const validFormLogin = new Validation('.form-login', '.button', '.field');
+  const validForm = new Validation('.form-login', '.button', '.field');
 
   const dataForm = {
     name: 'login',
@@ -17,15 +17,19 @@ export const initFormLogin = () => {
     events: {
       submit: (e: Event) => {
         e.preventDefault();
-        AuthController.isValidData(e, validFormLogin);
+        AuthController.isValidData(e, validForm);
         AuthController.signIn();
       },
     },
   };
 
   return new FormLogin(dataForm, [
-    createEmail({ validFormLogin }),
-    createPassword({ validFormLogin }),
-    createButton(),
+    createLogin({ validForm }),
+    createPassword({ validForm }),
+    createButton({
+      text: 'Войти',
+      classButton: 'form-login__button',
+      disabled: 'disabled',
+    }),
   ]);
 };

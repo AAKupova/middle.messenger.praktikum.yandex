@@ -2,7 +2,7 @@ import { Popup } from '../../../components/Popup';
 
 import { createFormPasswordEdit } from './formPasswordEdit';
 
-export const createPopup = () => {
+export const createPopupPassword = () => {
   let popup: null | Popup = null;
   const data = {
     title: 'Изменить пароль',
@@ -16,7 +16,6 @@ export const createPopup = () => {
     },
   };
   const form = createFormPasswordEdit(popup);
-  console.log(form);
   popup = new Popup(data, 'popup', [form]);
 
   return popup;

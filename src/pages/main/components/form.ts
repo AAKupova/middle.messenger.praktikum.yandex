@@ -10,7 +10,7 @@ import { createFirstName } from './firstName';
 import { createEmail } from './email';
 import { createLogin } from './login';
 import { createPhone } from './phone';
-import { createButton } from './button';
+import { createButton } from '../../components/button';
 
 interface CreateFormProps {
   popup: Popup;
@@ -49,6 +49,10 @@ export const createForm = ({ popup }: CreateFormProps) => {
     createEmail({ validFormProfile }),
     createLogin({ validFormProfile }),
     createPhone({ validFormProfile }),
-    createButton(),
+    createButton({
+      text: 'Сохронить',
+      classButton: 'form-profile__button',
+      disabled: 'disabled'
+    }),
   ]);
 };

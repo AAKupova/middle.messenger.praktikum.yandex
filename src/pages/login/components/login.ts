@@ -1,29 +1,29 @@
 import { Field } from '../../../components/Field';
 
 interface CreateEmailProps {
-  validFormLogin: any;
+  validForm: any;
 }
 
-export const createEmail = ({ validFormLogin }: CreateEmailProps) => {
-  const dataFieldEmail = {
+export const createLogin = ({ validForm }: CreateEmailProps) => {
+  const data = {
     name: 'login',
     type: 'text',
     max: '30',
     min: '2',
-    error: 'Некорректный e-mail',
+    error: 'Некорректный логин',
     required: 'required',
     autofocus: 'autofocus',
     patter: 'login',
     text: 'Логин',
     events: {
       focusin: (e: { target: HTMLInputElement }) => {
-        validFormLogin.isErrorStatusField(e);
+        validForm.isErrorStatusField(e);
       },
       focusout: (e: { target: HTMLInputElement }) => {
-        validFormLogin.isFieldValid(e);
+        validForm.isFieldValid(e);
       },
     },
   };
 
-  return new Field(dataFieldEmail, 'field-email');
+  return new Field(data, 'login');
 };
