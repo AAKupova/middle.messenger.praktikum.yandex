@@ -1,22 +1,24 @@
 .card {
   --white: #fff;
   --text-theme: #262626;
-
-  background-color: var(--color-light);
-  box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.25);
-  border-radius: 20px;
   width: 280px;
   display: flex;
   justify-content: start;
   box-sizing: border-box;
   padding: 12px 20px;
-  margin-bottom: 20px;
+  margin-bottom: 16px;
   gap: 15px;
   transition: all 0.2s ease-in-out;
+
+  div {
+    pointer-events: none;
+  }
 
   &:hover {
     cursor: pointer;
     transform: scale(1.1);
+    border-radius: 20px;
+    box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.25);
   }
 
   &__info {
@@ -24,6 +26,9 @@
     flex-direction: column;
     gap: 10px;
     padding: 10px 0;
+    span {
+      pointer-events: none;
+    }
   }
 
   &__text {

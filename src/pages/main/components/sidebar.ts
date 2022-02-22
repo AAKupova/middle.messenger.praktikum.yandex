@@ -4,10 +4,10 @@ import { Popup } from '../../../components/Popup';
  
 interface CreateSidebarProps {
   menu: Menu;
-  popupAddUser: Popup;
+  popup: Popup;
 }
 
-export const createSidebar = ({ menu, popupAddUser }: CreateSidebarProps) => {
+export const createSidebar = ({ menu, popup }: CreateSidebarProps) => {
   const data = {
     events: {
       click: (e: Event) => {
@@ -17,7 +17,7 @@ export const createSidebar = ({ menu, popupAddUser }: CreateSidebarProps) => {
           menu.show();
         }
         if( e.target === addUser) {
-          popupAddUser.show();
+          popup.show();
         }
       },
     },

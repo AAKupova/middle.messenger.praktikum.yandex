@@ -1,15 +1,30 @@
-import { Menu } from '../../../components/Menu';
 import AuthController from '../../../controllers/AuthController';
 
+import { createFormPasswordEdit } from './formPasswordEdit';
+import { createPopup } from '../../components/popup';
+import { Popup } from '../../../components/Popup';
+import { Menu } from '../../../components/Menu';
 import { createProfile } from './profile';
-import { createPopupPassword } from './popupPassword';
 import { createAvatar } from './avatar';
 
 export const createMenu = () => {
   let menu: null | Menu = null;
-  const popup = createPopupPassword();
-  const profile = createProfile({ popup });
-  const data = {
+  let popup: null | Popup = null;
+
+  const dataPopup = {
+    className: 'close-password-edit',
+    title: 'Изменить пароль',
+    events: {
+      click: (e: Event) => {
+        const close = document.querySelector('.close-password-edit');
+        if (e.target === close && popup) {
+          popup?.hide();
+        }
+      },
+    },
+  };
+  
+  const dataMenu = {
     phone: 'phone',
     events: {
       click: (e: Event) => {
@@ -31,10 +46,14 @@ export const createMenu = () => {
     },
   };
 
+  const form = createFormPasswordEdit(popup);
+  popup = createPopup(dataPopup, [form]);
+  const profile = createProfile({ popup });
+
   profile.hide();
   popup.hide();
 
-  menu = new Menu(data, 'menu', [profile, createAvatar(), popup]);
+  menu = new Menu(dataMenu, 'menu', [profile, createAvatar(), popup]);
 
   return menu;
 };

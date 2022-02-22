@@ -18,14 +18,14 @@
   }
 
   &__toolbarc {
-    padding: 16px 20px;
+    padding: 16px 20px 0;
     display: flex;
     justify-content: space-between;
     align-items: center;
   }
 
   &__list-chat {
-    padding: 10px 27px;
+    padding: 16px 20px;
     overflow-y: scroll;
     height: 444px;
 

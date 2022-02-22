@@ -17,14 +17,17 @@ export class Popup extends ViewBlock {
   constructor(props: object, name: string, children?: ViewBlock[]) {
     super('div', props, name, children);
 
-    Store.on(StoreEvents.Updated, () => {
-      const state: any = Store.getState();
-      const stateUsers = state.users;
-      if (typeof stateUsers === 'string') {
-        children?.push(mapUserToProps(stateUsers));
-      }
-      this.setProps(Object.assign({}, Store.getState()));
-    });
+    if(props.user) {
+      Store.on(StoreEvents.Updated, () => {
+        const state: any = Store.getState();
+        const stateUsers = state.users;
+  
+        if (typeof stateUsers === 'string') {
+          children?.push(createCard(stateUsers));
+        }
+        this.setProps(Object.assign({}, stateUsers));
+      });
+    }
   }
 
   render(): DocumentFragment {
@@ -33,9 +36,18 @@ export class Popup extends ViewBlock {
   }
 }
 
-function mapUserToProps(state: any) {
+function createCard(state: string) {
   return JSON.parse(state).map((item: UserData) => {
     let avatar: any;
+
+    const data = {
+      ...item,
+      events: {
+        click: () => {
+          Store.set('chats', item);
+        },
+      },
+    };
 
     if (item.avatar) {
       avatar = `https://ya-praktikum.tech/api/v2/resources${item.avatar}`;
@@ -48,6 +60,9 @@ function mapUserToProps(state: any) {
       'avatar'
     );
 
-    return new CardUser(item, 'card', [avatarChat]);
+    return new CardUser(data, 'card', [avatarChat]);
   });
 }
+// function mapUserToProps(state: any) {
+//   return JSON.parse(state);
+// }

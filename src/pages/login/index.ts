@@ -7,6 +7,7 @@ import { createLogin } from './components/login';
 import { createButton } from '../components/button';
 
 export const initFormLogin = () => {
+  AuthController.getDataUser();
   const validForm = new Validation('.form-login', '.button', '.field');
 
   const dataForm = {

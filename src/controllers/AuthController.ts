@@ -18,7 +18,7 @@ class AuthController extends Controller {
       .then((data: any) => data.response)
       .then((data: any) => {
         this.getDataUser();
-        router.go('/messenger/');
+        // router.go('/messenger/');
         return data;
       });
   }
@@ -26,8 +26,8 @@ class AuthController extends Controller {
   //Вход!
   signIn() {
     return this.apiAuth.postAuthSignin(this.addData()).then((data: any) => {
-      router.go('/messenger/');
       this.getDataUser();
+      // router.go('/messenger/');
       return data;
     });
   }

@@ -1,6 +1,6 @@
 import * as Handlebars from 'handlebars';
 
-import ViewBlock from '../../components/ViewBlock/ViewBlock';
+import ViewBlock from '../ViewBlock/ViewBlock';
 
 import main from './index.hbs';
 import './index.scss';
