@@ -53,6 +53,11 @@
   display: flex;
   align-items: center;
   justify-content: center;
+
+  div,
+  span {
+    pointer-events: none;
+  }
 }
 .block-exit {
   margin-left: auto;

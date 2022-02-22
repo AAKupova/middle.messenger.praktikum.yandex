@@ -1,9 +1,9 @@
-import { createFormAddUser } from './components/formAddUser';
-import { createSidebar } from './components/sidebar';
-import { createHeader } from './components/header';
+import { createFormAddUser } from '../components/formAddUser';
+import { createSidebar } from '../components/sidebar';
+import { createHeader } from '../components/header';
 import { createPopup } from '../components/popup';
 import { PageMain } from '../../components/Main';
-import { createMenu } from './components/menu';
+import { createMenu } from '../components/menu';
 import { Popup } from '../../components/Popup';
 
 export const initMain = () => {

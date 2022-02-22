@@ -1,10 +1,10 @@
-import { FormAddUser } from '../../../components/FormAddUser';
-import UserController from '../../../controllers/UserController';
-import { Popup } from '../../../components/Popup';
-import { Validation } from '../../../models/Validation';
+import { FormAddUser } from '../../components/FormAddUser';
+import UserController from '../../controllers/UserController';
+import { Popup } from '../../components/Popup';
+import { Validation } from '../../models/Validation';
 
-import { createButton } from '../../components/button';
-import { createLogin } from '../../login/components/login';
+import { createButton } from './button';
+import { createLogin } from './fieldLogin';
 
 export const createFormAddUser = (popup: Popup | null) => {
   const validForm = new Validation('.form-add-user', '.button', '.field');

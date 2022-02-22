@@ -1,9 +1,10 @@
-import AuthController from '../../../controllers/AuthController';
+import AuthController from '../../controllers/AuthController';
+import avatar from '../../../static/images/default-avatar.svg';
 
 import { createFormPasswordEdit } from './formPasswordEdit';
-import { createPopup } from '../../components/popup';
-import { Popup } from '../../../components/Popup';
-import { Menu } from '../../../components/Menu';
+import { createPopup } from './popup';
+import { Popup } from '../../components/Popup';
+import { Menu } from '../../components/Menu';
 import { createProfile } from './profile';
 import { createAvatar } from './avatar';
 
@@ -23,7 +24,7 @@ export const createMenu = () => {
       },
     },
   };
-  
+
   const dataMenu = {
     phone: 'phone',
     events: {
@@ -53,7 +54,11 @@ export const createMenu = () => {
   profile.hide();
   popup.hide();
 
-  menu = new Menu(dataMenu, 'menu', [profile, createAvatar(), popup]);
+  menu = new Menu(dataMenu, 'menu', [
+    profile,
+    createAvatar({ avatar, size: 'avatar__img_size_l' }),
+    popup,
+  ]);
 
   return menu;
 };

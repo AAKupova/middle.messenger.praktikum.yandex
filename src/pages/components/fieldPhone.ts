@@ -1,17 +1,15 @@
-import { FieldProfile } from '../../../components/FieldProfile';
+import { FieldProfile } from '../../components/FieldProfile';
+import { Field } from '../../components/Field';
 
-interface CreatePhoneProps {
-  validFormProfile: any;
-}
-
-export const createPhone = ({ validFormProfile }: CreatePhoneProps) => {
+export const createPhone = (props:any) => {
+  const { validForm, fieldProfile = false } = props;
   const data = {
     events: {
       focusin: (e: { target: HTMLInputElement }) => {
-        validFormProfile.isErrorStatusField(e);
+        validForm.isErrorStatusField(e);
       },
       focusout: (e: { target: HTMLInputElement }) => {
-        validFormProfile.isFieldValid(e);
+        validForm.isFieldValid(e);
       },
     },
     required: 'required',
@@ -25,5 +23,9 @@ export const createPhone = ({ validFormProfile }: CreatePhoneProps) => {
     text: 'Телефон',
   };
 
-  return new FieldProfile(data, 'field-phone');
+  if(fieldProfile) {
+    return new FieldProfile(data, 'phone');
+  }else{
+    return new Field(data, 'phone');
+  }
 };

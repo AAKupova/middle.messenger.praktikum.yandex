@@ -1,17 +1,15 @@
-import { FieldProfile } from '../../../components/FieldProfile';
+import { FieldProfile } from '../../components/FieldProfile';
+import { Field } from '../../components/Field';
 
-interface CreateEmailProps {
-  validFormProfile: any;
-}
-
-export const createEmail = ({ validFormProfile }: CreateEmailProps) => {
+export const createEmail = (props: any) => {
+  const { validForm, fieldProfile = false } = props;
   const data = {
     events: {
       focusin: (e: { target: HTMLInputElement }) => {
-        validFormProfile.isErrorStatusField(e);
+        validForm.isErrorStatusField(e);
       },
       focusout: (e: { target: HTMLInputElement }) => {
-        validFormProfile.isFieldValid(e);
+        validForm.isFieldValid(e);
       },
     },
     required: 'required',
@@ -25,5 +23,9 @@ export const createEmail = ({ validFormProfile }: CreateEmailProps) => {
     text: 'Почта',
   };
 
-  return new FieldProfile(data, 'field-email');
+  if (fieldProfile) {
+    return new FieldProfile(data, 'email');
+  } else {
+    return new Field(data, 'email');
+  }
 };

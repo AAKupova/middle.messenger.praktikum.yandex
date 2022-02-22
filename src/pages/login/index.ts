@@ -1,9 +1,9 @@
-import { FormLogin } from '../../components/FormLogin';
-import { Validation } from '../../models/Validation';
 import AuthController from '../../controllers/AuthController';
 
-import { createPassword } from './components/password';
-import { createLogin } from './components/login';
+import { createPassword } from '../components/fieldPassword';
+import { FormLogin } from '../../components/FormLogin';
+import { createLogin } from '../components/fieldLogin';
+import { Validation } from '../../models/Validation';
 import { createButton } from '../components/button';
 
 export const initFormLogin = () => {
@@ -26,7 +26,7 @@ export const initFormLogin = () => {
 
   return new FormLogin(dataForm, [
     createLogin({ validForm }),
-    createPassword({ validForm }),
+    createPassword({ validForm, name: 'password', text: 'Пароль' }),
     createButton({
       text: 'Войти',
       classButton: 'form-login__button',

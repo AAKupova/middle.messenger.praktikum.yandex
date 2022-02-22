@@ -1,6 +1,6 @@
-import { Sidebar } from '../../../components/Sidebar';
-import { Menu } from '../../../components/Menu';
-import { Popup } from '../../../components/Popup';
+import { Sidebar } from '../../components/Sidebar';
+import { Menu } from '../../components/Menu';
+import { Popup } from '../../components/Popup';
  
 interface CreateSidebarProps {
   menu: Menu;
