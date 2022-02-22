@@ -2,11 +2,14 @@ import { set } from '../utils/set';
 import { EventBus } from '../utils/EventBus';
 
 export enum StoreEvents {
+  // eslint-disable-next-line
   Updated = 'updated',
 }
 
 class Store extends EventBus{
-  state: unknown = {};
+  state: unknown = {
+    users: [],
+  };
 
   getState() {
     return this.state;

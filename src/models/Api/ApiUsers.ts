@@ -36,4 +36,14 @@ export default class ApiUsers extends Api {
     return this.feach.put(`${this.baseUrl}/user/password`, options);
   }
 
+  postUserSearch(data: any) {
+    const headers = {
+      'accept': 'application/json',
+      'Content-Type': 'application/json',
+    };
+
+    const options = { data, headers };
+    return this.feach.post(`${this.baseUrl}/user/search`, options);
+  }
+
 }

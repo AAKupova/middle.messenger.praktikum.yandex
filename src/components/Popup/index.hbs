@@ -1,8 +1,13 @@
 <div class="shadow">
   
   <div class="popup">
-    <div class="popup__close"></div>
+    <div class="popup__close {{className}}"></div>
     <h2 class="popup__title">{{title}}</h2>
-    <div data-component="form"></div>
+     {{!-- {{#if user}} --}}
+     <div data-component="card"></div>
+     {{!-- {{else}} --}}
+     <div data-component="form"></div>
+     {{!-- {{/if}} --}}
+
   </div>
 </div>

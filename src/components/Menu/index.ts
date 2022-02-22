@@ -2,6 +2,7 @@ import * as Handlebars from 'handlebars';
 
 import ViewBlock from '../ViewBlock/ViewBlock';
 import Store from '../../models/Store';
+
 import { StoreEvents } from '../../models/Store';
  
 import menu from './index.hbs';

@@ -18,6 +18,7 @@ class AuthController extends Controller {
       .then((data: any) => data.response)
       .then((data: any) => {
         this.getDataUser();
+        router.go('/messenger/');
         return data;
       });
   }
@@ -31,18 +32,18 @@ class AuthController extends Controller {
     });
   }
 
-  //Выход!
-  logout() {
-    return this.apiAuth.postAuthLogout(this.addData()).then((data: any) => {
-      router.go('/');
-      this.getDataUser();
+    //Выход!
+    logout() {
+      return this.apiAuth.postAuthLogout(this.addData()).then((data: any) => {
+        router.go('/');
+        this.getDataUser();
+  
+        return data;
+      });
+    }
 
-      return data;
-    });
-  }
-
-  //Получение данных user
-  getDataUser() {
+   //Получение данных user
+   getDataUser() {
     this.apiAuth
       .getAuthUser()
       .then((data: any) => data.response)

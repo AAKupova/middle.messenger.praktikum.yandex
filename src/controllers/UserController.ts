@@ -21,7 +21,6 @@ class UserController extends Controller {
   }
 
   editPassword() {
-    console.log(this.addData());
     this.apiUser.putPassword(this.addData())
     .then((data: any) => data.response)
     .then((data: UserData) => console.log(data));
@@ -33,6 +32,12 @@ class UserController extends Controller {
     return promis
     .then((data: any) => data.response)
     .then((data: UserData) => Store.set('user', data));
+  }
+
+  userSearch() {
+    this.apiUser.postUserSearch(this.addData())
+    .then((data: any) => data.response)
+    .then((data: UserData) => Store.set('users', data)); 
   }
 }
 

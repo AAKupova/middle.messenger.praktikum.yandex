@@ -1,10 +1,11 @@
 import * as Handlebars from 'handlebars';
 
 import avatarImg from '../../../static/images/default-avatar.svg';
-import { StoreEvents } from '../../models/Store';
-// import { StateData } from '../../types/type';
+
 import ViewBlock from '../ViewBlock/ViewBlock';
 import Store from '../../models/Store';
+
+import { StoreEvents } from '../../models/Store';
 
 import avatar from './index.hbs';
 import './index.scss';

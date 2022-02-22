@@ -5,12 +5,13 @@ import { createFormPasswordEdit } from './formPasswordEdit';
 export const createPopupPassword = () => {
   let popup: null | Popup = null;
   const data = {
+    className: 'close-password-edit',
     title: 'Изменить пароль',
     events: {
       click: (e: Event) => {
-        const close = document.querySelector('.popup__close');
+        const close = document.querySelector('.close-password-edit');
         if (e.target === close && popup) {
-          popup.hide();
+          popup?.hide();
         }
       },
     },

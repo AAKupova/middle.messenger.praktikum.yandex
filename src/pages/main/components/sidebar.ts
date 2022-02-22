@@ -13,12 +13,10 @@ export const createSidebar = ({ menu, popupAddUser }: CreateSidebarProps) => {
       click: (e: Event) => {
         const menuBurger = document.querySelector('.menu-burger');
         const addUser = document.querySelector('.add-use');
-        console.log(menuBurger, addUser);
         if (e.target === menuBurger) {
           menu.show();
         }
         if( e.target === addUser) {
-          console.log(111, addUser);
           popupAddUser.show();
         }
       },

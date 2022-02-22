@@ -7,14 +7,13 @@ import { createButton } from '../../components/button';
 import { createLogin } from '../../login/components/login';
 
 export const createFormAddUser = (popup: Popup | null) => {
-  const validForm = new Validation('.form-password-edit', '.button', '.field');
+  const validForm = new Validation('.form-add-user', '.button', '.field');
   const data = {
     events: {
       submit: (e: Event) => {
         e.preventDefault();
-        console.log(e.target);
         UserController.isValidData(e, validForm);
-        UserController.editPassword();
+        UserController.userSearch();
         if(popup) {
           popup.hide();
         }
@@ -22,12 +21,12 @@ export const createFormAddUser = (popup: Popup | null) => {
     },
   };
 
-  return new FormAddUser(data, 'form', [
-    createButton({
-      text: 'Добавить',
-      classButton: 'form-popup__button',
-      disabled: 'disabled',
-    }),
-    createLogin({ validForm })
-  ]);
+    return new FormAddUser(data, 'form', [
+      createButton({
+        text: 'Найти',
+        classButton: 'form-popup__button',
+        disabled: 'disabled',
+      }),
+      createLogin({ validForm })
+    ]);
 };
